@@ -1,31 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.Data.Xml.Dom;
+using Windows.UI.Notifications;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.ApplicationModel.Store;
+using Microsoft.WindowsAzure.MobileServices;
+using Windows.UI.Core;
 
 namespace League_Season_5_Counters_Windows_10
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
-    sealed partial class App : Application
+    /// 
+
+       public sealed partial class App : Application
     {
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        /// 
+
+        public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient MobileService = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+        "https://leagueseason5counters.azure-mobile.net/",
+        "iovrWRisXiqXDzBpSreDZoSWrCPskN14")
+        {
+            SerializerSettings = new MobileServiceJsonSerializerSettings()
+            {
+                CamelCasePropertyNames = true
+            }
+        };
+
+        // For in app purchases
+        public static LicenseInformation licenseInformation;
+
         public App()
         {
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
@@ -33,6 +46,36 @@ namespace League_Season_5_Counters_Windows_10
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            //Only for IAP simulation purposes
+#if DEBUG
+            licenseInformation = CurrentAppSimulator.LicenseInformation;
+#else
+            licenseInformation = CurrentApp.LicenseInformation;
+#endif
+            // Setup toast for 1 hour after app initializing 
+            setupToastOnLaunch();
+        }
+
+
+        private void setupToastOnLaunch() {
+            ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
+            Windows.Data.Xml.Dom.XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+
+            Windows.Data.Xml.Dom.XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
+            toastTextElements[0].AppendChild(toastXml.CreateTextNode("League of Legends"));
+            toastTextElements[1].AppendChild(toastXml.CreateTextNode("Use this app to win!"));
+
+            IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
+            Windows.Data.Xml.Dom.XmlElement audio = toastXml.CreateElement("audio");
+            audio.SetAttribute("src", "ms-appx:///Assets/yourturn.mp3");
+            toastNode.AppendChild(audio);
+
+            ToastNotification toast = new ToastNotification(toastXml);
+
+            DateTime dueTime = DateTime.Now.AddHours(1);
+            ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml, dueTime);
+            ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
         }
 
         /// <summary>
@@ -44,10 +87,10 @@ namespace League_Season_5_Counters_Windows_10
         {
 
 #if DEBUG
-            if (System.Diagnostics.Debugger.IsAttached)
-            {
-                this.DebugSettings.EnableFrameRateCounter = true;
-            }
+            //if (System.Diagnostics.Debugger.IsAttached)
+            //{
+            //    this.DebugSettings.EnableFrameRateCounter = true;
+            //}
 #endif
 
             Frame rootFrame = Window.Current.Content as Frame;
@@ -60,6 +103,7 @@ namespace League_Season_5_Counters_Windows_10
                 rootFrame = new Frame();
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
+                rootFrame.Navigated += OnNavigated;
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
@@ -68,6 +112,15 @@ namespace League_Season_5_Counters_Windows_10
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
+
+                // Register a handler for BackRequested events and set the
+                // visibility of the Back button
+                SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                    rootFrame.CanGoBack ?
+                    AppViewBackButtonVisibility.Visible :
+                    AppViewBackButtonVisibility.Collapsed;
             }
 
             if (rootFrame.Content == null)
@@ -91,6 +144,15 @@ namespace League_Season_5_Counters_Windows_10
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
 
+        private void OnNavigated(object sender, NavigationEventArgs e)
+        {
+            // Each time a navigation event occurs, update the Back button's visibility
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility =
+                ((Frame)sender).CanGoBack ?
+                AppViewBackButtonVisibility.Visible :
+                AppViewBackButtonVisibility.Collapsed;
+        }
+
         /// <summary>
         /// Invoked when application execution is being suspended.  Application state is saved
         /// without knowing whether the application will be terminated or resumed with the contents
@@ -104,5 +166,17 @@ namespace League_Season_5_Counters_Windows_10
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            if (rootFrame.CanGoBack)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
+        }
+   
     }
 }
