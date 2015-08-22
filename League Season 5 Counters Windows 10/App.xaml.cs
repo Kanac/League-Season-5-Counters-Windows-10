@@ -54,7 +54,7 @@ namespace League_Season_5_Counters_Windows_10
             licenseInformation = CurrentApp.LicenseInformation;
 #endif
             // Setup toast for 1 hour after app initializing 
-            setupToastOnLaunch();
+            //setupToastOnLaunch();
         }
 
 

@@ -14,6 +14,8 @@ using Windows.ApplicationModel;
 using League_of_Legends_Counterpicks.Advertisement;
 using Windows.UI.Xaml.Input;
 using System.Collections.ObjectModel;
+using Microsoft.Advertising.WinRT.UI;
+using Windows.UI.Core;
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
@@ -26,7 +28,7 @@ namespace League_Season_5_Counters_Windows_10
     {
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private Boolean firstLoad = true;
+        private List<AdControl> adList = new List<AdControl>();
 
         public MainPage()
         {
@@ -35,19 +37,11 @@ namespace League_Season_5_Counters_Windows_10
             // Hub is only supported in Portrait orientation
             DisplayInformation.AutoRotationPreferences = DisplayOrientations.Portrait;
 
-            this.NavigationCacheMode = NavigationCacheMode.Required;
+            //this.NavigationCacheMode = NavigationCacheMode.Required;
 
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
-
-            //TextBox.AddHandler(TappedEvent, new TappedEventHandler(TextBox_Tapped), true);
-            //var MyAppId = "d25517cb-12d4-4699-8bdc-52040c712cab";
-            //var MyAdUnitId = "11389925";
-            //MyVideoAd = new InterstitialAd();
-            //MyVideoAd.AdReady += MyVideoAd_AdReady;
-            //MyVideoAd.Cancelled += MyVideoAd_Cancelled;
-            //MyVideoAd.RequestAd(AdType.Video, MyAppId, MyAdUnitId);
         }
 
 
@@ -82,21 +76,19 @@ namespace League_Season_5_Counters_Windows_10
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
             // Retrieve Json data, and load the roles and set up background toast (one time thing)
-            if (firstLoad)
-            {
-                var roles = await DataSource.GetRolesAsync();
-                var rolesWithSearch = new ObservableCollection<Role>(roles);
-                rolesWithSearch.Insert(0, new Role("Search"));
-                this.DefaultViewModel["Roles"] = rolesWithSearch;
 
-                // Toast background task setup 
+            var roles = await DataSource.GetRolesAsync();
+            var rolesWithSearch = new ObservableCollection<Role>(roles);
+            rolesWithSearch.Insert(0, new Role("Search"));
+            this.DefaultViewModel["Roles"] = rolesWithSearch;
+
+            // Toast background task setup 
+            if (e.PageState == null || (bool)e.PageState["firstLoad"] == true)
                 setupToast();
 
-                firstLoad = false;
-            }
         }
 
-       
+
 
         /// <summary>
         /// Preserves state associated with this page in case the application is suspended or the
@@ -108,7 +100,7 @@ namespace League_Season_5_Counters_Windows_10
         /// serializable state.</param>
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
-            // TODO: Save the unique state of the page here.
+            e.PageState["firstLoad"] = false;
         }
 
         private async void setupToast()
@@ -165,13 +157,14 @@ namespace League_Season_5_Counters_Windows_10
         /// Shows the details of a clicked group in the <see cref="RolePage"/>.
         /// </summary>
         /// 
-        private void GroupSection_ItemClick(object sender, ItemClickEventArgs e)
+        private async void GroupSection_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var roleId = ((Role)e.ClickedItem).UniqueId;    
+            var roleId = ((Role)e.ClickedItem).UniqueId;
             if (roleId == "Search")
-                Frame.Navigate(typeof(RolePage), "Filter");
-            else
-                Frame.Navigate(typeof(RolePage), roleId);       
+                roleId = "Filter";
+
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.Frame.Navigate(typeof(RolePage), roleId));
+
         }
 
 
@@ -200,7 +193,11 @@ namespace League_Season_5_Counters_Windows_10
         }
 
         #endregion
-
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            AdGrid.Children.Clear();
+            base.OnNavigatingFrom(e);
+        }
 
 
         private async void Share_Clicked(object sender, RoutedEventArgs e)
@@ -210,7 +207,11 @@ namespace League_Season_5_Counters_Windows_10
             String body = "Try this free app out to help you climb elo easily in League of Legends@https://www.windowsphone.com/en-us/store/app/league-season-5-counters/3366702e-67c7-48e7-bc82-d3a4534f3086";
             body = body.Replace("@", "\n");
             mail.Body = body;
-            await EmailManager.ShowComposeNewEmailAsync(mail);
+            try
+            {
+                await EmailManager.ShowComposeNewEmailAsync(mail);
+            }
+            catch (Exception) { }
         }
 
         private void ChangeLog_Clicked(object sender, RoutedEventArgs e)
@@ -245,21 +246,30 @@ namespace League_Season_5_Counters_Windows_10
             await EmailManager.ShowComposeNewEmailAsync(mail);
         }
 
-        //private void Ad_Loaded(object sender, RoutedEventArgs e)
-        //{
-       
-        //    var ad = sender as AdControl;
-        //    if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-        //    {
-        //        // Hide the app for the purchaser
-        //        ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-        //    }
-        //    else
-        //    {
-        //        // Otherwise show the ad
-        //        ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        //    }
-        //}
+        
+        private void Ad_Loaded(object sender, RoutedEventArgs e)
+        {
+            var ad = sender as AdControl;
+            //Check if the ad list already has a reference to this ad before inserting
+            if (adList.Where(x => x.AdUnitId == ad.AdUnitId).Count() == 0)
+                adList.Add(ad);
+
+            //if ((ad.Parent as Grid).Margin.Top != 0)
+            //{
+            //    double margin = adList.IndexOf(ad) * 95;
+            //    ad.Margin = new Thickness(0, 95, 0, 0);
+            //}
+            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+            {
+                // Hide the app for the purchaser
+                ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+            else
+            {
+                // Otherwise show the ad
+                ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+        }
 
         private void GridAd_Loaded(object sender, RoutedEventArgs e)
         {
@@ -282,6 +292,14 @@ namespace League_Season_5_Counters_Windows_10
             AdRemover.Purchase();
         }
 
+        private void Ad_Error(object sender, AdErrorEventArgs e)
+        {
 
+        }
+
+        private void Ad_Refreshed(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

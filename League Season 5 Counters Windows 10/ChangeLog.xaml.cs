@@ -1,4 +1,5 @@
 ﻿using League_of_Legends_Counterpicks.Common;
+using Microsoft.Advertising.WinRT.UI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -116,35 +117,36 @@ namespace League_Season_5_Counters_Windows_10
             await Launcher.LaunchUriAsync(new Uri("ms-windows-store:navigate?appid=" + APP_ID));
         }
 
-        //private void Ad_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    var ad = sender as AdControl;
-        //    if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-        //    {
-        //        // Hide the app for the purchaser
-        //        ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-        //    }
-        //    else
-        //    {
-        //        // Otherwise show the ad
-        //        ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        //    }
-        //}
+        private void Ad_Loaded(object sender, RoutedEventArgs e)
+        {
+            var ad = sender as AdControl;
+            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+            {
+                // Hide the app for the purchaser
+                ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+            else
+            {
+                // Otherwise show the ad
+                ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+        }
 
         private void GridAd_Loaded(object sender, RoutedEventArgs e)
         {
             var grid = sender as Grid;
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
-                var rowDefinitions = grid.RowDefinitions;
-                foreach (var r in rowDefinitions)
+                var colDefinitions = grid.ColumnDefinitions;
+                foreach (var r in colDefinitions)
                 {
-                    if (r.Height.Value == 90)
+                    if (r.Width.Value == 160)
                     {
-                        r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
+                        r.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
                     }
                 }
             }
         }
+
     }
 }

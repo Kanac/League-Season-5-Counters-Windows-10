@@ -4,7 +4,8 @@
       xmlns:data="using:League_of_Legends_Counterpicks.Data"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:Ad="using:Microsoft.AdMediator.Universal"
+      xmlns:Universal="using:Microsoft.AdMediator.Universal" 
+      xmlns:UI="using:Microsoft.Advertising.WinRT.UI"
       xmlns:q="using:QKit"
       xmlns:triggers="using:WindowsStateTriggers"
       x:Name="pageRoot"
@@ -57,7 +58,12 @@
     </Page.Resources>
 
 
-    <Grid Background="{StaticResource BaronImageBrush2}">
+    <Grid Background="{StaticResource BaronImageBrush2}" Loaded="GridAd_Loaded" KeyDown="Key_Down">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="160"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
         <VisualStateManager.VisualStateGroups>
         <VisualStateGroup >
             <VisualState x:Name="desktop">
@@ -70,20 +76,21 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="All.MaxWidth" Value="600" />
+                        <Setter Target="All.Margin" Value="0,0,0,100" />
                         <Setter Target="ADC.MaxWidth" Value="400" />
-                        <Setter Target="ADC.Margin" Value="50,0,0,0" />
+                        <Setter Target="ADC.Margin" Value="50,0,0,100" />
                         <Setter Target="Assassin.MaxWidth" Value="400" />
-                        <Setter Target="Assassin.Margin" Value="50,0,0,0" />
+                        <Setter Target="Assassin.Margin" Value="50,0,0,100" />
                         <Setter Target="Fighter.MaxWidth" Value="400" />
-                        <Setter Target="Fighter.Margin" Value="50,0,0,0" />
+                        <Setter Target="Fighter.Margin" Value="50,0,0,100" />
                         <Setter Target="Mage.MaxWidth" Value="400" />
-                        <Setter Target="Mage.Margin" Value="50,0,0,0" />
+                        <Setter Target="Mage.Margin" Value="50,0,0,100" />
                         <Setter Target="Support.MaxWidth" Value="400" />
-                        <Setter Target="Support.Margin" Value="50,0,0,0" />
+                        <Setter Target="Support.Margin" Value="50,0,0,100" />
                         <Setter Target="Tank.MaxWidth" Value="400" />
-                        <Setter Target="Tank.Margin" Value="50,0,0,0" />
+                        <Setter Target="Tank.Margin" Value="50,0,0,100" />
                         <Setter Target="Filter.Width" Value="400" />
-                        <Setter Target="Filter.Margin" Value="50,0,0,0" />
+                        <Setter Target="Filter.Margin" Value="50,0,0,100" />
                     </VisualState.Setters>
             </VisualState>
             <VisualState x:Name="mobile">
@@ -96,94 +103,308 @@
         </VisualStateGroup>
     </VisualStateManager.VisualStateGroups>
 
+
+        <Grid Grid.Column="1" Margin="200,0,0,0" x:Name="AdGrid">
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237036" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237037" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237038" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237039" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237040" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237041" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237042" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237043" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237044" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237045" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237046" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237047" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237048" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237049" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237050" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237051" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237107" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237108" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237109" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237110" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237111" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237112" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237129" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237130" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237131" />
+            <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237132" />
+        </Grid>
+        <Grid Grid.Column="1">
+                <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237133" />
+                <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237134" />
+                <UI:AdControl HorizontalAlignment="Center"
+                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          VerticalAlignment="Center"
+                          Width="160"
+                          Height="600"
+                          Loaded="Ad_Loaded"
+                          ErrorOccurred="Ad_Error"
+                          AutoRefreshIntervalInSeconds="30"
+                          AdUnitId="237135" />
+        </Grid>
         <Hub Name="MainHub">
+         
             <HubSection x:Name="All"
                         Header="All"
                         Style="{StaticResource Header}">
                 <DataTemplate>
-                    <Grid Margin="0,-20,0,0"
-                      Loaded="GridAd_Loaded">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="90" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="90" />
-                        </Grid.RowDefinitions>
-                     
-                    <!--<q:AlphaJumpList Name="jumpList"
-                                         Grid.Row="1"
-                                         Visibility="Collapsed"
-                                         Loaded="JumpList_Loaded">
-                            <GridView Name="myGridView"
-                                      ItemsSource="{Binding Roles[0].GroupedChampions}"
-                                      IsItemClickEnabled="True"
-                                      ItemClick="ItemView_ItemClick"
-                                      SelectionMode="None"
-                                      IsSwipeEnabled="false">
-                                <GridView.ItemTemplate>
-                                    <DataTemplate>
-                                        <Grid>
+                    <Grid Margin="0,-20,0,0">
+                        <SemanticZoom Style="{StaticResource AlphaJumpListStyle}" Margin="19,0,0,0" >
+                            <SemanticZoom.ZoomedInView>
+                                <GridView ItemsSource="{Binding Roles[0].GroupedChampions.View}"
+                                              SelectionMode="None"
+                                              IsSwipeEnabled="False"
+                                              IsItemClickEnabled="True"
+                                              ItemClick="ItemView_ItemClick">
+                                    <GridView.GroupStyle>
+                                        <GroupStyle HeaderTemplate="{StaticResource AlphaBorderGroupHeaderTemplate}"
+                                        HeaderContainerStyle="{StaticResource JumpListListHeaderContainerStyle}"
+                                        HidesIfEmpty="True" />
+                                    </GridView.GroupStyle>
+                                    <GridView.ItemTemplate>
+                                        <DataTemplate>
                                             <Image Source="{Binding ImagePath}"
                                                    Width="50"
                                                    Height="50" />
-                                        </Grid>
-                                    </DataTemplate>
-                                </GridView.ItemTemplate>
-                            </GridView>
-                        </q:AlphaJumpList>-->
-
-
-                        <Grid Grid.Row="1">
-                            <SemanticZoom Style="{StaticResource AlphaJumpListStyle}" Margin="19,0,0,0" >
-                                <SemanticZoom.ZoomedInView>
-                                    <GridView ItemsSource="{Binding Roles[0].GroupedChampions.View}"
-                                              SelectionMode="None"
-                                              ScrollViewer.VerticalScrollBarVisibility="Hidden"
-                                              IsItemClickEnabled="True"
-                                              ItemClick="ItemView_ItemClick">
-                                        <GridView.GroupStyle>
-                                            <GroupStyle HeaderTemplate="{StaticResource AlphaBorderGroupHeaderTemplate}"
-                                        HeaderContainerStyle="{StaticResource JumpListListHeaderContainerStyle}"
-                                        HidesIfEmpty="True" />
-                                        </GridView.GroupStyle>
-                                        <GridView.ItemTemplate>
-                                            <DataTemplate>
-                                                <Image Source="{Binding ImagePath}"
-                                                   Width="50"
-                                                   Height="50" />
-                                            </DataTemplate>
-                                        </GridView.ItemTemplate>
-                                    </GridView>
-                                </SemanticZoom.ZoomedInView>
-                                <SemanticZoom.ZoomedOutView>
-                                    <GridView ItemsSource="{Binding Roles[0].GroupedChampions.View.CollectionGroups}"
+                                        </DataTemplate>
+                                    </GridView.ItemTemplate>
+                                </GridView>
+                            </SemanticZoom.ZoomedInView>
+                            <SemanticZoom.ZoomedOutView>
+                                <GridView ItemsSource="{Binding Roles[0].GroupedChampions.View.CollectionGroups}"
                               Style="{StaticResource AlphaJumpListPickerStyle}" />
-                                </SemanticZoom.ZoomedOutView>
-                            </SemanticZoom>
-                        </Grid>
-                        <Ad:AdMediatorControl x:Name="AdMediator_3" Id="AdMediator-Id-3" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_4" Id="AdMediator-Id-4" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>
-
-
-                        <!--<UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231516"/>
-                    <UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Grid.Row="2"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231515" />-->
-
-             
-                </Grid>
+                            </SemanticZoom.ZoomedOutView>
+                        </SemanticZoom>
+                        <!--<Ad:AdMediatorControl x:Name="AdMediator_3" Id="AdMediator-Id-3" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
+                        <Ad:AdMediatorControl x:Name="AdMediator_4" Id="AdMediator-Id-4" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>-->
+                    </Grid>
                 </DataTemplate>
             </HubSection>
 
@@ -193,37 +414,11 @@
                         Style="{StaticResource Header}"
                         DataContext="{Binding Roles[1]}">
                 <DataTemplate>
-                <Grid Margin="0,0,0,0"
-                      Loaded="GridAd_Loaded">
+                    <Grid>
+                        <!--<Ad:AdMediatorControl x:Name="AdMediator_5" Id="AdMediator-Id-5" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
+                        <Ad:AdMediatorControl x:Name="AdMediator_6" Id="AdMediator-Id-6" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>-->
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="90" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="90" />
-                        </Grid.RowDefinitions>
-
-                    <!--<UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231514" />
-                    <UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Grid.Row="2"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231513" />-->
-                        <Ad:AdMediatorControl x:Name="AdMediator_5" Id="AdMediator-Id-5" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_6" Id="AdMediator-Id-6" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>
-                    
-                        <ContentControl ContentTemplate="{StaticResource HubData}"
-                                        Grid.Row="1" />
+                        <ContentControl ContentTemplate="{StaticResource HubData}" />
                     </Grid>
                 </DataTemplate>
             </HubSection>
@@ -234,36 +429,10 @@
                         Style="{StaticResource Header}"
                         DataContext="{Binding Roles[2]}">
                 <DataTemplate>
-                <Grid Margin="0,0,0,0"
-                      Loaded="GridAd_Loaded"> 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="90" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="90" />
-                        </Grid.RowDefinitions>
-    
-                    <!--<UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231517" />
-                    <UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="b8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Grid.Row="2"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231518" />-->
-
-                        <Ad:AdMediatorControl x:Name="AdMediator_7" Id="AdMediator-Id-7" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_8" Id="AdMediator-Id-8" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>
-                        <ContentControl ContentTemplate="{StaticResource HubData}"
-                                        Grid.Row="1" />
+                    <Grid>
+                        <!--<Ad:AdMediatorControl x:Name="AdMediator_7" Id="AdMediator-Id-7" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
+                        <Ad:AdMediatorControl x:Name="AdMediator_8" Id="AdMediator-Id-8" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>-->
+                        <ContentControl ContentTemplate="{StaticResource HubData}"/>
                     </Grid>
                 </DataTemplate>
 
@@ -275,36 +444,10 @@
                         Style="{StaticResource Header}"
                         DataContext="{Binding Roles[3]}">
                 <DataTemplate>
-                <Grid Margin="0,0,0,0"
-                      Loaded="GridAd_Loaded">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="90" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="90" />
-                        </Grid.RowDefinitions>
- 
-                    <!--<UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231519" />
-                    <UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Grid.Row="2"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231520" />-->
-
-                        <Ad:AdMediatorControl x:Name="AdMediator_9" Id="AdMediator-Id-9" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_10" Id="AdMediator-Id-10" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>
-                        <ContentControl ContentTemplate="{StaticResource HubData}"
-                                        Grid.Row="1" />
+                    <Grid>
+                        <!--<Ad:AdMediatorControl x:Name="AdMediator_9" Id="AdMediator-Id-9" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
+                        <Ad:AdMediatorControl x:Name="AdMediator_10" Id="AdMediator-Id-10" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>-->
+                        <ContentControl ContentTemplate="{StaticResource HubData}"/>
                     </Grid>
                 </DataTemplate>
             </HubSection>
@@ -315,39 +458,12 @@
                         Style="{StaticResource Header}"
                         DataContext="{Binding Roles[4]}">
                 <DataTemplate>
-                <Grid Margin="0,0,0,0"
-                      Loaded="GridAd_Loaded">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="90" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="90" />
-                        </Grid.RowDefinitions>
-                   
-                    <!--<UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231521" />
-                    <UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Grid.Row="2"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231522" />-->
-
-                        <Ad:AdMediatorControl x:Name="AdMediator_11" Id="AdMediator-Id-11" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_12" Id="AdMediator-Id-12" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>
-                        <ContentControl ContentTemplate="{StaticResource HubData}"
-                                        Grid.Row="1" />
+                    <Grid>
+                        <!--<Ad:AdMediatorControl x:Name="AdMediator_11" Id="AdMediator-Id-11" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
+                        <Ad:AdMediatorControl x:Name="AdMediator_12" Id="AdMediator-Id-12" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>-->
+                        <ContentControl ContentTemplate="{StaticResource HubData}"/>
                     </Grid>
                 </DataTemplate>
-
             </HubSection>
 
             <HubSection Header="Support"
@@ -356,35 +472,10 @@
                         Style="{StaticResource Header}"
                         DataContext="{Binding Roles[5]}">
                 <DataTemplate>
-                    <Grid Margin="0,0,0,0"
-                      Loaded="GridAd_Loaded">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="90" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="90" />
-                        </Grid.RowDefinitions>
-                    
-                    <!--<UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231523" />
-                    <UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Grid.Row="2"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231524" />-->
-
-                        <Ad:AdMediatorControl x:Name="AdMediator_13" Id="AdMediator-Id-13" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_14" Id="AdMediator-Id-14" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>
-                    <ContentControl ContentTemplate="{StaticResource HubData}"
+                    <Grid>
+                        <!--<Ad:AdMediatorControl x:Name="AdMediator_13" Id="AdMediator-Id-13" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
+                        <Ad:AdMediatorControl x:Name="AdMediator_14" Id="AdMediator-Id-14" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>-->
+                        <ContentControl ContentTemplate="{StaticResource HubData}"
                                         Grid.Row="1" />
                     </Grid>
                 </DataTemplate>
@@ -396,33 +487,9 @@
                         Style="{StaticResource Header}"
                         DataContext="{Binding Roles[6]}">
                 <DataTemplate>
-                    <Grid Margin="0,0,0,0"
-                      Loaded="GridAd_Loaded">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="90" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="90" />
-                        </Grid.RowDefinitions>
-                     
-                    <!--<UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231525" />
-                    <UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Grid.Row="2"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231526" />-->
-                        <Ad:AdMediatorControl x:Name="AdMediator_15" Id="AdMediator-Id-15" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_16" Id="AdMediator-Id-16" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>
+                    <Grid>
+                        <!--<Ad:AdMediatorControl x:Name="AdMediator_15" Id="AdMediator-Id-15" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
+                        <Ad:AdMediatorControl x:Name="AdMediator_16" Id="AdMediator-Id-16" HorizontalAlignment="Center" Height="90" Grid.Row="2" VerticalAlignment="Bottom" Width="728"/>-->
                         <ContentControl ContentTemplate="{StaticResource HubData}"
                                         Grid.Row="1" />
                     </Grid>
@@ -430,56 +497,35 @@
 
             </HubSection>
 
-        <HubSection Header="Filter"
+            <HubSection Header="Filter"
                     x:Name="Filter"
                     VerticalContentAlignment="Stretch"
                     HorizontalContentAlignment="Stretch"
                     Style="{StaticResource Header}"
                     DataContext="{Binding Filter}">
-            <DataTemplate>
-                <Grid Margin="0,0,0,0"
-                      Loaded="GridAd_Loaded">
+                <DataTemplate>
+                    <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="90" />
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
-                            <RowDefinition Height="90" />
                         </Grid.RowDefinitions>
-                    <!--<UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Grid.Row="1"
-                                  Width="480"
-                                  Height="80"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231527" />
-                    <UI:AdControl HorizontalAlignment="Center"
-                                  ApplicationId="bb8be079-3202-4948-8b29-cfd54367d723"
-                                  VerticalAlignment="Top"
-                                  Width="480"
-                                  Height="80"
-                                  Grid.Row="3"
-                                  Loaded="Ad_Loaded"
-                                  AutoRefreshIntervalInSeconds="60"
-                                  AdUnitId="231528" />-->
-                        <Ad:AdMediatorControl x:Name="AdMediator_17" Id="AdMediator-Id-17" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_18" Id="AdMediator-Id-18" HorizontalAlignment="Center" Height="90" Grid.Row="3" VerticalAlignment="Bottom" Width="728"/>
+                        <!--<Ad:AdMediatorControl x:Name="AdMediator_17" Id="AdMediator-Id-17" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
+                        <Ad:AdMediatorControl x:Name="AdMediator_18" Id="AdMediator-Id-18" HorizontalAlignment="Center" Height="90" Grid.Row="3" VerticalAlignment="Bottom" Width="728"/>-->
 
                         <TextBox HorizontalAlignment="Stretch"
                              VerticalAlignment="Center"
-                             Grid.Row="1"
-                             Margin="0,20,0,0"
                              Background="White"
                              GotFocus="TextBox_GotFocus"
                              Text="Type to search"
-                             TextChanged="TextBox_TextChanged">
+                             TextChanged="TextBox_TextChanged"
+                             Loaded="TextBox_Loaded">
                         </TextBox >
+
                         <ContentControl ContentTemplate="{StaticResource HubData}"
-                                    Grid.Row="2" />
-                </Grid>
-            </DataTemplate>
-        </HubSection>
-    </Hub>
+                                    Grid.Row="1" />
+                    </Grid>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
     </Grid>
 </Page>

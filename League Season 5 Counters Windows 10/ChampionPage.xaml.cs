@@ -27,6 +27,7 @@ using System.Threading;
 using Windows.Storage;
 using Windows.ApplicationModel.Store;
 using Windows.ApplicationModel;
+using Microsoft.Advertising.WinRT.UI;
 
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
@@ -51,6 +52,7 @@ namespace League_Season_5_Counters_Windows_10
         private TextBlock counterMessage, playingMessage, synergyMessage;
         private TextBox filterBox;
         private ProgressRing counterLoadingRing, easyMatchupLoadingRing, synergyLoadingRing, counterCommentsLoadingRing, playingCommentsLoadingRing;
+        private List<AdControl> adList = new List<AdControl>();
         private CommentDataSource commentViewModel = new CommentDataSource(App.MobileService);
 
 
@@ -94,7 +96,7 @@ namespace League_Season_5_Counters_Windows_10
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            //Setup the underlying UI 
+            // Setup the underlying UI 
             var champName = (string)e.NavigationParameter;
             Champion champion = DataSource.GetChampion(champName);
             champions = DataSource.GetAllChampions();
@@ -103,18 +105,18 @@ namespace League_Season_5_Counters_Windows_10
             this.DefaultViewModel["Filter"] = champions.Champions;
 
             
-            //If navigating via a counterpick, on loading that page, remove the previous history so the back page will go to main or role, not champion
+            // If navigating via a counterpick, on loading that page, remove the previous history so the back page will go to main or role, not champion
             var prevPage = Frame.BackStack.ElementAt(Frame.BackStackDepth - 1);
             if (prevPage.SourcePageType.Equals(typeof(ChampionPage))){
                 Frame.BackStack.RemoveAt(Frame.BackStackDepth - 1);
             }
 
-            //Champion feedback code 
-            //await commentViewModel.SeedDataAsync(champions);
-            //Grab the champion feedback from the server 
+            // Champion feedback code 
+            // await commentViewModel.SeedDataAsync(champions);
+            // Grab the champion feedback from the server 
             await commentViewModel.GetChampionFeedbackAsync(champName);
 
-            //Check if an there was no champion retrieved as well as an error message (must be internet connection problem)
+            // Check if an there was no champion retrieved as well as an error message (must be internet connection problem)
             if (commentViewModel.ChampionFeedback == null && commentViewModel.ErrorMessage != null){
                 MessageDialog messageBox = new MessageDialog("Make sure your internet connection is working and try again!");
                 await messageBox.ShowAsync();
@@ -122,7 +124,7 @@ namespace League_Season_5_Counters_Windows_10
             }
 
            
-            //Collapse the progress ring once counters have been loaded. If the ring hasn't loaded yet, set a boolean to collapse it once it loads.
+            // Collapse the progress ring once counters have been loaded. If the ring hasn't loaded yet, set a boolean to collapse it once it loads.
             championFeedbackLoaded = true;
 
             if (counterLoadingRing != null)
@@ -136,7 +138,7 @@ namespace League_Season_5_Counters_Windows_10
             if (playingCommentsLoadingRing != null)
                 playingCommentsLoadingRing.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
 
-            //Check if comments exist for counter comments. If not, show a message indicating so. 
+            // Check if comments exist for counter comments. If not, show a message indicating so. 
             if (commentViewModel.ChampionFeedback.Comments.Where(x => x.Page == PageEnum.CommentPage.Counter).Count() == 0) {
                 if (counterMessage == null) 
                     emptyComments = true;
@@ -144,7 +146,7 @@ namespace League_Season_5_Counters_Windows_10
                     counterMessage.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
 
-            //Check if comments exist for playing comments. If not, show a message indicating so. 
+            // Check if comments exist for playing comments. If not, show a message indicating so. 
             if (commentViewModel.ChampionFeedback.Comments.Where(x => x.Page == PageEnum.CommentPage.Playing).Count() == 0)
             {
                 if (playingMessage == null)
@@ -153,7 +155,7 @@ namespace League_Season_5_Counters_Windows_10
                     playingMessage.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
 
-            //Check if synergy champions existing. If not, show a message indicating so. 
+            // Check if synergy champions existing. If not, show a message indicating so. 
             if (commentViewModel.ChampionFeedback.Counters.Where(x => x.Page == PageEnum.ChampionPage.Synergy).Count() == 0)
             {
                 if (synergyMessage == null)
@@ -162,7 +164,7 @@ namespace League_Season_5_Counters_Windows_10
                     synergyMessage.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
 
-            //Make updates to champion comments observable
+            // Make updates to champion comments observable
             this.DefaultViewModel["ChampionFeedback"] = commentViewModel.ChampionFeedback;
         }
 
@@ -204,10 +206,17 @@ namespace League_Season_5_Counters_Windows_10
             this.navigationHelper.OnNavigatedFrom(e);
         }
 
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            AdGrid.Children.Clear();
+            base.OnNavigatingFrom(e);
+        }
+
         #endregion
 
 
 
+        // Normal method of handling counter tapped
         private void Champ_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Image counterImage = (sender as Image);
@@ -216,6 +225,15 @@ namespace League_Season_5_Counters_Windows_10
 
         }
 
+        // Reverse relationship for easy matchups 
+        private void EasyMatchup_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Image easyMatchupImage = (sender as Image);
+            var easyMatchup = easyMatchupImage.DataContext as Counter;
+            Frame.Navigate(typeof(ChampionPage), easyMatchup.ChampionFeedbackName);
+        }
+
+        // Bidirectional relationship for synergy picks
         private void SynergyChamp_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Image synergyImage = (sender as Image);
@@ -230,167 +248,27 @@ namespace League_Season_5_Counters_Windows_10
 
         }
 
-        private void EasyMatchup_Tapped(object sender, TappedRoutedEventArgs e)
+        private void Synergy_Loaded(FrameworkElement sender, DataContextChangedEventArgs args)
         {
-            Image easyMatchupImage = (sender as Image);
-            var easyMatchup = easyMatchupImage.DataContext as Counter;
-            Frame.Navigate(typeof(ChampionPage), easyMatchup.ChampionFeedbackName);
-        }
-
-        private async void Send_Feedback(object sender, TappedRoutedEventArgs e)
-        {
-            // Ensure all collections are loaded first
-            if (!championFeedbackLoaded) {
-                MessageDialog emptyBox = new MessageDialog("Wait for data to finish loading!");
-                await emptyBox.ShowAsync();
+            var synergyImage = sender as Image;
+            var synergyChamp = synergyImage.DataContext as Counter;
+            //If null, simply return until datacontext changes to a proper form and comes back here again
+            if (synergyChamp == null)
                 return;
-            }
 
-            // Ensure user selects comment type
-            if (this.pageType == null)
-            {
-                MessageDialog emptyBox = new MessageDialog("Choose your comment as countering or playing as!");
-                await emptyBox.ShowAsync();
-                return;
-            }
+            // Get the champion's name for the page
+            var champName = commentViewModel.ChampionFeedback.Name;
+            string imageName;
+            // The synergy relationship could be either way -- but we know we want the image that's not the champion for the page
+            if (synergyChamp.ChampionFeedbackName == champName)
+                imageName = synergyChamp.Name;
+            else
+                imageName = synergyChamp.ChampionFeedbackName;
 
-            // Ensure user inputs names
-            if (String.IsNullOrEmpty(name) || name == "Your name")
-            {
-                MessageDialog emptyBox = new MessageDialog("Enter your name first!");
-                await emptyBox.ShowAsync();
-                return;
-            }
-
-            // Ensure user inputs feedback
-            if (String.IsNullOrEmpty(feedbackBox.Text))
-            {
-                MessageDialog emptyBox = new MessageDialog("Write a message first!");
-                await emptyBox.ShowAsync();
-                return;
-            }
-
-            // After ensuring the data is allowed, scroll to the proper hub section according to the type of comment (doing this before actual submission prevents lag)
-            if (pageType == PageEnum.CommentPage.Counter)
-            {
-                MainHub.ScrollToSection(CounterCommentSection);
-                counterMessage.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-
-            }
-            else if (pageType == PageEnum.CommentPage.Playing)
-            {
-                MainHub.ScrollToSection(PlayingCommentSection);
-                playingMessage.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            }
-           
-            // Submit the comment and a self-user rating of 1
-            var comment = await commentViewModel.SubmitCommentAsync(feedbackBox.Text, name, (PageEnum.CommentPage)pageType);
-            await commentViewModel.SubmitUserRating(comment, 1);   // This will then generate Upvote_Loaded to highlight the upvote image
-
-            // Update the view
-            commentViewModel.ChampionFeedback.SortComments();
-            feedbackBox.Text = String.Empty;
-
+            var uri = "ms-appx:///Assets/" + imageName + "_Square_0.png";
+            synergyImage.Source = new BitmapImage(new Uri(uri, UriKind.Absolute));
         }
 
-        private void Name_Written(object sender, RoutedEventArgs e)
-        {
-            var textBox = sender as TextBox;
-            name = textBox.Text;
-        }
-
-        private void Name_Focus(object sender, RoutedEventArgs e)
-        {
-            var textBox = sender as TextBox;
-            textBox.Text = String.Empty;
-        }
-
-        private async void Upvote_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            var upvote = (Image)sender;
-            var comment = upvote.DataContext as Comment;
-
-            var existingRating = comment.UserRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
-            //If there was a previous rating, change vote images respectively
-            if (existingRating != null && existingRating.Score != 0)
-            {
-                //Pressing upvote again? Unhighlight the button.
-                if (existingRating.Score == 1)
-                {
-                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvoteblank.png", UriKind.Absolute));
-                }
-
-                //Going from downvote to upvote? Change to highlighted upvote 
-                else if (existingRating.Score == -1)
-                {
-                    var downvote = ((Image)sender).FindName("DownvoteImage") as Image;
-                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvoteblank.png", UriKind.Absolute));
-                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvote.png", UriKind.Absolute));
-                }
-            }
-            //Otherwise, highlight the upvote button
-            else {
-                upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvote.png", UriKind.Absolute));
-            }
-            await commentViewModel.SubmitUserRating(comment, 1);
-        }
-
-
-        private async void Downvote_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            var downvote = (Image)sender;
-            var comment = downvote.DataContext as Comment;
-
-            var existingRating = comment.UserRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
-            if (existingRating != null && existingRating.Score != 0)
-            {
-                if (existingRating.Score == 1)
-                {
-                    var upvote = ((Image)sender).FindName("UpvoteImage") as Image;
-                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvote.png", UriKind.Absolute));
-                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvoteblank.png", UriKind.Absolute));
-                }
-
-                else if (existingRating.Score == -1)
-                {
-                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvoteblank.png", UriKind.Absolute));
-                }
-            }
-            else {
-                downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvote.png", UriKind.Absolute));
-
-            }
-
-            await commentViewModel.SubmitUserRating(comment, -1);
-        }
-
-        private void Upvote_Loaded(object sender, RoutedEventArgs e)
-        {
-            Image upvote = sender as Image;
-            var comment = upvote.DataContext as Comment;
-            var existingRating = comment.UserRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
-            if (existingRating != null)
-            {
-                if (existingRating.Score == 1)
-                {
-                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvote.png", UriKind.Absolute));
-                }
-            }
-        }
-
-        private void Downvote_Loaded(object sender, RoutedEventArgs e)
-        {
-            Image downvote = sender as Image;
-            var comment = downvote.DataContext as Comment;
-            var existingRating = comment.UserRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
-            if (existingRating != null)
-            {
-                if (existingRating.Score == -1)
-                {
-                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvote.png", UriKind.Absolute));
-                }
-            }
-        }
 
 
         private async void CounterUpvote_Tapped(object sender, TappedRoutedEventArgs e)
@@ -488,7 +366,6 @@ namespace League_Season_5_Counters_Windows_10
             }
         }
 
-
         private async void Submit_Counter(object sender, TappedRoutedEventArgs e)
         {
             var filter = ((DefaultViewModel["Filter"]) as ObservableCollection<Champion>);
@@ -502,7 +379,8 @@ namespace League_Season_5_Counters_Windows_10
                 return;
             }
 
-            if (championPageType == null) {
+            if (championPageType == null)
+            {
                 MessageDialog messageBox = new MessageDialog("Choose whether this champion is a counter, easy matchup, or synergy pick!");
                 await messageBox.ShowAsync();
                 return;
@@ -518,7 +396,7 @@ namespace League_Season_5_Counters_Windows_10
 
             // Get the selected champion's name
             var selectedChamp = filter.FirstOrDefault().UniqueId;
-            
+
             // Prevent duplicate counter submissions for counters 
             if (championPageType == PageEnum.ClientChampionPage.Counter)
             {
@@ -568,7 +446,8 @@ namespace League_Season_5_Counters_Windows_10
                 MainHub.ScrollToSection(CounterSection);
             else if (championPageType == PageEnum.ClientChampionPage.EasyMatchup)
                 MainHub.ScrollToSection(EasyMatchupSection);
-            else{
+            else
+            {
                 MainHub.ScrollToSection(SynergySection);
                 synergyMessage.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             }
@@ -584,37 +463,6 @@ namespace League_Season_5_Counters_Windows_10
                 commentViewModel.ChampionFeedback.SortEasyMatchups();
             else
                 commentViewModel.ChampionFeedback.SortSynergy();
-        }
-
-        private void CounterMessage_Loaded(object sender, RoutedEventArgs e)
-        {
-            counterMessage = sender as TextBlock;
-            if (emptyComments)
-                counterMessage.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        }
-
-        private void PlayingComments_Loaded(object sender, RoutedEventArgs e)
-        {
-            playingMessage = sender as TextBlock;
-            if (emptyPlayingComments)
-                playingMessage.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        }
-
-        private void SynergyChampions_Loaded(object sender, RoutedEventArgs e)
-        {
-            synergyMessage = sender as TextBlock;
-            if (emptySynergyChampions)
-                synergyMessage.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        }
-
-        private void Counter_Checked(object sender, RoutedEventArgs e)
-        {
-            pageType = PageEnum.CommentPage.Counter;
-        }
-
-        private void Playing_Checked(object sender, RoutedEventArgs e)
-        {
-            pageType = PageEnum.CommentPage.Playing;
         }
 
         private void CounterChampion_Checked(object sender, RoutedEventArgs e)
@@ -658,6 +506,205 @@ namespace League_Season_5_Counters_Windows_10
             filterBox = sender as TextBox;
         }
 
+        private async void Send_Feedback(object sender, TappedRoutedEventArgs e)
+        {
+            // Ensure all collections are loaded first
+            if (!championFeedbackLoaded)
+            {
+                MessageDialog emptyBox = new MessageDialog("Wait for data to finish loading!");
+                await emptyBox.ShowAsync();
+                return;
+            }
+
+            // Ensure user selects comment type
+            if (this.pageType == null)
+            {
+                MessageDialog emptyBox = new MessageDialog("Choose your comment as countering or playing as!");
+                await emptyBox.ShowAsync();
+                return;
+            }
+
+            // Ensure user inputs names
+            if (String.IsNullOrEmpty(name) || name == "Your name")
+            {
+                MessageDialog emptyBox = new MessageDialog("Enter your name first!");
+                await emptyBox.ShowAsync();
+                return;
+            }
+
+            // Ensure user inputs feedback
+            if (String.IsNullOrEmpty(feedbackBox.Text))
+            {
+                MessageDialog emptyBox = new MessageDialog("Write a message first!");
+                await emptyBox.ShowAsync();
+                return;
+            }
+
+            // After ensuring the data is allowed, scroll to the proper hub section according to the type of comment (doing this before actual submission prevents lag)
+            if (pageType == PageEnum.CommentPage.Counter)
+            {
+                MainHub.ScrollToSection(CounterCommentSection);
+                counterMessage.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+
+            }
+            else if (pageType == PageEnum.CommentPage.Playing)
+            {
+                MainHub.ScrollToSection(PlayingCommentSection);
+                playingMessage.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+
+            // Submit the comment and a self-user rating of 1
+            var comment = await commentViewModel.SubmitCommentAsync(feedbackBox.Text, name, (PageEnum.CommentPage)pageType);
+            await commentViewModel.SubmitUserRating(comment, 1);   // This will then generate Upvote_Loaded to highlight the upvote image
+
+            // Update the view
+            commentViewModel.ChampionFeedback.SortComments();
+            feedbackBox.Text = String.Empty;
+
+        }
+
+        private void Counter_Checked(object sender, RoutedEventArgs e)
+        {
+            pageType = PageEnum.CommentPage.Counter;
+        }
+
+        private void Playing_Checked(object sender, RoutedEventArgs e)
+        {
+            pageType = PageEnum.CommentPage.Playing;
+        }
+
+        private void Name_Written(object sender, RoutedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            name = textBox.Text;
+        }
+
+        private void Name_Focus(object sender, RoutedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            textBox.Text = String.Empty;
+        }
+
+        private async void Upvote_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var upvote = (Image)sender;
+            var comment = upvote.DataContext as Comment;
+
+            var existingRating = comment.UserRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
+            //If there was a previous rating, change vote images respectively
+            if (existingRating != null && existingRating.Score != 0)
+            {
+                //Pressing upvote again? Unhighlight the button.
+                if (existingRating.Score == 1)
+                {
+                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvoteblank.png", UriKind.Absolute));
+                }
+
+                //Going from downvote to upvote? Change to highlighted upvote 
+                else if (existingRating.Score == -1)
+                {
+                    var downvote = ((Image)sender).FindName("DownvoteImage") as Image;
+                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvoteblank.png", UriKind.Absolute));
+                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvote.png", UriKind.Absolute));
+                }
+            }
+            //Otherwise, highlight the upvote button
+            else
+            {
+                upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvote.png", UriKind.Absolute));
+            }
+            await commentViewModel.SubmitUserRating(comment, 1);
+        }
+
+
+        private async void Downvote_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var downvote = (Image)sender;
+            var comment = downvote.DataContext as Comment;
+
+            var existingRating = comment.UserRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
+            if (existingRating != null && existingRating.Score != 0)
+            {
+                if (existingRating.Score == 1)
+                {
+                    var upvote = ((Image)sender).FindName("UpvoteImage") as Image;
+                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvote.png", UriKind.Absolute));
+                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvoteblank.png", UriKind.Absolute));
+                }
+
+                else if (existingRating.Score == -1)
+                {
+                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvoteblank.png", UriKind.Absolute));
+                }
+            }
+            else
+            {
+                downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvote.png", UriKind.Absolute));
+
+            }
+
+            await commentViewModel.SubmitUserRating(comment, -1);
+        }
+
+        private void Upvote_DataLoaded(FrameworkElement sender, DataContextChangedEventArgs args)
+        {
+            Image upvote = sender as Image;
+            var comment = upvote.DataContext as Comment;
+            if (comment == null)
+                return;
+
+            var existingRating = comment.UserRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
+            if (existingRating != null)
+            {
+                if (existingRating.Score == 1)
+                {
+                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvote.png", UriKind.Absolute));
+                }
+            }
+        }
+
+        private void Downvote_DataLoaded(FrameworkElement sender, DataContextChangedEventArgs args)
+        {
+            Image downvote = sender as Image;
+            var comment = downvote.DataContext as Comment;
+            if (comment == null)
+                return;
+
+            var existingRating = comment.UserRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
+            if (existingRating != null)
+            {
+                if (existingRating.Score == -1)
+                {
+                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvote.png", UriKind.Absolute));
+                }
+            }
+        }
+
+        
+
+        private void CounterMessage_Loaded(object sender, RoutedEventArgs e)
+        {
+            counterMessage = sender as TextBlock;
+            if (emptyComments)
+                counterMessage.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        }
+
+        private void PlayingComments_Loaded(object sender, RoutedEventArgs e)
+        {
+            playingMessage = sender as TextBlock;
+            if (emptyPlayingComments)
+                playingMessage.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        }
+
+        private void SynergyChampions_Loaded(object sender, RoutedEventArgs e)
+        {
+            synergyMessage = sender as TextBlock;
+            if (emptySynergyChampions)
+                synergyMessage.Visibility = Windows.UI.Xaml.Visibility.Visible;
+        }
+
+        
+      
         private void CounterRing_Loaded(object sender, RoutedEventArgs e)
         {
             counterLoadingRing = sender as ProgressRing;
@@ -698,61 +745,54 @@ namespace League_Season_5_Counters_Windows_10
             feedbackBox = sender as TextBox;
         }
 
-        private void Synergy_Loaded(FrameworkElement sender, DataContextChangedEventArgs args)
+        private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var synergyImage = sender as Image;
-            var synergyChamp = synergyImage.DataContext as Counter;
-            //If null, simply return until datacontext changes to a proper form and comes back here again
-            if (synergyChamp == null)
-                return;
+            var ad = sender as AdControl;
+            if (adList.Where(x => x.AdUnitId == ad.AdUnitId).Count() == 0)
+                adList.Add(ad);
 
-            // Get the champion's name for the page
-            var champName = commentViewModel.ChampionFeedback.Name;
-            string imageName;
-            // The synergy relationship could be either way -- but we know we want the image that's not the champion for the page
-            if (synergyChamp.ChampionFeedbackName == champName)
-                imageName = synergyChamp.Name;
+            if ((ad.Parent as Grid).Margin.Top != 0)
+            {
+                double margin = adList.IndexOf(ad) * 200;
+                ad.Margin = new Thickness(margin, 0, 0, 0);
+            }
+
+            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+            {
+                ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
             else
-                imageName = synergyChamp.ChampionFeedbackName;
-
-            var uri = "ms-appx:///Assets/" + imageName + "_Square_0.png";
-            synergyImage.Source = new BitmapImage(new Uri(uri, UriKind.Absolute));
+            {
+                ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
         }
 
-        //private void Ad_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    var ad = sender as AdControl;
-        //    if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-        //    {
-        //        // Hide the app for the purchaser
-        //        ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-        //    }
-        //    else
-        //    {
-        //        // Otherwise show the ad
-        //        ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        //    }
-        //}
+        private void Ad_Error(object sender, AdErrorEventArgs e)
+        {
+            var ad = sender as AdControl;
+        }
+
+
 
         private void GridAd_Loaded(object sender, RoutedEventArgs e)
         {
             var grid = sender as Grid;
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
-                var rowDefinitions = grid.RowDefinitions;
-                foreach (var r in rowDefinitions)
+                var colDefinitions = grid.ColumnDefinitions;
+                foreach (var r in colDefinitions)
                 {
-                    if (r.Height.Value == 90)
+                    if (r.Width.Value == 160)
                     {
-                        r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
+                        r.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
                     }
                 }
             }
         }
 
-        
 
-       
+
+
 
     }
 

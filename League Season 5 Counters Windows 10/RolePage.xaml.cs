@@ -1,6 +1,7 @@
 ﻿using League_of_Legends_Counterpicks.Advertisement;
 using League_of_Legends_Counterpicks.Common;
 using League_of_Legends_Counterpicks.Data;
+using Microsoft.Advertising.WinRT.UI;
 using QKit;
 using QKit.JumpList;
 using System;
@@ -9,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Windows.ApplicationModel.Resources;
 using Windows.System;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -25,14 +27,14 @@ namespace League_Season_5_Counters_Windows_10
         private ObservableCollection<Role> roles;
         private Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         private readonly String APP_ID = "3366702e-67c7-48e7-bc82-d3a4534f3086";
-        private string roleId, savedRoleId;
-        private bool firstLoad = true;
+        private List<AdControl> adList = new List<AdControl>();
+        private TextBox textBox;
+        private string savedRoleId, navigationRole;
         private int sectionIndex;
 
         public RolePage()
         {
             this.InitializeComponent();
-            this.NavigationCacheMode = NavigationCacheMode.Required;
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
@@ -69,11 +71,14 @@ namespace League_Season_5_Counters_Windows_10
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)  //e is the unique ID
         {
             reviewApp();
-            // Check if the navigation paramater changes to determine the roleId to use, otherwise use the roleId set by navigating to ChampionPage
-            if ((string)e.NavigationParameter != savedRoleId) {
-                roleId = e.NavigationParameter as string;
-                savedRoleId = roleId;
-            }
+
+            string roleId;
+            navigationRole = e.NavigationParameter as string;
+            // If navigating from main page, use that role selected, otherwise use the saved role prior to navigating to champion page
+            if (e.PageState == null || navigationRole != (string)e.PageState["NavigationRole"])
+                roleId = navigationRole;
+            else
+                roleId = (string)e.PageState["savedRoleId"];
 
             roles = await DataSource.GetRolesAsync();  // Gets a reference to all the roles -- no data is seralized again (already done on bootup)
             var allRole = roles[0]; // Gets the all role 
@@ -87,10 +92,8 @@ namespace League_Season_5_Counters_Windows_10
                 sectionIndex = MainHub.Sections.Count() - 1;
             else
                 sectionIndex = roles.IndexOf(DataSource.GetRole(roleId));
-            if (firstLoad)
-                MainHub.DefaultSectionIndex = sectionIndex;
-            else
-                MainHub.ScrollToSection(MainHub.Sections.ElementAt(sectionIndex));
+
+            MainHub.DefaultSectionIndex = sectionIndex;
         }
         
     
@@ -109,7 +112,8 @@ namespace League_Season_5_Counters_Windows_10
         /// serializable state.</param>
         private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
         {
-            // TODO: Save the unique state of the page here.
+            e.PageState["savedRoleId"] = savedRoleId;
+            e.PageState["NavigationRole"] = navigationRole;
         }
 
         /// <summary>
@@ -119,19 +123,15 @@ namespace League_Season_5_Counters_Windows_10
         /// <param name="e">Event data that describes the item clicked.</param>
         /// 
 
-        private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        private async void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //Ask user to purchase ad removal before proceeding
+            // Ask user to purchase ad removal before proceeding
             checkAdRemoval();
-            //Store the hub section before proceeding to champion page, so that the back button goes back to it
-            roleId = MainHub.SectionsInView[0].Name;
+            // Store the hub section before proceeding to champion page, so that the back button goes back to it
+            savedRoleId = MainHub.SectionsInView[0].Name;
 
             var championId = ((Champion)e.ClickedItem).UniqueId;
-            if (!Frame.Navigate(typeof(ChampionPage), championId))
-            {
-                var resourceLoader = ResourceLoader.GetForCurrentView("Resources");
-                throw new Exception(resourceLoader.GetString("NavigationFailedExceptionMessage"));
-            }
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.Frame.Navigate(typeof(ChampionPage), championId));
 
         }
 
@@ -160,26 +160,17 @@ namespace League_Season_5_Counters_Windows_10
         }
 
         #endregion
-
-        //Purpose of this is to load the role page twice since there is a bug with the Qkit jumpList that doesnt render properly on first load
-        //private void JumpList_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    if (firstLoad){
-        //        firstLoad = false;
-        //        var jumpList = sender as AlphaJumpList;
-        //        jumpList.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        //        All.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-        //        All.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        //        MainHub.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-        //        MainHub.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        //        jumpList.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-        //        jumpList.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        //    }
-            
-        //}
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            AdGrid.Children.Clear();
+            base.OnNavigatingFrom(e);
+        }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            if (!MainHub.SectionsInView.Contains(Filter))
+                MainHub.ScrollToSection(Filter);
+
             String text = (sender as TextBox).Text;
             Role filter = DataSource.FilterChampions(text);
             if (String.IsNullOrEmpty(text))    //Don't show every champion with no query
@@ -193,33 +184,61 @@ namespace League_Season_5_Counters_Windows_10
             (sender as TextBox).Text = String.Empty;
         }
 
+        private void TextBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            textBox = sender as TextBox;
+            //textBox.Focus(FocusState.Programmatic);
+        }
 
-        //private void Ad_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    var ad = sender as AdControl;
-        //    if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-        //    {
-        //        // Hide the app for the purchaser
-        //        ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-        //    }
-        //    else
-        //    {
-        //        // Otherwise show the ad
-        //        ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        //    }
-        //}
+        private void Key_Down(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (textBox != null && textBox.FocusState == FocusState.Unfocused)
+            {
+                textBox.Focus(FocusState.Programmatic);
+                MainHub.ScrollToSection(Filter);
+            }
+        }
+
+        private void Ad_Loaded(object sender, RoutedEventArgs e)
+        {
+            var ad = sender as AdControl;
+            if (adList.Where(x => x.AdUnitId == ad.AdUnitId).Count() == 0)
+                adList.Add(ad);
+
+            if ((ad.Parent as Grid).Margin.Top != 0)
+            {
+                double margin = adList.IndexOf(ad) * 200;
+                ad.Margin = new Thickness(margin, 0, 0, 0);
+            }
+            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+            {
+                // Hide the app for the purchaser
+                ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            }
+            else
+            {
+                // Otherwise show the ad
+                ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            }
+        }
+
+        private void Ad_Error(object sender, AdErrorEventArgs e)
+       {
+
+        }
 
         private void GridAd_Loaded(object sender, RoutedEventArgs e)
         {
             var grid = sender as Grid;
+
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
-                var rowDefinitions = grid.RowDefinitions;
-                foreach (var r in rowDefinitions)
+                var colDefinitions = grid.ColumnDefinitions;
+                foreach (var r in colDefinitions)
                 {
-                    if (r.Height.Value == 90)
+                    if (r.Width.Value == 160)
                     {
-                        r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
+                        r.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
                     }
                 }
             }
@@ -237,7 +256,7 @@ namespace League_Season_5_Counters_Windows_10
                 int viewCount = Convert.ToInt32(localSettings.Values["AdViews"]);
 
                 //Only ask for IAP purchase up to several times, once every 6 times this page is visited, and do not ask anymore once bought
-                if (viewCount % 4 == 0 && viewCount <= 100)
+                if (viewCount % 25 == 0 && viewCount <= 100)
                 {
                     var purchaseBox = new MessageDialog("See more counters, easy matchups and synergy picks for each champion at once! Remove ads now!");
                     purchaseBox.Commands.Add(new UICommand { Label = "Yes! :)", Id = 0 });
@@ -257,8 +276,7 @@ namespace League_Season_5_Counters_Windows_10
             }
         }
 
-
-
+              
         private async void reviewApp()
         {
             if (!localSettings.Values.ContainsKey("Views"))

@@ -1,6 +1,5 @@
-MainPackage=C:\Users\Anthony\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\ARM\Release\Upload\League Season 5 Counters Windows 10_2020.1.7.0_ARM.appx
-SymbolPackage=C:\Users\Anthony\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\AppPackages\League Season 5 Counters Windows 10_2020.1.7.0\League Season 5 Counters Windows 10_2020.1.7.0_ARM.appxsym
-ResourcePack=C:\Users\Anthony\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\_scale-100.appx
-ResourcePack=C:\Users\Anthony\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\_scale-180.appx
-ResourcePack=C:\Users\Anthony\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\_scale-240.appx
-ResourcePack=C:\Users\Anthony\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\_scale-400.appx
+MainPackage=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\ARM\Release\Upload\League Season 5 Counters Windows 10_2020.2.15.0_ARM.appx
+SymbolPackage=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\AppPackages\League Season 5 Counters Windows 10_2020.2.15.0\League Season 5 Counters Windows 10_2020.2.15.0_ARM.appxsym
+ResourcePack=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\_scale-150.appx
+ResourcePack=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\_scale-180.appx
+ResourcePack=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\_scale-240.appx
