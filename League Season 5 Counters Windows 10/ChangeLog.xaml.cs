@@ -137,16 +137,15 @@ namespace League_Season_5_Counters_Windows_10
             var grid = sender as Grid;
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
-                var colDefinitions = grid.ColumnDefinitions;
-                foreach (var r in colDefinitions)
+                var rowDefinitions = grid.RowDefinitions;
+                foreach (var r in rowDefinitions)
                 {
-                    if (r.Width.Value == 160)
+                    if (r.Height.Value == 90)
                     {
-                        r.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
+                        r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
                     }
                 }
             }
         }
-
     }
 }

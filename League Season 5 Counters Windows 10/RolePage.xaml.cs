@@ -198,6 +198,11 @@ namespace League_Season_5_Counters_Windows_10
                 MainHub.ScrollToSection(Filter);
             }
         }
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            MainHub.ScrollToSection(Filter);
+            textBox.Focus(FocusState.Programmatic);
+        }
 
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
@@ -205,11 +210,7 @@ namespace League_Season_5_Counters_Windows_10
             if (adList.Where(x => x.AdUnitId == ad.AdUnitId).Count() == 0)
                 adList.Add(ad);
 
-            if ((ad.Parent as Grid).Margin.Top != 0)
-            {
-                double margin = adList.IndexOf(ad) * 200;
-                ad.Margin = new Thickness(margin, 0, 0, 0);
-            }
+    
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
                 // Hide the app for the purchaser
@@ -230,15 +231,14 @@ namespace League_Season_5_Counters_Windows_10
         private void GridAd_Loaded(object sender, RoutedEventArgs e)
         {
             var grid = sender as Grid;
-
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
-                var colDefinitions = grid.ColumnDefinitions;
-                foreach (var r in colDefinitions)
+                var rowDefinitions = grid.RowDefinitions;
+                foreach (var r in rowDefinitions)
                 {
-                    if (r.Width.Value == 160)
+                    if (r.Height.Value == 90)
                     {
-                        r.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
+                        r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
                     }
                 }
             }
@@ -276,7 +276,7 @@ namespace League_Season_5_Counters_Windows_10
             }
         }
 
-              
+       
         private async void reviewApp()
         {
             if (!localSettings.Values.ContainsKey("Views"))

@@ -254,11 +254,6 @@ namespace League_Season_5_Counters_Windows_10
             if (adList.Where(x => x.AdUnitId == ad.AdUnitId).Count() == 0)
                 adList.Add(ad);
 
-            //if ((ad.Parent as Grid).Margin.Top != 0)
-            //{
-            //    double margin = adList.IndexOf(ad) * 95;
-            //    ad.Margin = new Thickness(0, 95, 0, 0);
-            //}
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
                 // Hide the app for the purchaser
@@ -297,9 +292,6 @@ namespace League_Season_5_Counters_Windows_10
 
         }
 
-        private void Ad_Refreshed(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }

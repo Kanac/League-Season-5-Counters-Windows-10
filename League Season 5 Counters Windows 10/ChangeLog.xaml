@@ -21,31 +21,20 @@
 
 
     <Grid Loaded="GridAd_Loaded">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="160"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="90"></RowDefinition>
+        </Grid.RowDefinitions>
 
-
-        <Grid Grid.Column="1">
-            <!--<UI:AdControl HorizontalAlignment="Center"
-                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
-                          VerticalAlignment="Center"
-                          Width="160"
-                          Height="600"
+        <Grid Grid.Row="1">
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
-                          AdUnitId="237077" />
-            <UI:AdControl HorizontalAlignment="Center"
-                          ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
-                          VerticalAlignment="Center"
-                          Width="160"
-                          Height="600"
-                          Loaded="Ad_Loaded"
-                          AutoRefreshIntervalInSeconds="30"
-                          AdUnitId="237078" />-->
+                          IsAutoRefreshEnabled="True"
+                          AdUnitId="239019" />
         </Grid>
-
+        
         <Grid x:Name="LayoutRoot">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -53,8 +42,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <!--<Ad:AdMediatorControl x:Name="AdMediator_33" Id="AdMediator-Id-33" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-        <Ad:AdMediatorControl x:Name="AdMediator_34" Id="AdMediator-Id-34" HorizontalAlignment="Center" Height="90" Grid.Row="4" VerticalAlignment="Bottom" Width="728"/>-->
+          
 
                 <!-- Title Panel -->
                 <TextBlock Text="League Season 5 Counters Changes"
@@ -73,7 +61,11 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
-						<Run Text="August 20 2015" />
+						<Run Text="August 20-24 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Fixed lots of stuff"></Run>
+                        <LineBreak></LineBreak>
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
                         <Run Text="-Typing from any section of the role page allows immediate focus on the search bar"></Run>
