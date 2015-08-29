@@ -13,7 +13,7 @@ namespace Tasks
     {
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            //Check if a background toast is already scheduled
+            // Check if a background toast is already scheduled
             if (ToastNotificationManager.CreateToastNotifier().GetScheduledToastNotifications().Select(x => x.Id = "Background").Count() > 0)
             {
                 return;

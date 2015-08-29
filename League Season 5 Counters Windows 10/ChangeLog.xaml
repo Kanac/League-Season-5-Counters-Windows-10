@@ -61,11 +61,16 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
+						<Run Text="August 28 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Fixed more bugs. Check the Windows Phone 8.1 version for incomming updates."></Run>
+                        </TextBlock>
+                        <TextBlock FontSize="25">
 						<Run Text="August 20-24 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
                         <Run Text="-Fixed lots of stuff"></Run>
-                        <LineBreak></LineBreak>
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
                         <Run Text="-Typing from any section of the role page allows immediate focus on the search bar"></Run>

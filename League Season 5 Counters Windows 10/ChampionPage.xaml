@@ -117,6 +117,7 @@
     <Grid x:Name="LayoutRoot"
           Loaded="GridAd_Loaded"
           Background="{StaticResource BaronImageBrush}">
+
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup >
                 <VisualState x:Name="desktop">
@@ -192,189 +193,189 @@
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239049" />
+                          AdUnitId="240296" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239050" />
+                          AdUnitId="240297" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239051" />
+                          AdUnitId="240298" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239052" />
+                          AdUnitId="240299" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239053" />
+                          AdUnitId="240300" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239054" />
+                          AdUnitId="240301" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239055" />
+                          AdUnitId="240302" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239056" />
+                          AdUnitId="240303" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239057" />
+                          AdUnitId="240304" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239058" />
+                          AdUnitId="240305" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239059" />
+                          AdUnitId="240306" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239060" />
+                          AdUnitId="240307" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239061" />
+                          AdUnitId="240308" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239062" />
+                          AdUnitId="240309" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239063" />
+                          AdUnitId="240310" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239064" />
+                          AdUnitId="240311" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239065" />
+                          AdUnitId="240312" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239066" />
+                          AdUnitId="240313" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239067" />
+                          AdUnitId="240314" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239068" />
+                          AdUnitId="240315" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239069" />
+                          AdUnitId="240316" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239070" />
+                          AdUnitId="240317" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239071" />
+                          AdUnitId="240318" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239072" />
+                          AdUnitId="240319" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239073" />
+                          AdUnitId="240320" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239074" />
+                          AdUnitId="240321" />
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239075" />
+                          AdUnitId="240322" />
         </Grid>
         <Grid Grid.Row="2" Grid.Column="1">
             <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
@@ -383,7 +384,7 @@
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="239076" />
+                          AdUnitId="240323" />
         </Grid>
         
         <Hub Name="MainHub"
@@ -612,7 +613,7 @@
                     </DataTemplate>
                 </HubSection>
 
-           
+
             <HubSection x:Name="CounterCommentSection" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                     <DataTemplate>
                     <Grid>
@@ -797,7 +798,7 @@
                 </DataTemplate>
             </HubSection>
 
-            <HubSection x:Name="SubmitCounterSection" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch">
+            <HubSection x:Name="SubmitCounterSection" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" >
                 <DataTemplate>
                     <Grid>
                         <Grid.RowDefinitions>

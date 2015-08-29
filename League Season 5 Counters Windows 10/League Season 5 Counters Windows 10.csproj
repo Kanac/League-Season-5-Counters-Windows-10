@@ -118,13 +118,13 @@
     <Compile Include="Common\ObservableDictionary.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
-    <Compile Include="DataModel\Converters\CounterChampionVisibility.cs" />
-    <Compile Include="DataModel\Converters\CounterFormat.cs" />
-    <Compile Include="DataModel\Converters\CounterVisibility.cs" />
-    <Compile Include="DataModel\Converters\NameToImage.cs" />
-    <Compile Include="DataModel\Converters\PlayingFormat.cs" />
-    <Compile Include="DataModel\Converters\PlayingVisibility.cs" />
-    <Compile Include="DataModel\Converters\SynergyChampionVisibility.cs" />
+    <Compile Include="Converters\CounterChampionVisibility.cs" />
+    <Compile Include="Converters\CounterFormat.cs" />
+    <Compile Include="Converters\CounterVisibility.cs" />
+    <Compile Include="Converters\NameToImage.cs" />
+    <Compile Include="Converters\PlayingFormat.cs" />
+    <Compile Include="Converters\PlayingVisibility.cs" />
+    <Compile Include="Converters\SynergyChampionVisibility.cs" />
     <Compile Include="DataModel\CommentDataSource.cs" />
     <Compile Include="DataModel\DataSource.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -162,7 +162,7 @@
     <Content Include="Assets\Braum_Square_0.png" />
     <Content Include="Assets\Caitlyn_Square_0.png" />
     <Content Include="Assets\Cassiopeia_Square_0.png" />
-    <Content Include="Assets\Chogath_Square_0.png" />
+    <Content Include="Assets\Cho%27Gath_Square_0.png" />
     <Content Include="Assets\Corki_Square_0.png" />
     <Content Include="Assets\Darius_Square_0.png" />
     <Content Include="Assets\Diana_Square_0.png" />
@@ -354,6 +354,9 @@
       <Project>{71f50662-b467-4659-aec0-9130c9898727}</Project>
       <Name>Tasks</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

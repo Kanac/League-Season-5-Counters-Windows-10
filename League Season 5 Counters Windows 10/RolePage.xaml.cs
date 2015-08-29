@@ -224,7 +224,7 @@ namespace League_Season_5_Counters_Windows_10
         }
 
         private void Ad_Error(object sender, AdErrorEventArgs e)
-       {
+        {
 
         }
 
