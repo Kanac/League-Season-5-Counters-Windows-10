@@ -61,6 +61,12 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
+						<Run Text="Sept 8 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="Further optimized speed and responsiveness of app :)"></Run>
+                        </TextBlock>
+                        <TextBlock FontSize="25">
 						<Run Text="August 28 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">

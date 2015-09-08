@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Input;
 using System.Collections.ObjectModel;
 using Microsoft.Advertising.WinRT.UI;
 using Windows.UI.Core;
+using Windows.UI.Notifications;
+using Windows.Data.Xml.Dom;
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
@@ -28,7 +30,6 @@ namespace League_Season_5_Counters_Windows_10
     {
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
-        private List<AdControl> adList = new List<AdControl>();
 
         public MainPage()
         {
@@ -83,12 +84,13 @@ namespace League_Season_5_Counters_Windows_10
 
             // Toast background task setup 
             if (e.PageState == null || (bool)e.PageState["firstLoad"] == true)
+            {
+                setupFeatureToast(); // Flashes a new feature message 
                 setupToast();
+            }
 
         }
-
-
-
+        
         /// <summary>
         /// Preserves state associated with this page in case the application is suspended or the
         /// page is discarded from the navigation cache.  Values must conform to the serialization
@@ -101,6 +103,21 @@ namespace League_Season_5_Counters_Windows_10
         {
             e.PageState["firstLoad"] = false;
         }
+
+        private void setupFeatureToast()
+        {
+            ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
+            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+
+            XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
+            toastTextElements[1].AppendChild(toastXml.CreateTextNode("Get a glimpse of the new live stats feature in the Windows Phone 8.1 version!"));
+
+            ToastNotification toast = new ToastNotification(toastXml);
+            toast.Tag = "FeatureToast";
+            ToastNotificationManager.History.Remove("FeatureToast"); // Remove previous toasts in action centre history, if any, before sending 
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
+        }
+
 
         private async void setupToast()
         {
@@ -195,6 +212,7 @@ namespace League_Season_5_Counters_Windows_10
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             AdGrid.Children.Clear();
+            AdGrid2.Children.Clear();
             base.OnNavigatingFrom(e);
         }
 
@@ -249,9 +267,6 @@ namespace League_Season_5_Counters_Windows_10
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
             var ad = sender as AdControl;
-            //Check if the ad list already has a reference to this ad before inserting
-            if (adList.Where(x => x.AdUnitId == ad.AdUnitId).Count() == 0)
-                adList.Add(ad);
 
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {

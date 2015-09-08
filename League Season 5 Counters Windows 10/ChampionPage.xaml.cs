@@ -52,7 +52,6 @@ namespace League_Season_5_Counters_Windows_10
         private TextBlock counterMessage, playingMessage, synergyMessage;
         private TextBox filterBox;
         private ProgressRing counterLoadingRing, easyMatchupLoadingRing, synergyLoadingRing, counterCommentsLoadingRing, playingCommentsLoadingRing;
-        private List<AdControl> adList = new List<AdControl>();
         private CommentDataSource commentViewModel = new CommentDataSource(App.MobileService);
 
 
@@ -209,11 +208,21 @@ namespace League_Season_5_Counters_Windows_10
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             AdGrid.Children.Clear();
+            AdGrid2.Children.Clear();
+            if (e.NavigationMode == NavigationMode.Back)
+            {
+                ResetPageCache();
+            }
             base.OnNavigatingFrom(e);
         }
 
         #endregion
-
+        private void ResetPageCache()
+        {
+            var cacheSize = ((Frame)Parent).CacheSize;
+            ((Frame)Parent).CacheSize = 0;
+            ((Frame)Parent).CacheSize = cacheSize;
+        }
 
 
         // Normal method of handling counter tapped
@@ -748,8 +757,6 @@ namespace League_Season_5_Counters_Windows_10
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
             var ad = sender as AdControl;
-            if (adList.Where(x => x.AdUnitId == ad.AdUnitId).Count() == 0)
-                adList.Add(ad);
 
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {

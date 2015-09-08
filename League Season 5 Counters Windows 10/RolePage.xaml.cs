@@ -27,7 +27,6 @@ namespace League_Season_5_Counters_Windows_10
         private ObservableCollection<Role> roles;
         private Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         private readonly String APP_ID = "3366702e-67c7-48e7-bc82-d3a4534f3086";
-        private List<AdControl> adList = new List<AdControl>();
         private TextBox textBox;
         private string savedRoleId, navigationRole;
         private int sectionIndex;
@@ -163,7 +162,15 @@ namespace League_Season_5_Counters_Windows_10
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             AdGrid.Children.Clear();
+            AdGrid2.Children.Clear();
+            ResetPageCache();
             base.OnNavigatingFrom(e);
+        }
+        private void ResetPageCache()
+        {
+            var cacheSize = ((Frame)Parent).CacheSize;
+            ((Frame)Parent).CacheSize = 0;
+            ((Frame)Parent).CacheSize = cacheSize;
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -207,10 +214,7 @@ namespace League_Season_5_Counters_Windows_10
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
             var ad = sender as AdControl;
-            if (adList.Where(x => x.AdUnitId == ad.AdUnitId).Count() == 0)
-                adList.Add(ad);
-
-    
+            
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
                 // Hide the app for the purchaser
