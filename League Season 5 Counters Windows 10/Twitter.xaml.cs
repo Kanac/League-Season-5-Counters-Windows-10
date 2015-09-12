@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
+using Windows.System;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -107,5 +108,6 @@ namespace League_Season_5_Counters_Windows_10
         }
 
         #endregion
+ 
     }
 }

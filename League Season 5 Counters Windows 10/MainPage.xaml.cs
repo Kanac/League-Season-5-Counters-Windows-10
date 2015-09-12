@@ -1,9 +1,6 @@
 ﻿using League_of_Legends_Counterpicks.Common;
 using League_of_Legends_Counterpicks.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using Windows.ApplicationModel.Resources;
 using Windows.Graphics.Display;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -18,6 +15,9 @@ using Microsoft.Advertising.WinRT.UI;
 using Windows.UI.Core;
 using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
+using Microsoft.AdMediator.Universal;
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
@@ -173,16 +173,19 @@ namespace League_Season_5_Counters_Windows_10
         /// Shows the details of a clicked group in the <see cref="RolePage"/>.
         /// </summary>
         /// 
-        private async void GroupSection_ItemClick(object sender, ItemClickEventArgs e)
+        private void GroupSection_ItemClick(object sender, ItemClickEventArgs e)
         {
             var roleId = ((Role)e.ClickedItem).UniqueId;
             if (roleId == "Search")
                 roleId = "Filter";
 
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.Frame.Navigate(typeof(RolePage), roleId));
+            Frame.Navigate(typeof(RolePage), roleId);
+        }
+        private void Role_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            (sender as TextBlock).Foreground = new SolidColorBrush((Color)Application.Current.Resources["SystemColorControlAccentColor"]);
 
         }
-
 
         #region NavigationHelper registration
 
@@ -251,8 +254,6 @@ namespace League_Season_5_Counters_Windows_10
             Frame.Navigate(typeof(RolePage), "Filter");
         }
 
-  
-
         private async void Comment_Click(object sender, RoutedEventArgs e)
         {
             EmailRecipient sendTo = new EmailRecipient() { Address = "testgglol@outlook.com" };
@@ -266,7 +267,7 @@ namespace League_Season_5_Counters_Windows_10
         
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var ad = sender as AdControl;
+            var ad = sender as AdMediatorControl;
 
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
@@ -301,11 +302,9 @@ namespace League_Season_5_Counters_Windows_10
             AdRemover.Purchase();
         }
 
-        private void Ad_Error(object sender, AdErrorEventArgs e)
+        private void AdMediatorError(object sender, Microsoft.AdMediator.Core.Events.AdMediatorFailedEventArgs e)
         {
 
         }
-
-
     }
 }

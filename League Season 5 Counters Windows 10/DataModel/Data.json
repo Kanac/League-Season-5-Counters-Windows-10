@@ -1202,8 +1202,8 @@
                    ]
         },
         {
-        "UniqueId": "Chogath",
-        "ImagePath": "Assets/Chogath_Square_0.png",
+        "UniqueId": "Cho'Gath",
+        "ImagePath": "Assets/Cho'Gath_Square_0.png",
         "Counters": [
                       "Warwick",
                       "Vayne",

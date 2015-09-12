@@ -1,22 +1,10 @@
 ﻿using League_of_Legends_Counterpicks.Common;
-using Microsoft.Advertising.WinRT.UI;
+using Microsoft.AdMediator.Universal;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Graphics.Display;
 using Windows.System;
-using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Basic Page item template is documented at http://go.microsoft.com/fwlink/?LinkID=390556
@@ -111,6 +99,11 @@ namespace League_Season_5_Counters_Windows_10
         }
 
         #endregion
+        private void Key_Down(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Back && Frame.CanGoBack)
+                Frame.GoBack();
+        }
 
         private async void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -119,7 +112,7 @@ namespace League_Season_5_Counters_Windows_10
 
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var ad = sender as AdControl;
+            var ad = sender as AdMediatorControl;
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
                 // Hide the app for the purchaser
@@ -137,15 +130,19 @@ namespace League_Season_5_Counters_Windows_10
             var grid = sender as Grid;
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
-                var rowDefinitions = grid.RowDefinitions;
-                foreach (var r in rowDefinitions)
+                foreach (var c in grid.ColumnDefinitions)
                 {
-                    if (r.Height.Value == 90)
+                    if (c.Width.Value == 230)
                     {
-                        r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
+                        c.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
                     }
                 }
             }
+        }
+
+        private void AdMediatorError(object sender, Microsoft.AdMediator.Core.Events.AdMediatorFailedEventArgs e)
+        {
+
         }
     }
 }

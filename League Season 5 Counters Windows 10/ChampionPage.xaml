@@ -115,8 +115,8 @@
 
 
     <Grid x:Name="LayoutRoot"
-          Loaded="GridAd_Loaded"
-          Background="{StaticResource BaronImageBrush}">
+          Background="{StaticResource BaronImageBrush}"
+          KeyDown="Key_Down">
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup >
@@ -130,19 +130,19 @@
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="CounterSection.Width" Value="450" />
-                        <Setter Target="CounterSection.Margin" Value="30,0,0,100" />
+                        <Setter Target="CounterSection.Margin" Value="30,0,0,150" />
                         <Setter Target="EasyMatchupSection.Width" Value="450" />
-                        <Setter Target="EasyMatchupSection.Margin" Value="30,0,0,100" />
+                        <Setter Target="EasyMatchupSection.Margin" Value="30,0,0,150" />
                         <Setter Target="SynergySection.Width" Value="450" />
                         <Setter Target="SynergySection.Margin" Value="30,0,0,100" />
                         <Setter Target="CounterCommentSection.Width" Value="550" />
-                        <Setter Target="CounterCommentSection.Margin" Value="30,0,0,100" />
+                        <Setter Target="CounterCommentSection.Margin" Value="30,0,0,150" />
                         <Setter Target="PlayingCommentSection.Width" Value="550" />
-                        <Setter Target="PlayingCommentSection.Margin" Value="30,0,0,100" />
+                        <Setter Target="PlayingCommentSection.Margin" Value="30,0,0,150" />
                         <Setter Target="SubmitFeedbackSection.Width" Value="600" />
-                        <Setter Target="SubmitFeedbackSection.Margin" Value="30,0,0,100" />
+                        <Setter Target="SubmitFeedbackSection.Margin" Value="30,0,0,150" />
                         <Setter Target="SubmitCounterSection.Width" Value="600" />
-                        <Setter Target="SubmitCounterSection.Margin" Value="30,0,0,100" />
+                        <Setter Target="SubmitCounterSection.Margin" Value="30,0,0,150" />
                     </VisualState.Setters>
                 </VisualState>
                 <VisualState x:Name="mobile">
@@ -156,22 +156,14 @@
         </VisualStateManager.VisualStateGroups>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="90"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-        
-            <Image Source="{Binding Champion.ImagePath}" Stretch="UniformToFill"/>
+            <Image Source="{Binding Champion.ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Left" Width="70" Height="70"/>
             <TextBlock Text="{Binding Champion.UniqueId}"
                        Style="{ThemeResource HeaderTextBlockStyle}"
-                       Grid.Column="1"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        FontWeight="Bold"
@@ -180,14 +172,19 @@
                        Margin="0,0,10,0"
                        FontWeight="Bold"
                        FontSize="25"
-                       Grid.Column="2"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Right"
                        Text="{Binding Role}" />
         </Grid>
 
-        <Grid Grid.Row="2" Margin="0,120,0,0" x:Name="AdGrid">
-            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+        <Grid Grid.Row="1" Loaded="GridAd_Loaded">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="230"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Grid Grid.Column="1" Margin="200,0,0,0" x:Name="AdGrid">
+            <!--<UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
@@ -368,20 +365,49 @@
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="242997" />
-        </Grid>
-        <Grid Grid.Row="2" Grid.Column="1" Name="AdGrid2">
-            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+                          AdUnitId="242997" />-->
+                <Universal:AdMediatorControl x:Name="AdMediatorC2" Id="UAdMediatorIdC2" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC3" Id="UAdMediatorIdC3" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC4" Id="UAdMediatorIdC4" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC5" Id="UAdMediatorIdC5" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC6" Id="UAdMediatorIdC6" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC7" Id="UAdMediatorIdC7" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC8" Id="UAdMediatorIdC8" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC9" Id="UAdMediatorIdR9" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC10" Id="UAdMediatorIdC10" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC11" Id="UAdMediatorIdC11" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC12" Id="UAdMediatorIdC12" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC13" Id="UAdMediatorIdC13" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC14" Id="UAdMediatorIdC14" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC15" Id="UAdMediatorIdC15" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC16" Id="UAdMediatorIdC16" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC17" Id="UAdMediatorIdC17" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC18" Id="UAdMediatorIdC18" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC19" Id="UAdMediatorIdC19" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC20" Id="UAdMediatorIdC20" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC21" Id="UAdMediatorIdC21" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC22" Id="UAdMediatorIdC22" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC23" Id="UAdMediatorIdC23" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC24" Id="UAdMediatorIdC24" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC25" Id="UAdMediatorIdC25" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC26" Id="UAdMediatorIdC26" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC27" Id="UAdMediatorIdC27" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC28" Id="UAdMediatorIdC28" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC29" Id="UAdMediatorIdC29" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+                <Universal:AdMediatorControl x:Name="AdMediatorC30" Id="UAdMediatorIdC30" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            </Grid>
+        <Grid Grid.Column="1" Name="AdGrid2">
+            <!--<UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="242998" />
-        </Grid>
+                          AdUnitId="242998" />-->
+                <Universal:AdMediatorControl x:Name="AdMediatorC1" Id="UAdMediatorIdC1" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            </Grid>
         
         <Hub Name="MainHub"
-             Grid.Row="1"
              Margin="0,-15,0,0">
             <HubSection x:Name="CounterSection" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                     <DataTemplate>
@@ -390,11 +416,8 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-
-                        <!--<Ad:AdMediatorControl x:Name="AdMediator_19" Id="AdMediator-Id-19" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_20" Id="AdMediator-Id-20" HorizontalAlignment="Center" Height="90" Grid.Row="3" VerticalAlignment="Bottom" Width="728"/>-->
-
-                                <TextBlock FontSize="30"
+                            
+                        <TextBlock FontSize="30"
                                        Margin="0,-10,0,0"
                                        HorizontalAlignment="Center"
                                        Style="{StaticResource TitleTextBlockStyle}"
@@ -404,8 +427,8 @@
                             <Grid Grid.Row="1">
                                 <ProgressRing VerticalAlignment="Center"
                                           HorizontalAlignment="Center"
-                                              HorizontalContentAlignment="Center"
-                                              VerticalContentAlignment="Center"
+                                          HorizontalContentAlignment="Center"
+                                          VerticalContentAlignment="Center"
                                           Height="150"
                                           Width="150"
                                           Loaded="CounterRing_Loaded"
@@ -462,9 +485,6 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-
-                        <!--<Ad:AdMediatorControl x:Name="AdMediator_21" Id="AdMediator-Id-21" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_22" Id="AdMediator-Id-22" HorizontalAlignment="Center" Height="90" Grid.Row="3" VerticalAlignment="Bottom" Width="728"/>-->
 
                         <TextBlock FontSize="30"
                                        Margin="0,-10,0,0"
@@ -534,16 +554,14 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <!--<Ad:AdMediatorControl x:Name="AdMediator_23" Id="AdMediator-Id-23" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_24" Id="AdMediator-Id-24" HorizontalAlignment="Center" Height="90" Grid.Row="3" VerticalAlignment="Bottom" Width="728"/>-->
-                                <TextBlock FontSize="30"
+                        <TextBlock FontSize="30"
                                        Margin="0,-10,0,0"
                                        HorizontalAlignment="Center"
                                        Style="{StaticResource TitleTextBlockStyle}"
                                        Text="Synergy">
-                                </TextBlock>
+                        </TextBlock>
 
-                            <Grid Grid.Row="1">
+                        <Grid Grid.Row="1">
                                 <ProgressRing VerticalAlignment="Center"
                                           HorizontalAlignment="Center"
                                           Height="150"
@@ -615,10 +633,6 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-
-                        <!--<Ad:AdMediatorControl x:Name="AdMediator_25" Id="AdMediator-Id-25" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_26" Id="AdMediator-Id-26" HorizontalAlignment="Center" Height="90" Grid.Row="3" VerticalAlignment="Bottom" Width="728"/>-->
-
                         <TextBlock FontSize="30"
                                        Margin="0,-10,0,0"
                                        Style="{StaticResource TitleTextBlockStyle}"
@@ -669,9 +683,6 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
-
-                        <!--<Ad:AdMediatorControl x:Name="AdMediator_27" Id="AdMediator-Id-27" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_28" Id="AdMediator-Id-28" HorizontalAlignment="Center" Height="90" Grid.Row="3" VerticalAlignment="Bottom" Width="728"/>-->
 
                         <TextBlock FontSize="30"
                                        Margin="0,-10,0,0"
@@ -728,12 +739,7 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        
-
-
-                        <!--<Ad:AdMediatorControl x:Name="AdMediator_29" Id="AdMediator-Id-29" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_30" Id="AdMediator-Id-30" HorizontalAlignment="Center" Height="90" Grid.Row="6" VerticalAlignment="Bottom" Width="728"/>-->
-                        
+                       
                         <TextBlock x:Name="Feedback"
                                    FontSize="30"
                                    Margin="0,-10,0,0"
@@ -772,7 +778,8 @@
                                  Text="Your name"
                                  TextAlignment="Center"
                                  GotFocus="Name_Focus"
-                                 LostFocus="Name_Written"></TextBox>
+                                 LostFocus="Name_Written"
+                                 Loaded="NameBox_Loaded"></TextBox>
 
                         <TextBox HorizontalAlignment="Stretch"
                                  VerticalAlignment="Stretch"
@@ -793,73 +800,52 @@
 
             <HubSection x:Name="SubmitCounterSection" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" >
                 <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                            </Grid.RowDefinitions>
 
-                        <!--<UI:AdControl HorizontalAlignment="Center"
-                                      ApplicationId="7b07e28d-b92c-46de-9087-42937a079714"
-                                      VerticalAlignment="Top"
-                                      Width="480"
-                                      Height="80"
-                                      Loaded="Ad_Loaded"
-                                      AutoRefreshIntervalInSeconds="60"
-                                      AdUnitId="234907" />
-                            <UI:AdControl HorizontalAlignment="Center"
-                                      ApplicationId="7b07e28d-b92c-46de-9087-42937a079714"
-                                      VerticalAlignment="Top"
-                                      Width="480"
-                                      Height="80"
-                                      Loaded="Ad_Loaded"
-                                      Grid.Row="6"
-                                      AutoRefreshIntervalInSeconds="60"
-                                      AdUnitId="234908" />-->
-
-                        <!--<Ad:AdMediatorControl x:Name="AdMediator_31" Id="AdMediator-Id-31" HorizontalAlignment="Center" Height="90" VerticalAlignment="Top" Width="728"/>
-                        <Ad:AdMediatorControl x:Name="AdMediator_32" Id="AdMediator-Id-32" HorizontalAlignment="Center" Height="90" Grid.Row="6" VerticalAlignment="Bottom" Width="728"/>-->
-
-                        <TextBlock x:Name="Feedback"
+                            <TextBlock x:Name="Feedback"
                                    FontSize="30"
                                    Margin="0,-10,0,0"
                                    Style="{StaticResource TitleTextBlockStyle}"
                                    Text="Submit Champion?"
                                    VerticalAlignment="Top"
                                    TextAlignment="Center">
-                        </TextBlock>
+                            </TextBlock>
 
 
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
 
-                            <RadioButton GroupName="Champion"
+                                <RadioButton GroupName="Champion"
                                      MinWidth="50"
                                      HorizontalAlignment="Right"
                                      Checked="CounterChampion_Checked"
                                      Content="Counter"></RadioButton>
-                            <RadioButton GroupName="Champion"
+                                <RadioButton GroupName="Champion"
                                      Grid.Column="1"
                                      MinWidth="50"
                                      HorizontalAlignment="Center"
                                      Checked="EasyMatchupChampion_Checked"
                                      Content="Easy"></RadioButton>
-                            <RadioButton GroupName="Champion"
+                                <RadioButton GroupName="Champion"
                                      Grid.Column="2"    
                                      MinWidth="50"
                                      HorizontalAlignment="Left"
                                      Checked="SynergyChampion_Checked"
                                      Content="Synergy"></RadioButton>
-                        </Grid>
+                            </Grid>
 
-                        <TextBox Height="40"
+                            <TextBox Height="40"
                                  Name="FilterBox"
                                  Margin="30,0,30,0"
                                  Loaded="FilterBox_Loaded"
@@ -869,35 +855,35 @@
                                  TextAlignment="Center"
                                  Text="Type to search"
                                  TextChanged="Filter_TextChanged">
-                        </TextBox >
+                            </TextBox >
 
-                        <GridView ItemsSource="{Binding Filter}"
+                            <GridView ItemsSource="{Binding Filter}"
                                   IsItemClickEnabled="True"
                                   HorizontalAlignment="Center"
                                   Grid.Row="3"
                                   Margin="0,10,0,10"
                                   ItemClick="Counter_Click">
-                            <GridView.ItemTemplate>
-                                <DataTemplate>
-                                    <Grid>
-                                        <Image Source="{Binding ImagePath}"
+                                <GridView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Image Source="{Binding ImagePath}"
                                                Width="50"
                                                Height="50" />
-                                    </Grid>
-                                </DataTemplate>
-                            </GridView.ItemTemplate>
-                        </GridView>
+                                        </Grid>
+                                    </DataTemplate>
+                                </GridView.ItemTemplate>
+                            </GridView>
 
-                        <Button Grid.Row="4"
+                            <Button Grid.Row="4"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center"
                                 Tapped="Submit_Counter"
                                 Content="Submit">
-                        </Button>
-                    </Grid>
-
-                </DataTemplate>
-            </HubSection>
-        </Hub>
+                            </Button>
+                        </Grid>
+                    </DataTemplate>
+                </HubSection>
+            </Hub>
         </Grid>
+    </Grid>
 </Page>

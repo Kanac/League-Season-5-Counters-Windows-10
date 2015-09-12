@@ -11,7 +11,17 @@
       DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Mode=Self}}"
       d:DataContext="{Binding Source={d:DesignData Source=/DataModel/Data.json, Type=data:DataSource}}"
       mc:Ignorable="d">
-
+    
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <EntranceNavigationTransitionInfo/>
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+    
     <Page.BottomAppBar>
         <CommandBar>
             <AppBarButton Icon="FullScreen"
@@ -60,27 +70,12 @@
 									Style="{ThemeResource SubheaderTextBlockStyle}"
 									Foreground="White"
 									FontSize="28"
-									FontFamily="Segoe WP Black" />
+									FontFamily="Segoe WP Black" 
+                                    Tapped="Role_Tapped"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-
-                <Grid Grid.Column="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="1">
-                        <!--<TextBlock HorizontalAlignment="Center"
-                                   TextWrapping="Wrap"
-                                   TextAlignment="Center"
-                                   FontSize="19"
-                                   FontFamily="Segoe WP Black"
-                                   VerticalAlignment="Center"
-                                   Foreground="#FFF3FD29"> Add your own counters, easy matchups, and synergy picks now!</TextBlock>-->
-                    </Grid>
-                </Grid>
             </Grid>
         </Grid>
 
@@ -104,7 +99,7 @@
         </Grid>
 
         <Grid Grid.Row="2" Margin="0,60,0,0" x:Name="AdGrid">
-            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+            <!--<UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
@@ -236,16 +231,37 @@
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="242870" />
+                          AdUnitId="242870" />-->
+            <Universal:AdMediatorControl x:Name="AdMediatorM2" Id="UAdMediatorIdM2" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM3" Id="UAdMediatorIdM3" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM4" Id="UAdMediatorIdM4" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM5" Id="UAdMediatorIdM5" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM6" Id="UAdMediatorIdM6" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM7" Id="UAdMediatorIdM7" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM8" Id="UAdMediatorIdM8" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM9" Id="UdMediatorIdM9" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM10" Id="UAdMediatorIdM10" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM11" Id="UAdMediatorIdM11" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM12" Id="UAdMediatorIdM12" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM13" Id="UAdMediatorIdM13" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM14" Id="UAdMediatorIdM14" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM15" Id="UAdMediatorIdM15" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM16" Id="UAdMediatorIdM16" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM17" Id="UAdMediatorIdM17" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM18" Id="UAdMediatorIdM18" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM19" Id="UAdMediatorIdM19" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorM20" Id="UAdMediatorIdM20" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+
         </Grid>
         <Grid Grid.Row="2" Name="AdGrid2">
-            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
+            <!--<UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
                           Style="{StaticResource HorizontalAd}"
                           Loaded="Ad_Loaded"
                           AutoRefreshIntervalInSeconds="30"
                           IsAutoRefreshEnabled="True"
                           ErrorOccurred="Ad_Error"
-                          AdUnitId="242871" />
+                          AdUnitId="242871" />-->
+            <Universal:AdMediatorControl x:Name="AdMediatorM1" Id="UAdMediatorIdM1" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
         </Grid>
     </Grid>
 </Page>

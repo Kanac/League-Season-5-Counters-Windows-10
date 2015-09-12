@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:League_Season_5_Counters_Windows_10"
     xmlns:UI="using:Microsoft.Advertising.WinRT.UI"
+    xmlns:Universal="using:Microsoft.AdMediator.Universal" 
     RequestedTheme="Dark">
 
     <Application.Resources>
@@ -43,7 +44,7 @@
                 </ResourceDictionary>-->
 
             </ResourceDictionary.ThemeDictionaries>
-            
+
             <Style TargetType="UI:AdControl" x:Key="HorizontalAd">
                 <Setter Property="HorizontalAlignment" Value="Center"></Setter>
                 <Setter Property="VerticalAlignment" Value="Center"></Setter>
@@ -51,8 +52,21 @@
                 <Setter Property="Height" Value="90"></Setter>
             </Style>
 
-                
-                <DataTemplate x:Key="AlphaJumpListPickerItemTemplate">
+            <Style TargetType="Universal:AdMediatorControl" x:Key="HorizontalAdMediator">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="Width" Value="728"></Setter>
+                <Setter Property="Height" Value="90"></Setter>
+            </Style>
+            
+            <Style TargetType="Universal:AdMediatorControl" x:Key="VerticalAdMediator">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                <Setter Property="Width" Value="300"></Setter>
+                <Setter Property="Height" Value="600"></Setter>
+            </Style>
+
+            <DataTemplate x:Key="AlphaJumpListPickerItemTemplate">
                 <Border Background="{Binding Converter={StaticResource JumpListItemBackgroundConverter}}"
                 BorderBrush="{Binding Converter={StaticResource JumpListItemForegroundConverter}}"
                 BorderThickness="{ThemeResource JumpListItemBorderThickness}"

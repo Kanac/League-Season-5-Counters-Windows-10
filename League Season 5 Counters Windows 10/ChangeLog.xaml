@@ -20,19 +20,14 @@
     </Page.Resources>
 
 
-    <Grid Loaded="GridAd_Loaded">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="90"></RowDefinition>
-        </Grid.RowDefinitions>
+    <Grid Loaded="GridAd_Loaded" KeyDown="Key_Down">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="230"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="1">
-            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a"
-                          Style="{StaticResource HorizontalAd}"
-                          Loaded="Ad_Loaded"
-                          AutoRefreshIntervalInSeconds="30"
-                          IsAutoRefreshEnabled="True"
-                          AdUnitId="239019" />
+        <Grid Grid.Column="1">
+            <Universal:AdMediatorControl x:Name="AdMediatorCh1" Id="UAdMediatorIdCh1" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
         </Grid>
         
         <Grid x:Name="LayoutRoot">
@@ -60,6 +55,16 @@
               Margin="19,9.5,19,0">
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
+                        <TextBlock FontSize="25">
+						<Run Text="Sept 11 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Significantly increased responsiveness again - should be great now!"></Run>
+                        <LineBreak></LineBreak>
+                        <Run Text="-Added in features to easily detect button presses by providing feedback"></Run>
+                        <LineBreak></LineBreak>
+                        <Run Text="-Added in backspace button to go back a frame"></Run>
+                        </TextBlock>
                         <TextBlock FontSize="25">
 						<Run Text="Sept 8 2015" />
                         </TextBlock>

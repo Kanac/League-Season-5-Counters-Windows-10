@@ -1,6 +1,7 @@
 ﻿using League_of_Legends_Counterpicks.Advertisement;
 using League_of_Legends_Counterpicks.Common;
 using League_of_Legends_Counterpicks.Data;
+using Microsoft.AdMediator.Universal;
 using Microsoft.Advertising.WinRT.UI;
 using QKit;
 using QKit.JumpList;
@@ -122,7 +123,7 @@ namespace League_Season_5_Counters_Windows_10
         /// <param name="e">Event data that describes the item clicked.</param>
         /// 
 
-        private async void ItemView_ItemClick(object sender, ItemClickEventArgs e)
+        private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
             // Ask user to purchase ad removal before proceeding
             checkAdRemoval();
@@ -130,8 +131,12 @@ namespace League_Season_5_Counters_Windows_10
             savedRoleId = MainHub.SectionsInView[0].Name;
 
             var championId = ((Champion)e.ClickedItem).UniqueId;
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => this.Frame.Navigate(typeof(ChampionPage), championId));
+            Frame.Navigate(typeof(ChampionPage), championId);
 
+        }
+        private void ChampImage_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            (sender as Image).Opacity = 0.5;
         }
 
         #region NavigationHelper registration
@@ -194,15 +199,19 @@ namespace League_Season_5_Counters_Windows_10
         private void TextBox_Loaded(object sender, RoutedEventArgs e)
         {
             textBox = sender as TextBox;
-            //textBox.Focus(FocusState.Programmatic);
         }
 
         private void Key_Down(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             if (textBox != null && textBox.FocusState == FocusState.Unfocused)
             {
-                textBox.Focus(FocusState.Programmatic);
-                MainHub.ScrollToSection(Filter);
+                if (e.Key == VirtualKey.Back && Frame.CanGoBack)
+                    Frame.GoBack();
+
+                else {
+                    textBox.Focus(FocusState.Programmatic);
+                    MainHub.ScrollToSection(Filter);
+                }
             }
         }
         private void Search_Click(object sender, RoutedEventArgs e)
@@ -213,7 +222,7 @@ namespace League_Season_5_Counters_Windows_10
 
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var ad = sender as AdControl;
+            var ad = sender as AdMediatorControl;
             
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
@@ -227,7 +236,7 @@ namespace League_Season_5_Counters_Windows_10
             }
         }
 
-        private void Ad_Error(object sender, AdErrorEventArgs e)
+        private void AdMediatorError(object sender, Microsoft.AdMediator.Core.Events.AdMediatorFailedEventArgs e)
         {
 
         }
@@ -237,12 +246,11 @@ namespace League_Season_5_Counters_Windows_10
             var grid = sender as Grid;
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
-                var rowDefinitions = grid.RowDefinitions;
-                foreach (var r in rowDefinitions)
+                foreach (var c in grid.ColumnDefinitions)
                 {
-                    if (r.Height.Value == 90)
+                    if (c.Width.Value == 230)
                     {
-                        r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
+                        c.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
                     }
                 }
             }
@@ -279,8 +287,7 @@ namespace League_Season_5_Counters_Windows_10
                 }
             }
         }
-
-       
+      
         private async void reviewApp()
         {
             if (!localSettings.Values.ContainsKey("Views"))

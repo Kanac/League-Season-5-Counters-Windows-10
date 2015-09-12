@@ -2,32 +2,16 @@
 using League_of_Legends_Counterpicks.Data;
 using League_of_Legends_Counterpicks.DataModel;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Windows.Input;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.Graphics.Display;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
 using Windows.System;
-using Windows.ApplicationModel.Email;
-using System.Threading;
-using Windows.Storage;
-using Windows.ApplicationModel.Store;
-using Windows.ApplicationModel;
-using Microsoft.Advertising.WinRT.UI;
+using Microsoft.AdMediator.Universal;
 
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
@@ -43,6 +27,7 @@ namespace League_Season_5_Counters_Windows_10
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
         private Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         private Role champions = DataSource.GetAllChampions();
+        private TextBox nameBox;
         private TextBox feedbackBox;
         private String name = String.Empty;
         private bool emptyComments, emptyPlayingComments, emptySynergyChampions;
@@ -224,11 +209,19 @@ namespace League_Season_5_Counters_Windows_10
             ((Frame)Parent).CacheSize = cacheSize;
         }
 
+        private void Key_Down(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Back && Frame.CanGoBack)
+                if ((nameBox != null && nameBox.FocusState == FocusState.Unfocused) && (filterBox != null && filterBox.FocusState == FocusState.Unfocused) &&
+                    (feedbackBox != null && feedbackBox.FocusState == FocusState.Unfocused))
+                    Frame.GoBack();
+        }
 
         // Normal method of handling counter tapped
         private void Champ_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Image counterImage = (sender as Image);
+            counterImage.Opacity = 0.5;
             var counter = counterImage.DataContext as Counter;
             Frame.Navigate(typeof(ChampionPage), counter.Name);
 
@@ -238,6 +231,7 @@ namespace League_Season_5_Counters_Windows_10
         private void EasyMatchup_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Image easyMatchupImage = (sender as Image);
+            easyMatchupImage.Opacity = 0.5;
             var easyMatchup = easyMatchupImage.DataContext as Counter;
             Frame.Navigate(typeof(ChampionPage), easyMatchup.ChampionFeedbackName);
         }
@@ -246,6 +240,7 @@ namespace League_Season_5_Counters_Windows_10
         private void SynergyChamp_Tapped(object sender, TappedRoutedEventArgs e)
         {
             Image synergyImage = (sender as Image);
+            synergyImage.Opacity = 0.5;
             var synergy = synergyImage.DataContext as Counter;
             string championName;
             // Choose the synergy name that is not the current champion's name for this page (We want to navigate on the other end of the relationship)
@@ -754,9 +749,14 @@ namespace League_Season_5_Counters_Windows_10
             feedbackBox = sender as TextBox;
         }
 
+        private void NameBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            nameBox = sender as TextBox;
+        }
+
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var ad = sender as AdControl;
+            var ad = sender as AdMediatorControl;
 
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
@@ -767,10 +767,9 @@ namespace League_Season_5_Counters_Windows_10
                 ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
         }
-
-        private void Ad_Error(object sender, AdErrorEventArgs e)
+        private void AdMediatorError(object sender, Microsoft.AdMediator.Core.Events.AdMediatorFailedEventArgs e)
         {
-            var ad = sender as AdControl;
+
         }
 
         private void GridAd_Loaded(object sender, RoutedEventArgs e)
@@ -778,21 +777,14 @@ namespace League_Season_5_Counters_Windows_10
             var grid = sender as Grid;
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
-                var rowDefinitions = grid.RowDefinitions;
-                foreach (var r in rowDefinitions)
+                foreach (var c in grid.ColumnDefinitions)
                 {
-                    if (r.Height.Value == 90)
+                    if (c.Width.Value == 230)
                     {
-                        r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
+                        c.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
                     }
                 }
             }
         }
-
-
-
-
     }
-
-
 }
