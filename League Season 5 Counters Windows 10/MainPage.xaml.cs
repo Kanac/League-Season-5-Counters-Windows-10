@@ -1,6 +1,7 @@
 ﻿using League_of_Legends_Counterpicks.Common;
 using League_of_Legends_Counterpicks.Data;
 using System;
+using System.Linq;
 using Windows.Graphics.Display;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -11,13 +12,12 @@ using Windows.ApplicationModel;
 using League_of_Legends_Counterpicks.Advertisement;
 using Windows.UI.Xaml.Input;
 using System.Collections.ObjectModel;
-using Microsoft.Advertising.WinRT.UI;
-using Windows.UI.Core;
 using Windows.UI.Notifications;
 using Windows.Data.Xml.Dom;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Microsoft.AdMediator.Universal;
+using System.Threading.Tasks;
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
@@ -30,6 +30,7 @@ namespace League_Season_5_Counters_Windows_10
     {
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
+        private Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
         public MainPage()
         {
@@ -85,8 +86,17 @@ namespace League_Season_5_Counters_Windows_10
             // Toast background task setup 
             if (e.PageState == null || (bool)e.PageState["firstLoad"] == true)
             {
-                setupFeatureToast(); // Flashes a new feature message 
-                setupToast();
+                // Only show imminent toasts up to 2 times that the app is launched 
+                if (localSettings.Values["toastViews"] == null)
+                    localSettings.Values["toastViews"] = 0;
+
+                if ((int)localSettings.Values["toastViews"] < 2)
+                {
+                    setupFeatureToast(); // Flashes a new feature message 
+                    setupReuseToast(); // Creates a message indicating user to reuse app after 30 minutes of opening
+                    localSettings.Values["toastViews"] = 1 + (int)localSettings.Values["toastViews"];
+                }
+                await setupToast();  // Background toast in 72 hours talking about new champion data
             }
 
         }
@@ -118,8 +128,35 @@ namespace League_Season_5_Counters_Windows_10
             ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
+        private void setupReuseToast()
+        {
+            // Check if a reuse toast is already scheduled
+            if (ToastNotificationManager.CreateToastNotifier().GetScheduledToastNotifications().Select(x => x.Id = "Reuse").Count() > 0)
+            {
+                return;
+            }
 
-        private async void setupToast()
+            ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
+            XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
+
+            XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
+            toastTextElements[0].AppendChild(toastXml.CreateTextNode("League of Legends"));
+            toastTextElements[1].AppendChild(toastXml.CreateTextNode("In your ranked pick phase, remember to use this app for the advantage you need!"));
+
+            IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
+            XmlElement audio = toastXml.CreateElement("audio");
+            audio.SetAttribute("src", "ms-appx:///Assets/yourturn.mp3");
+            toastNode.AppendChild(audio);
+
+            ToastNotification toast = new ToastNotification(toastXml);
+            DateTime dueTime = DateTime.Now.AddMinutes(30);
+            ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml, dueTime);
+            scheduledToast.Id = "Reuse";
+            ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
+        }
+
+
+        private async Task setupToast()
         {
             CheckAppVersion();
             var toastTaskName = "ToastBackgroundTask";

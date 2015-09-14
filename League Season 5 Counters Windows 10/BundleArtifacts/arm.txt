@@ -1,5 +1,5 @@
-MainPackage=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\ARM\Release\League Season 5 Counters Windows 10_2020.2.22.0_ARM.appx
-SymbolPackage=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\AppPackages\League Season 5 Counters Windows 10_2020.2.22.0\League Season 5 Counters Windows 10_2020.2.22.0_ARM.appxsym
-ResourcePack=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\ARM\Release\League Season 5 Counters Windows 10_2020.2.22.0_scale-150.appx
-ResourcePack=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\ARM\Release\League Season 5 Counters Windows 10_2020.2.22.0_scale-180.appx
-ResourcePack=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\ARM\Release\League Season 5 Counters Windows 10_2020.2.22.0_scale-240.appx
+MainPackage=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\ARM\Release\League Season 5 Counters Windows 10_2020.2.23.0_ARM.appx
+SymbolPackage=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\AppPackages\League Season 5 Counters Windows 10_2020.2.23.0\League Season 5 Counters Windows 10_2020.2.23.0_ARM.appxsym
+ResourcePack=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\ARM\Release\League Season 5 Counters Windows 10_2020.2.23.0_scale-150.appx
+ResourcePack=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\ARM\Release\League Season 5 Counters Windows 10_2020.2.23.0_scale-180.appx
+ResourcePack=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\ARM\Release\League Season 5 Counters Windows 10_2020.2.23.0_scale-240.appx

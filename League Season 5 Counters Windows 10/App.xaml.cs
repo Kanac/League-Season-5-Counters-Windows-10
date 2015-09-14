@@ -41,9 +41,7 @@ namespace League_Season_5_Counters_Windows_10
 
         public App()
         {
-            Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
-                Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
-                Microsoft.ApplicationInsights.WindowsCollectors.Session);
+            Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync();
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
@@ -53,29 +51,6 @@ namespace League_Season_5_Counters_Windows_10
 #else
             licenseInformation = CurrentApp.LicenseInformation;
 #endif
-            // Setup toast for 1 hour after app initializing 
-            //setupToastOnLaunch();
-        }
-
-
-        private void setupToastOnLaunch() {
-            ToastTemplateType toastTemplate = ToastTemplateType.ToastImageAndText02;
-            Windows.Data.Xml.Dom.XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-
-            Windows.Data.Xml.Dom.XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
-            toastTextElements[0].AppendChild(toastXml.CreateTextNode("League of Legends"));
-            toastTextElements[1].AppendChild(toastXml.CreateTextNode("Use this app to win!"));
-
-            IXmlNode toastNode = toastXml.SelectSingleNode("/toast");
-            Windows.Data.Xml.Dom.XmlElement audio = toastXml.CreateElement("audio");
-            audio.SetAttribute("src", "ms-appx:///Assets/yourturn.mp3");
-            toastNode.AppendChild(audio);
-
-            ToastNotification toast = new ToastNotification(toastXml);
-
-            DateTime dueTime = DateTime.Now.AddHours(1);
-            ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml, dueTime);
-            ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
         }
 
         /// <summary>

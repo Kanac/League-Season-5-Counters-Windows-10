@@ -56,6 +56,12 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
+						<Run Text="Sept 14 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-More bug and crash fixes"></Run>
+                        </TextBlock>
+                        <TextBlock FontSize="25">
 						<Run Text="Sept 11 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
