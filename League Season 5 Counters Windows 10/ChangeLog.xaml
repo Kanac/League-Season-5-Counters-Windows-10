@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="1">
-            <Universal:AdMediatorControl x:Name="AdMediatorCh1" Id="UAdMediatorIdCh1" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <Universal:AdMediatorControl x:Name="AdMediatorCh1" Id="AdMediatorId1UCh1" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
         </Grid>
         
         <Grid x:Name="LayoutRoot">

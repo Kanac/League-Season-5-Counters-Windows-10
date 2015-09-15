@@ -149,7 +149,7 @@ namespace League_Season_5_Counters_Windows_10
             toastNode.AppendChild(audio);
 
             ToastNotification toast = new ToastNotification(toastXml);
-            DateTime dueTime = DateTime.Now.AddMinutes(30);
+            DateTime dueTime = DateTime.Now.AddMinutes(50);
             ScheduledToastNotification scheduledToast = new ScheduledToastNotification(toastXml, dueTime);
             scheduledToast.Id = "Reuse";
             ToastNotificationManager.CreateToastNotifier().AddToSchedule(scheduledToast);
