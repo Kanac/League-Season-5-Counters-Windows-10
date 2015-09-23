@@ -1,5 +1,6 @@
 ﻿using League_of_Legends_Counterpicks.Common;
 using Microsoft.AdMediator.Universal;
+using Microsoft.Advertising.WinRT.UI;
 using System;
 using Windows.System;
 using Windows.UI.Xaml;
@@ -112,7 +113,7 @@ namespace League_Season_5_Counters_Windows_10
 
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var ad = sender as AdMediatorControl;
+            var ad = sender as AdControl;
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
                 // Hide the app for the purchaser
@@ -140,7 +141,7 @@ namespace League_Season_5_Counters_Windows_10
             }
         }
 
-        private void AdMediatorError(object sender, Microsoft.AdMediator.Core.Events.AdMediatorFailedEventArgs e)
+        private void Ad_Error(object sender, Microsoft.Advertising.WinRT.UI.AdErrorEventArgs e)
         {
 
         }

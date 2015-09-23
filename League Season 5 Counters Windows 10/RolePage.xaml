@@ -112,29 +112,29 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
 
-        <Grid Grid.Column="1" Margin="200,0,0,0" x:Name="AdGrid">
-            <Universal:AdMediatorControl x:Name="AdMediatorR2" Id="AdMediatorId1UR2" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR3" Id="AdMediatorId1UR3" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR4" Id="AdMediatorId1UR4" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR5" Id="AdMediatorId1UR5" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR6" Id="AdMediatorId1UR6" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR7" Id="AdMediatorId1UR7" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR8" Id="AdMediatorId1UR8" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR9" Id="AdAMediatorId1UR9" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR10" Id="AdMediatorId1UR10" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR11" Id="AdMediatorId1UR11" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR12" Id="AdMediatorId1UR12" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR13" Id="AdMediatorId1UR13" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR14" Id="AdMediatorId1UR14" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR15" Id="AdMediatorId1UR15" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR16" Id="AdMediatorId1UR16" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR17" Id="AdMediatorId1UR17" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR18" Id="AdMediatorId1UR18" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR19" Id="AdMediatorId1UR19" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorR20" Id="AdMediatorId1UR20" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+        <Grid Grid.Column="1" Margin="210,0,0,0" x:Name="AdGrid">
+            <UI:AdControl AdUnitId="244624" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30" />
+            <UI:AdControl AdUnitId="244625" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244626" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244627" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244628" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244629" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244630" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244631" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244632" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244633" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244634" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244635" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244636" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244637" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244638" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244639" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244640" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244641" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="244642" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
         </Grid>
         <Grid Grid.Column="1" Name="AdGrid2">
-            <Universal:AdMediatorControl x:Name="AdMediatorR1" Id="AdMediatorId1UR1" Style="{StaticResource VerticalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediatorError"/>
+            <UI:AdControl AdUnitId="244623" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
         </Grid>
 
 

@@ -18,6 +18,7 @@ using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Microsoft.AdMediator.Universal;
 using System.Threading.Tasks;
+using Microsoft.Advertising.WinRT.UI;
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
@@ -304,7 +305,7 @@ namespace League_Season_5_Counters_Windows_10
         
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var ad = sender as AdMediatorControl;
+            var ad = sender as AdControl;
 
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
@@ -339,7 +340,7 @@ namespace League_Season_5_Counters_Windows_10
             AdRemover.Purchase();
         }
 
-        private void AdMediatorError(object sender, Microsoft.AdMediator.Core.Events.AdMediatorFailedEventArgs e)
+        private void Ad_Error(object sender, AdErrorEventArgs e)
         {
 
         }

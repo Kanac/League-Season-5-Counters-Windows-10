@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
 using Windows.System;
 using Microsoft.AdMediator.Universal;
+using Microsoft.Advertising.WinRT.UI;
 
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
@@ -723,6 +724,7 @@ namespace League_Season_5_Counters_Windows_10
                 easyMatchupLoadingRing.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
         }
 
+      
         private void SynergyRing_Loaded(object sender, RoutedEventArgs e)
         {
             synergyLoadingRing = sender as ProgressRing;
@@ -756,7 +758,7 @@ namespace League_Season_5_Counters_Windows_10
 
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var ad = sender as AdMediatorControl;
+            var ad = sender as AdControl;
 
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
@@ -767,7 +769,7 @@ namespace League_Season_5_Counters_Windows_10
                 ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
             }
         }
-        private void AdMediatorError(object sender, Microsoft.AdMediator.Core.Events.AdMediatorFailedEventArgs e)
+        private void Ad_Error(object sender, AdErrorEventArgs e)
         {
 
         }
