@@ -23,11 +23,11 @@
     <Grid Loaded="GridAd_Loaded" KeyDown="Key_Down">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="230"></ColumnDefinition>
+            <ColumnDefinition Width="250"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="1">
-            <UI:AdControl AdUnitId="247223" ApplicationId="163f146c-24fd-4fb4-ad6c-73fbd43d4017" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="242841" ApplicationId="bf747944-c75c-4f2a-a027-7c159b32261d" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
         </Grid>
         
         <Grid x:Name="LayoutRoot">

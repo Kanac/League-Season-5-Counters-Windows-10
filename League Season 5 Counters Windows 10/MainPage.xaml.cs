@@ -327,7 +327,7 @@ namespace League_Season_5_Counters_Windows_10
                 var rowDefinitions = grid.RowDefinitions;
                 foreach (var r in rowDefinitions)
                 {
-                    if (r.Height.Value == 250)
+                    if (r.Height.Value == 50)
                     {
                         r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
                     }
