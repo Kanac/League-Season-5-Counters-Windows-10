@@ -82,11 +82,18 @@
       {
         "UniqueId": "Kalista",
         "ImagePath": "Assets/Kalista_Square_0.png",
-        "Counters":[  "Caitlyn",
-                      "Tristana",
-                      "Draven",
-                      "Quinn",
-                      "Vayne"]
+        "Counters": [
+          "Caitlyn",
+          "Tristana",
+          "Draven",
+          "Quinn",
+          "Vayne"
+        ]
+      },
+      {
+        "UniqueId": "Kindred",
+        "ImagePath": "Assets/Kindred_Square_0.png",
+        "Counters":[  ]
       },
       {
         "UniqueId": "Kog'Maw",

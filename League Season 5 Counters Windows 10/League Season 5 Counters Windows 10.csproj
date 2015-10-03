@@ -104,6 +104,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Kindred_Square_0.png" />
     <Content Include="Assets\Sona-50.jpg" />
     <Content Include="DataModel\Data.json" />
     <Content Include="AdMediator.config" />

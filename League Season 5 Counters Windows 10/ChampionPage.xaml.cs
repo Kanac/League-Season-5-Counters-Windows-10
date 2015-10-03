@@ -502,8 +502,11 @@ namespace League_Season_5_Counters_Windows_10
         private void Counter_Click(object sender, ItemClickEventArgs e)
         {
             Champion counter = e.ClickedItem as Champion;
-            DefaultViewModel["Filter"] = DataSource.FilterChampions(filterBox.Text).Champions;
+            filterBox.TextChanged -= Filter_TextChanged;
             filterBox.Text = counter.UniqueId;
+            var OneChampionFilter = new ObservableCollection<Champion>() { DataSource.GetChampion(counter.UniqueId)};
+            DefaultViewModel["Filter"] = OneChampionFilter;
+            filterBox.TextChanged += Filter_TextChanged;
         }
 
         private void FilterBox_Loaded(object sender, RoutedEventArgs e)

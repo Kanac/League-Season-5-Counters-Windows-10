@@ -27,7 +27,7 @@
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="1">
-            <UI:AdControl AdUnitId="242841" ApplicationId="bf747944-c75c-4f2a-a027-7c159b32261d" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="242841" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource VerticalAd}" Loaded="Ad_Loaded" ErrorOccurred="Ad_Error" AutoRefreshIntervalInSeconds="30"/>
         </Grid>
         
         <Grid x:Name="LayoutRoot">
@@ -55,6 +55,16 @@
               Margin="19,9.5,19,0">
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
+                        <TextBlock FontSize="25">
+						<Run Text="Oct 3 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Added Kindred data!"></Run>
+                        <LineBreak></LineBreak>
+                        <Run Text="-Seeded in significant amounts of new data for the latest champions!"> </Run>
+                        <LineBreak></LineBreak>
+                        <Run Text="-Fixed some champion filtering issues"> </Run>
+                        </TextBlock>
                         <TextBlock FontSize="25">
 						<Run Text="Sept 25 2015" />
                         </TextBlock>
