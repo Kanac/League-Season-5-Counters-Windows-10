@@ -207,8 +207,9 @@ namespace League_Season_5_Counters_Windows_10
             {
                 if (e.Key == VirtualKey.Back && Frame.CanGoBack)
                     Frame.GoBack();
-
-                else {
+            
+                else
+                {
                     textBox.Focus(FocusState.Programmatic);
                     MainHub.ScrollToSection(Filter);
                 }
@@ -217,7 +218,10 @@ namespace League_Season_5_Counters_Windows_10
         private void Search_Click(object sender, RoutedEventArgs e)
         {
             MainHub.ScrollToSection(Filter);
-            textBox.Focus(FocusState.Programmatic);
+            if (textBox != null)
+            {
+                textBox.Focus(FocusState.Programmatic);
+            }
         }
 
         private void Ad_Loaded(object sender, RoutedEventArgs e)

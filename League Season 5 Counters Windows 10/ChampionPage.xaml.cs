@@ -562,12 +562,13 @@ namespace League_Season_5_Counters_Windows_10
             }
 
             // Submit the comment and a self-user rating of 1
-            var comment = await commentViewModel.SubmitCommentAsync(feedbackBox.Text, name, (PageEnum.CommentPage)pageType);
+            var text = feedbackBox.Text;
+            feedbackBox.Text = String.Empty;
+            var comment = await commentViewModel.SubmitCommentAsync(text, name, (PageEnum.CommentPage)pageType);
             await commentViewModel.SubmitUserRating(comment, 1);   // This will then generate Upvote_Loaded to highlight the upvote image
 
             // Update the view
             commentViewModel.ChampionFeedback.SortComments();
-            feedbackBox.Text = String.Empty;
 
         }
 
