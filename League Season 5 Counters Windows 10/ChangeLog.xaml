@@ -56,6 +56,15 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
+						<Run Text="Oct 8 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Fixed wonky navigation issues"></Run>
+                        <LineBreak></LineBreak>
+                        <Run Text="-Changed imminent toast algorithm"> </Run>
+                        <LineBreak></LineBreak>
+                        </TextBlock>
+                        <TextBlock FontSize="25">
 						<Run Text="Oct 3 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">

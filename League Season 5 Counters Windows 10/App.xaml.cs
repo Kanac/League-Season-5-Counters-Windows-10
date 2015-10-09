@@ -36,6 +36,7 @@ namespace League_Season_5_Counters_Windows_10
             }
         };
 
+
         // For in app purchases
         public static LicenseInformation licenseInformation;
 
@@ -44,6 +45,9 @@ namespace League_Season_5_Counters_Windows_10
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync();
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            // Set main views back to 0 to reset interstitial ad count
+            Windows.Storage.ApplicationData.Current.LocalSettings.Values["MainViews"] = 0;
 
             //Only for IAP simulation purposes
 #if DEBUG

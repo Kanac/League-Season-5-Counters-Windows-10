@@ -762,7 +762,7 @@ namespace League_Season_5_Counters_Windows_10
 
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var ad = sender as AdControl;
+            var ad = sender as AdMediatorControl;
 
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
@@ -785,7 +785,7 @@ namespace League_Season_5_Counters_Windows_10
             {
                 foreach (var c in grid.ColumnDefinitions)
                 {
-                    if (c.Width.Value == 250)
+                    if (c.Width.Value == 300)
                     {
                         c.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
                     }

@@ -32,6 +32,7 @@ namespace League_Season_5_Counters_Windows_10
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
         private Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        private InterstitialAd MyVideoAd = new InterstitialAd();
 
         public MainPage()
         {
@@ -44,6 +45,23 @@ namespace League_Season_5_Counters_Windows_10
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
+            MyVideoAd.AdReady += MyVideoAd_AdReady;
+        }
+
+        private void MyVideoAd_AdReady(object sender, object e)
+        {
+            if (!App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+            {
+                if (localSettings.Values["MainViews"] == null || ((int)(localSettings.Values["MainViews"])) % 2 == 0)
+                {
+                    MyVideoAd.Show();
+                }
+
+                localSettings.Values["MainViews"] = ((int)(localSettings.Values["MainViews"])) + 1;
+            }
+
         }
 
 
@@ -308,7 +326,7 @@ namespace League_Season_5_Counters_Windows_10
         
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var ad = sender as AdControl;
+            var ad = sender as AdMediatorControl;
 
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
@@ -330,7 +348,7 @@ namespace League_Season_5_Counters_Windows_10
                 var rowDefinitions = grid.RowDefinitions;
                 foreach (var r in rowDefinitions)
                 {
-                    if (r.Height.Value == 50)
+                    if (r.Height.Value == 250)
                     {
                         r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
                     }
@@ -343,9 +361,9 @@ namespace League_Season_5_Counters_Windows_10
             AdRemover.Purchase();
         }
 
-        private void Ad_Error(object sender, AdErrorEventArgs e)
+        private void AdMediator_Error(object sender, Microsoft.AdMediator.Core.Events.AdMediatorFailedEventArgs e)
         {
 
-        }
+         }
     }
 }
