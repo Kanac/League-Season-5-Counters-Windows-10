@@ -98,25 +98,24 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="2" Margin="0,210,0,0" x:Name="AdGrid">
-            <Universal:AdMediatorControl x:Name="AdMediatorM1" Id="AdMediator-Id-WM1" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM2" Id="AdMediator-Id-WM2" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM3" Id="AdMediator-Id-WM3" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM4" Id="AdMediator-Id-WM4" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM5" Id="AdMediator-Id-WM5" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM6" Id="AdMediator-Id-WM6" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM7" Id="AdMediator-Id-WM7" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM8" Id="AdMediator-Id-WM8" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM9" Id="AdMediator-Id-WM9" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM10" Id="AdMediator-Id-WM10" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM11" Id="AdMediator-Id-WM11" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM12" Id="AdMediator-Id-WM12" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM13" Id="AdMediator-Id-WM13" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM14" Id="AdMediator-Id-WM14" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
-            <Universal:AdMediatorControl x:Name="AdMediatorM15" Id="AdMediator-Id-WM15" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded"/>
+        <Grid Grid.Row="2" Margin="0,240,0,0" x:Name="AdGrid">
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246555" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246556" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246557" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246558" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246559" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246560" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246561" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246562" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246563" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246564" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246565" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246566" />
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246567" />
+
         </Grid>
         <Grid Grid.Row="2" Name="AdGrid2">
-            <Universal:AdMediatorControl x:Name="AdMediatorM16" Id="AdMediator-Id-WM16" Style="{StaticResource HorizontalAdMediator}" Loaded="Ad_Loaded" AdMediatorError="AdMediator_Error"/>
+            <UI:AdControl ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource HorizontalAd}" Loaded="Ad_Loaded" AutoRefreshIntervalInSeconds="30" AdUnitId="246568" />
         </Grid>
     </Grid>
 </Page>

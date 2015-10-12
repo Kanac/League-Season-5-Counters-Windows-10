@@ -326,7 +326,7 @@ namespace League_Season_5_Counters_Windows_10
         
         private void Ad_Loaded(object sender, RoutedEventArgs e)
         {
-            var ad = sender as AdMediatorControl;
+            var ad = sender as AdControl;
 
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
