@@ -13,6 +13,9 @@ using Windows.UI.Popups;
 using Windows.System;
 using Microsoft.AdMediator.Universal;
 using Microsoft.Advertising.WinRT.UI;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
 
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
@@ -37,8 +40,10 @@ namespace League_Season_5_Counters_Windows_10
         private PageEnum.ClientChampionPage? championPageType;
         private TextBlock counterMessage, playingMessage, synergyMessage;
         private TextBox filterBox;
+        private TextBlock selectedTextBlock;
         private ProgressRing counterLoadingRing, easyMatchupLoadingRing, synergyLoadingRing, counterCommentsLoadingRing, playingCommentsLoadingRing;
         private CommentDataSource commentViewModel = new CommentDataSource(App.MobileService);
+
 
 
         public ChampionPage()
@@ -218,6 +223,59 @@ namespace League_Season_5_Counters_Windows_10
                     Frame.GoBack();
         }
 
+        private void Comment_Flyout(object sender, TappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
+            BottomAppBar.Visibility = Visibility.Collapsed;
+            selectedTextBlock = sender as TextBlock;
+        }
+
+        private async void Submit_CounterComment(object sender, TappedRoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            TextBox nameBox = button.FindName("CounterCommentNameBox") as TextBox;
+            TextBox commentBox = button.FindName("CounterCommentBox") as TextBox;
+            Counter counter = button.DataContext as Counter;
+
+            // Ensure all collections are loaded first
+            if (counter.CounterComments == null)
+            {
+                MessageDialog emptyBox = new MessageDialog("Wait for data to finish loading!");
+                await emptyBox.ShowAsync();
+                return;
+            }
+
+            // Ensure user inputs names
+            if (String.IsNullOrEmpty(nameBox.Text))
+            {
+                MessageDialog emptyBox = new MessageDialog("Enter your name first!");
+                await emptyBox.ShowAsync();
+                return;
+            }
+
+            // Ensure user inputs feedback
+            if (String.IsNullOrEmpty(commentBox.Text))
+            {
+                MessageDialog emptyBox = new MessageDialog("Write a message first!");
+                await emptyBox.ShowAsync();
+                return;
+            }
+
+            string commentText = commentBox.Text;
+            commentBox.Text = String.Empty;
+            (button.FindName("EmptyMessage") as TextBlock).Visibility = Visibility.Collapsed;
+
+            // Submit the comment and a self-user rating of 1
+            var comment = await commentViewModel.SubmitCounterCommentAsync(commentText, nameBox.Text, counter);
+            await commentViewModel.SubmitCounterCommentRating(comment, 1);
+
+            // Update the view
+            counter.SortCounterComments();
+            int count = counter.CounterComments.Count();
+            selectedTextBlock.Text = (count == 1) ? count + " comment" : count + " comments";
+            if (count > 0) selectedTextBlock.Foreground = new SolidColorBrush(Colors.Yellow);
+        }
+
         // Normal method of handling counter tapped
         private void Champ_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -371,6 +429,101 @@ namespace League_Season_5_Counters_Windows_10
             }
         }
 
+        private async void CounterCommentUpvote_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var upvote = (Image)sender;
+            var counterComment = upvote.DataContext as CounterComment;
+
+            //Find the exisiting counter rating, if any
+            var existingRating = counterComment.CounterCommentRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
+            //If there was a previous rating, change vote images respectively
+            if (existingRating != null && existingRating.Score != 0)
+            {
+                //Pressing upvote again? Unhighlight the button.
+                if (existingRating.Score == 1)
+                {
+                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvoteblank.png", UriKind.Absolute));
+                }
+
+                //Going from downvote to upvote? Change to highlighted upvote 
+                else if (existingRating.Score == -1)
+                {
+                    var downvote = ((Image)sender).FindName("DownvoteImage") as Image;
+                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvoteblank.png", UriKind.Absolute));
+                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvote.png", UriKind.Absolute));
+                }
+            }
+            //Otherwise, highlight the upvote button
+            else
+            {
+                upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvote.png", UriKind.Absolute));
+            }
+            await commentViewModel.SubmitCounterCommentRating(counterComment, 1);
+
+        }
+
+        private async void CounterCommentDownvote_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var downvote = (Image)sender;
+            var counterComment = downvote.DataContext as CounterComment;
+
+            var existingRating = counterComment.CounterCommentRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
+            if (existingRating != null && existingRating.Score != 0)
+            {
+                if (existingRating.Score == 1)
+                {
+                    var upvote = ((Image)sender).FindName("UpvoteImage") as Image;
+                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvote.png", UriKind.Absolute));
+                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvoteblank.png", UriKind.Absolute));
+                }
+
+                else if (existingRating.Score == -1)
+                {
+                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvoteblank.png", UriKind.Absolute));
+                }
+            }
+            else
+            {
+                downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvote.png", UriKind.Absolute));
+            }
+
+            await commentViewModel.SubmitCounterCommentRating(counterComment, -1);
+        }
+
+
+        // Using dataloaded instead for counter votes due to the fact that >5 counters causes the datacontext of the subsequent images to be null briefly
+        private void CounterCommentUpvote_DataLoaded(FrameworkElement sender, DataContextChangedEventArgs args)
+        {
+            Image upvote = sender as Image;
+            var counterComment = upvote.DataContext as CounterComment;
+            if (counterComment == null)
+                return;
+            var existingRating = counterComment.CounterCommentRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
+            if (existingRating != null)
+            {
+                if (existingRating.Score == 1)
+                {
+                    upvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/upvote.png", UriKind.Absolute));
+                }
+            }
+        }
+
+        private void CounterCommentDownvote_DataLoaded(FrameworkElement sender, DataContextChangedEventArgs args)
+        {
+            Image downvote = sender as Image;
+            var counterComment = downvote.DataContext as CounterComment;
+            if (counterComment == null)
+                return;
+            var existingRating = counterComment.CounterCommentRatings.Where(x => x.UniqueUser == commentViewModel.GetDeviceId()).FirstOrDefault();
+            if (existingRating != null)
+            {
+                if (existingRating.Score == -1)
+                {
+                    downvote.Source = new BitmapImage(new Uri("ms-appx:///Assets/downvote.png", UriKind.Absolute));
+                }
+            }
+        }
+
         private async void Submit_Counter(object sender, TappedRoutedEventArgs e)
         {
             var filter = ((DefaultViewModel["Filter"]) as ObservableCollection<Champion>);
@@ -458,7 +611,7 @@ namespace League_Season_5_Counters_Windows_10
             }
 
             // Finally submit the counter
-            var counter = await commentViewModel.SubmitCounter(filter.FirstOrDefault(), championPageType);
+            var counter = await commentViewModel.SubmitCounter(filter.FirstOrDefault().UniqueId, championPageType);
             await commentViewModel.SubmitCounterRating(counter, 1);
 
             //Sort the appropriate collection
@@ -728,7 +881,12 @@ namespace League_Season_5_Counters_Windows_10
                 easyMatchupLoadingRing.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
         }
 
-      
+        private void hh(object sender, TappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
+
+        }
+
         private void SynergyRing_Loaded(object sender, RoutedEventArgs e)
         {
             synergyLoadingRing = sender as ProgressRing;

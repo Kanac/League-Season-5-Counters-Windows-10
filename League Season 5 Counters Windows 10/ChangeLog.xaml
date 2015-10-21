@@ -56,6 +56,12 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
+						<Run Text="Oct 20 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Comment on each individual matchup now! The #1 requested feature of this app, now released."> </Run>
+                        </TextBlock>
+                        <TextBlock FontSize="25">
 						<Run Text="Oct 8 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">

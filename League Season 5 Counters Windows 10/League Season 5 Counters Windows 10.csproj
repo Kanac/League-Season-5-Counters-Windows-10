@@ -127,6 +127,10 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Converters\CounterChampionVisibility.cs" />
+    <Compile Include="Converters\CounterCommentColorConverter.cs" />
+    <Compile Include="Converters\CounterCommentCountConverter.cs" />
+    <Compile Include="Converters\CounterCommentEmptyConverter.cs" />
+    <Compile Include="Converters\CounterCommentMatchupConverter.cs" />
     <Compile Include="Converters\CounterFormat.cs" />
     <Compile Include="Converters\CounterVisibility.cs" />
     <Compile Include="Converters\NameToImage.cs" />
@@ -351,6 +355,9 @@
     </SDKReference>
     <SDKReference Include="Microsoft.VCLibs, Version=14.0">
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs.120, Version=14.0">
+      <Name>Microsoft.VCLibs.120</Name>
     </SDKReference>
     <SDKReference Include="WindowsMobile, Version=10.0.10240.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
