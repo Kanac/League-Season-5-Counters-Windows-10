@@ -667,7 +667,7 @@ namespace League_of_Legends_Counterpicks.DataModel
                 Score = 0,
                 Text = text,
                 User = name,
-                ChampionFeedbackName = ChampionFeedback.Name,
+                ChampionFeedbackName = counter.ChampionFeedbackName,
                 CounterId = counter.Id,
                 Id = Guid.NewGuid().ToString(),
                 CounterName = counter.Name

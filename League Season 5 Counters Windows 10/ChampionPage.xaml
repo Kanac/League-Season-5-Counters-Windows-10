@@ -159,11 +159,12 @@
                              <TextBlock FontSize="30" HorizontalAlignment="Center" Text="{Binding Converter={StaticResource CounterCommentMatchupConverter}}"></TextBlock>
                              
                              <TextBlock Name="EmptyMessage" Grid.Row="1" Text="Be the first to submit a comment!" TextWrapping="Wrap" TextAlignment="Center"
-                                        Visibility="{Binding Converter={StaticResource CounterCommentEmptyConverter}}" FontSize="30" 
+                                        Visibility="{Binding Converter={StaticResource CounterCommentEmptyConverter}}" FontSize="25" 
                                         VerticalAlignment="Center" HorizontalAlignment="Center"> </TextBlock>
                             
                              <ListView Margin="10,0,10,0" Grid.Row="1" ItemsSource="{Binding CounterComments}" 
-                                       IsItemClickEnabled="True" IsTabStop="True" Height="400" Width="400">
+                                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                                       IsItemClickEnabled="False" IsTabStop="True" Height="400" Width="400">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>  
                                         <ContentControl ContentTemplate="{StaticResource CounterCommentSection}"></ContentControl>
@@ -178,11 +179,11 @@
                                         <RowDefinition Height="Auto"> </RowDefinition>
                                     </Grid.RowDefinitions>
                                    
-                                    <TextBox Name="CounterCommentNameBox"> </TextBox>
+                                    <TextBox Name="CounterCommentNameBox" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="Wrap" > </TextBox>
                                     <TextBlock IsHitTestVisible="False" HorizontalAlignment="Center" VerticalAlignment="Center" 
                                                FontSize="17" Foreground="Gray">Your Name</TextBlock>
                                     <TextBox Name="CounterCommentBox" Grid.Row="1" Height="130" Margin="0,15,0,15" 
-                                             HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></TextBox>
+                                             VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="Wrap" ></TextBox>
                                     <TextBlock IsHitTestVisible="False" Grid.Row="1" HorizontalAlignment="Center" 
                                                VerticalAlignment="Center" TextWrapping="Wrap" FontSize="17" Foreground="Gray">Enter your Comment</TextBlock>
                                     <Button HorizontalAlignment="Center" Grid.Row="2" Content="Submit" Tapped="Submit_CounterComment"></Button>
@@ -382,7 +383,7 @@
                                                     <ProgressBar 
                                                          Height="12"
                                                          Foreground="Crimson"
-                                                         Margin="15,0,25,0"
+                                                         Margin="15,0,25,10"
                                                          Value="{Binding Value}">
                                                     </ProgressBar>
 
@@ -452,7 +453,7 @@
                                                 <ProgressBar 
                                                     Height="12"
                                                     Foreground="Green"
-                                                    Margin="15,0,25,0"
+                                                    Margin="15,0,25,10"
                                                     Value="{Binding Value}">
                                                 </ProgressBar>
 
@@ -535,7 +536,7 @@
                                                     <ProgressBar 
                                                         Height="12"
                                                         Foreground="#FF771287"
-                                                        Margin="15,0,25,0"
+                                                        Margin="15,0,25,10"
                                                         Value="{Binding Value}">
                                                     </ProgressBar>
 
