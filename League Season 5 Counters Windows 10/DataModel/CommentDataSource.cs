@@ -454,18 +454,22 @@ namespace League_of_Legends_Counterpicks.DataModel
                     ChampionFeedback.SortComments();
                     ChampionFeedback.SortCounters();
 
-                    //Find where this champion is listed as a counter to another champion (easy matchup in reverse relationship)
+                    // Find where this champion is listed as a counter to another champion (easy matchup in reverse relationship)
                     ChampionFeedback.EasyMatchups = new ObservableCollection<Counter>(await counterTable.Where(x => x.Name == championName && x.Page == PageEnum.ChampionPage.Counter).ToListAsync());
                     ChampionFeedback.SortEasyMatchups();
 
-                    //The counter collection of this champion only contains synergies where the champion is the parent. Add the synergies where the champion is a child.
+                    // The counter collection of this champion only contains synergies where the champion is the parent. Add the synergies where the champion is a child.
                     var synergy = await counterTable.Where(c => c.Name == championName && c.Page == PageEnum.ChampionPage.Synergy).ToListAsync();
                     foreach (var synergyChampion in synergy)
                         ChampionFeedback.Counters.Add(synergyChampion);
 
                     ChampionFeedback.SortSynergy();
 
-
+                    // Sort the comments within the counters
+                    foreach (var counter in ChampionFeedback.Counters)
+                        counter.SortCounterComments();
+                    foreach (var easyMatchup in ChampionFeedback.EasyMatchups)
+                        easyMatchup.SortCounterComments();
                 }
             }
             catch (MobileServiceInvalidOperationException ex)
