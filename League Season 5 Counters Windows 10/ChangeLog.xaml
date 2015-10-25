@@ -60,6 +60,7 @@
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
                         <Run Text="-Comment on each individual matchup now! The #1 requested feature of this app, now released."> </Run>
+                        <LineBreak></LineBreak>
                         </TextBlock>
                         <TextBlock FontSize="25">
 						<Run Text="Oct 8 2015" />
@@ -79,12 +80,14 @@
                         <Run Text="-Seeded in significant amounts of new data for the latest champions!"> </Run>
                         <LineBreak></LineBreak>
                         <Run Text="-Fixed some champion filtering issues"> </Run>
+                        <LineBreak></LineBreak>
                         </TextBlock>
                         <TextBlock FontSize="25">
 						<Run Text="Sept 25 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
                         <Run Text="-Changed ads"></Run>
+                        <LineBreak></LineBreak>
                         </TextBlock>
                         <TextBlock FontSize="25">
 						<Run Text="Sept 14 2015" />
@@ -93,6 +96,7 @@
                         <Run Text="-More bug and crash fixes"></Run>
                         </TextBlock>
                         <TextBlock FontSize="25">
+                        <LineBreak></LineBreak>
 						<Run Text="Sept 11 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
@@ -101,18 +105,21 @@
                         <Run Text="-Added in features to easily detect button presses by providing feedback"></Run>
                         <LineBreak></LineBreak>
                         <Run Text="-Added in backspace button to go back a frame"></Run>
+                        <LineBreak></LineBreak>
                         </TextBlock>
                         <TextBlock FontSize="25">
 						<Run Text="Sept 8 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
                         <Run Text="Further optimized speed and responsiveness of app :)"></Run>
+                        <LineBreak></LineBreak>
                         </TextBlock>
                         <TextBlock FontSize="25">
 						<Run Text="August 28 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
                         <Run Text="-Fixed more bugs. Check the Windows Phone 8.1 version for incomming updates."></Run>
+                        <LineBreak></LineBreak>
                         </TextBlock>
                         <TextBlock FontSize="25">
 						<Run Text="August 20-24 2015" />
