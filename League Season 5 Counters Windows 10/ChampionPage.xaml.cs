@@ -264,7 +264,7 @@ namespace League_Season_5_Counters_Windows_10
             // Ensure at least 8 chars for non-ascii or non-chinese cases
             if ((feedbackBox.Text.Count() < 8 || feedbackBox.Text.Distinct().Count() < 5))
             {
-                MessageDialog emptyBox = new MessageDialog("Write a message first!");
+                MessageDialog emptyBox = new MessageDialog("Write an actual message first!");
                 await emptyBox.ShowAsync();
                 return;
             }
@@ -712,7 +712,7 @@ namespace League_Season_5_Counters_Windows_10
             // Ensure at least 8 chars for non-ascii or non-chinese cases
             if ((feedbackBox.Text.Count() < 8 || feedbackBox.Text.Distinct().Count() < 5))
             {
-                MessageDialog emptyBox = new MessageDialog("Write a message first!");
+                MessageDialog emptyBox = new MessageDialog("Write an actual message first!");
                 await emptyBox.ShowAsync();
                 return;
             }
