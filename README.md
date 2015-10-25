@@ -1,4 +1,4 @@
-# League Season-5 Counters Windows-10
+# League Season 5 Counters Windows 10
 
 League Season 5 Counters now also released for Windows 10 with new features and aesthetics! 
 
