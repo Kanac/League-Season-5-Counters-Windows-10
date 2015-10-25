@@ -254,7 +254,7 @@ namespace League_Season_5_Counters_Windows_10
             }
 
             // Ensure user inputs proper feedback (if english string, check for non-spam with enough words, if chinese, check for at least 8 characters)
-            if ((feedbackBox.Text[0] <= 255 && feedbackBox.Text[0] >= 0 && (feedbackBox.Text.Count() < 30 || feedbackBox.Text.Distinct().Count() < 5 || !feedbackBox.Text.Contains(' '))) || ((feedbackBox.Text[0] >= 0x4E00 && feedbackBox.Text[0] <= 0x9FA5) && feedbackBox.Text.Count() < 8))
+            if ((commentBox.Text[0] <= 255 && commentBox.Text[0] >= 0 && (commentBox.Text.Count() < 30 || commentBox.Text.Distinct().Count() < 5 || !commentBox.Text.Contains(' '))) || ((commentBox.Text[0] >= 0x4E00 && commentBox.Text[0] <= 0x9FA5) && commentBox.Text.Count() < 8))
             {
                 MessageDialog emptyBox = new MessageDialog("Write a proper and long enough message first!");
                 await emptyBox.ShowAsync();
@@ -262,7 +262,7 @@ namespace League_Season_5_Counters_Windows_10
             }
 
             // Ensure at least 8 chars for non-ascii or non-chinese cases
-            if ((feedbackBox.Text.Count() < 8 || feedbackBox.Text.Distinct().Count() < 5))
+            if ((commentBox.Text.Count() < 8 || commentBox.Text.Distinct().Count() < 5))
             {
                 MessageDialog emptyBox = new MessageDialog("Write an actual message first!");
                 await emptyBox.ShowAsync();
