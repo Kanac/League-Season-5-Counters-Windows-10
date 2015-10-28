@@ -230,6 +230,11 @@ namespace League_Season_5_Counters_Windows_10
             selectedTextBlock = sender as TextBlock;
         }
 
+        private void Comment_FlyoutClosed(object sender, object e)
+        {
+            BottomAppBar.Visibility = Visibility.Visible;
+        }
+
         private async void Submit_CounterComment(object sender, TappedRoutedEventArgs e)
         {
             Button button = sender as Button;
