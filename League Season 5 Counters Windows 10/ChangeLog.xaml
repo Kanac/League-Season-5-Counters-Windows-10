@@ -56,6 +56,13 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
+						<Run Text="November 1 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Fixed submitting an empty message crush bug"> </Run>
+                        <LineBreak></LineBreak>
+                        </TextBlock>
+                        <TextBlock FontSize="25">
 						<Run Text="Oct 20 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
