@@ -361,14 +361,11 @@ namespace League_Season_5_Counters_Windows_10
             AdRemover.Purchase();
         }
 
-        private void AdMediator_Error(object sender, Microsoft.AdMediator.Core.Events.AdMediatorFailedEventArgs e)
-        {
-
-         }
 
         private void Ad_Error(object sender, AdErrorEventArgs e)
         {
 
         }
+
     }
 }
