@@ -252,7 +252,7 @@ namespace League_Season_5_Counters_Windows_10
             {
                 foreach (var c in grid.ColumnDefinitions)
                 {
-                    if (c.Width.Value == 300)
+                    if (c.Width.Value == 160)
                     {
                         c.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
                     }

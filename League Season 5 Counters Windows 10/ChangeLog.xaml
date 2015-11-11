@@ -56,6 +56,13 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
+						<Run Text="November 10 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Buying Ad Block now removes interstitial ad"> </Run>
+                        <LineBreak></LineBreak>
+                        </TextBlock>
+                        <TextBlock FontSize="25">
 						<Run Text="November 1 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">

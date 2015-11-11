@@ -55,7 +55,7 @@
             <Style TargetType="UI:AdControl" x:Key="VerticalAd">
                 <Setter Property="HorizontalAlignment" Value="Center"></Setter>
                 <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                <Setter Property="Width" Value="300"></Setter>
+                <Setter Property="Width" Value="160"></Setter>
                 <Setter Property="Height" Value="600"></Setter>
             </Style>
 
@@ -69,7 +69,7 @@
             <Style TargetType="Universal:AdMediatorControl" x:Key="VerticalAdMediator">
                 <Setter Property="HorizontalAlignment" Value="Center"></Setter>
                 <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                <Setter Property="Width" Value="300"></Setter>
+                <Setter Property="Width" Value="160"></Setter>
                 <Setter Property="Height" Value="600"></Setter>
             </Style>
 
