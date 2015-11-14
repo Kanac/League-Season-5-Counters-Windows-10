@@ -32,7 +32,7 @@ namespace League_Season_5_Counters_Windows_10
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
         private Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-        private InterstitialAd MyVideoAd = new InterstitialAd();
+        //private InterstitialAd MyVideoAd = new InterstitialAd();
 
         public MainPage()
         {
@@ -46,27 +46,27 @@ namespace League_Season_5_Counters_Windows_10
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
-            if (!App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-            {
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-            }
+            //if (!App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+            //{
+            //    MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
+            //    MyVideoAd.AdReady += MyVideoAd_AdReady;
+            //}
         }
 
-        private void MyVideoAd_AdReady(object sender, object e)
-        {
-            if (!App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-            {
-                if (localSettings.Values["MainViews"] == null || ((int)(localSettings.Values["MainViews"])) % 2 == 0)
-                {
-                    MyVideoAd.Show();
-                    localSettings.Values["MainViews"] = 0;
-                }
+        //private void MyVideoAd_AdReady(object sender, object e)
+        //{
+        //    if (!App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+        //    {
+        //        if (localSettings.Values["MainViews"] == null || ((int)(localSettings.Values["MainViews"])) % 2 == 0)
+        //        {
+        //            MyVideoAd.Show();
+        //            localSettings.Values["MainViews"] = 0;
+        //        }
 
-                localSettings.Values["MainViews"] = ((int)(localSettings.Values["MainViews"])) + 1;
-            }
+        //        localSettings.Values["MainViews"] = ((int)(localSettings.Values["MainViews"])) + 1;
+        //    }
 
-        }
+        //}
 
 
         /// <summary>
