@@ -50,33 +50,6 @@ namespace League_Season_5_Counters_Windows_10
                 MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
                 MyVideoAd.AdReady += MyVideoAd_AdReady;
                 MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-                MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-                MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-                MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-                MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "256031");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-                MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-                MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-                MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-                MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-                MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
             }
         }
 
@@ -89,7 +62,7 @@ namespace League_Season_5_Counters_Windows_10
             InterstitialAd video = sender as InterstitialAd;
             if (!App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
-                if (localSettings.Values["MainViews"] == null || ((int)(localSettings.Values["MainViews"])) % 20 != 0)
+                if (localSettings.Values["MainViews"] == null || ((int)(localSettings.Values["MainViews"])) % 2 == 0)
                 {
                     video.Show();
                     localSettings.Values["MainViews"] = 0;
