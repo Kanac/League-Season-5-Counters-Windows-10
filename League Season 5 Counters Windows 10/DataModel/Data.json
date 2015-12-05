@@ -445,28 +445,36 @@
                       "Pantheon",
                       "Fiora"
                    ]
-        },  
-        {
+        },
+      {
         "UniqueId": "Gragas",
         "ImagePath": "Assets/Gragas_Square_0.png",
         "Counters": [
-                      "Fizz",
-                      "Yasuo",
-                      "Ahri",
-                      "Mordekaiser",
-                      "LeBlanc"
-                   ]
-        },{
+          "Fizz",
+          "Yasuo",
+          "Ahri",
+          "Mordekaiser",
+          "LeBlanc"
+        ]
+      },
+      {
         "UniqueId": "Hecarim",
         "ImagePath": "Assets/Hecarim_Square_0.png",
         "Counters": [
-                      "Nasus",
-                      "Sejuani",
-                      "Aatrox",
-                      "Ezreal",
-                      "Lee Sin"
+          "Nasus",
+          "Sejuani",
+          "Aatrox",
+          "Ezreal",
+          "Lee Sin"
+        ]
+      },{
+        "UniqueId": "Illaoi",
+        "ImagePath": "Assets/Illaoi_Square_0.png",
+        "Counters": [
+                      
                    ]
-        },{
+        },
+      {
         "UniqueId": "Irelia",
         "ImagePath": "Assets/Irelia_Square_0.png",
         "Counters": [

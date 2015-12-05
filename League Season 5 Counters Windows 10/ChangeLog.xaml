@@ -56,6 +56,15 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
+						<Run Text="December 5 2015" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Illaoi update has arrived!"> </Run>
+                        <LineBreak></LineBreak>
+                        <Run Text="-Fixed formatting of individual comment section"> </Run>
+                        <LineBreak></LineBreak>
+                        </TextBlock>
+                        <TextBlock FontSize="25">
 						<Run Text="November 10 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
