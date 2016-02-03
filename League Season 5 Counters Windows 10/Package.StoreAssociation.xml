@@ -361,9 +361,12 @@
     <MainPackageIdentityName>62206AnthonyC.LeagueCounterpicks</MainPackageIdentityName>
     <ReservedNames>
       <ReservedName>League Season 5 Counters</ReservedName>
+      <ReservedName>League Season 6 Counters</ReservedName>
+      <ReservedName>League of Legends ✓</ReservedName>
     </ReservedNames>
   </ProductReservedInfo>
   <AccountPackageIdentityNames>
+    <MainPackageIdentityName>62206AnthonyC.ComedySoundboard</MainPackageIdentityName>
     <MainPackageIdentityName>62206AnthonyC.SudokuSolverGenerator</MainPackageIdentityName>
   </AccountPackageIdentityNames>
   <PackageInfoList LandingUrl="https://dev.windows.com/dashboard/Application?appId=9WZDNCRDQRN5" />

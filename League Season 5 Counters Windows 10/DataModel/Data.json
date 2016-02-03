@@ -73,11 +73,18 @@
       {
         "UniqueId": "Jinx",
         "ImagePath": "Assets/Jinx_Square_0.png",
-        "Counters":[  "Corki",
-                      "Lucian",
-                      "Sivir",
-                      "Draven",
-                      "Urgot"]
+        "Counters": [
+          "Corki",
+          "Lucian",
+          "Sivir",
+          "Draven",
+          "Urgot"
+        ]
+      },
+      {
+        "UniqueId": "Jhin",
+        "ImagePath": "Assets/Jhin_Square_0.png",
+        "Counters":[  ]
       },
       {
         "UniqueId": "Kalista",
