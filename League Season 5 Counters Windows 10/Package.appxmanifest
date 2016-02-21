@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="62206AnthonyC.LeagueCounterpicks" Publisher="CN=F30DC63F-6CBF-4542-8D92-E93F173C760F" Version="2020.2.71.0" />
+  <Identity Name="62206AnthonyC.LeagueCounterpicks" Publisher="CN=F30DC63F-6CBF-4542-8D92-E93F173C760F" Version="2020.2.79.0" />
   <mp:PhoneIdentity PhoneProductId="7dc04210-8e52-45f6-92b6-c544fc1a0e2e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>League Season 5 Counters</DisplayName>
+    <DisplayName>League of Legends ✔</DisplayName>
     <PublisherDisplayName>Anthony C</PublisherDisplayName>
-    <Logo>Assets\Sona-50.jpg</Logo>
+    <Logo>Assets\50x50StoreLogo.jpg</Logo>
   </Properties>
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
@@ -15,13 +15,15 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="League_Season_5_Counters_Windows_10.App">
-      <uap:VisualElements DisplayName="League of Legends ✓" Square150x150Logo="Assets\Sona-150.jpg" Square44x44Logo="Assets\Sona-44.jpg" Description="League Season 5 Counters Windows 10" BackgroundColor="black">
-        <uap:DefaultTile Square71x71Logo="Assets\Sona-71.jpg" Square310x310Logo="Assets\Sona-310.jpg" Wide310x150Logo="Assets\Sona-Wide.jpg">
+      <uap:VisualElements DisplayName="League of Legends ✔" Square150x150Logo="Assets\150x150Logo.jpg" Square44x44Logo="Assets\44x44Logo.jpg" Description="League Season 5 Counters Windows 10" BackgroundColor="black">
+        <uap:DefaultTile Square71x71Logo="Assets\71x71Logo.jpg" Square310x310Logo="Assets\310x310Logo.jpg" Wide310x150Logo="Assets\310x150Logo.jpg">
           <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
             <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
           </uap:ShowNameOnTiles>
         </uap:DefaultTile>
-        <uap:SplashScreen Image="Assets\LoLSplash.png" BackgroundColor="black" />
+        <uap:SplashScreen Image="Assets\620x300Splash.png" BackgroundColor="black" />
         <uap:InitialRotationPreference>
           <uap:Rotation Preference="portrait" />
         </uap:InitialRotationPreference>

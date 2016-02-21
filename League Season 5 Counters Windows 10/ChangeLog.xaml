@@ -56,6 +56,17 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
+						<Run Text="Feb 20 2016" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Season 6 and Jhin update has arrived!"> </Run>
+                        <LineBreak></LineBreak>
+                        <Run Text="-Check out all the changes yourself!"> </Run>
+                        <LineBreak></LineBreak>
+                        <Run Text="-Still bringing more updates from the WP8.1 version!"> </Run>
+                        <LineBreak></LineBreak>
+                        </TextBlock>
+                        <TextBlock FontSize="25">
 						<Run Text="December 5 2015" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
