@@ -19,7 +19,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>League Season 5 Counters Windows 10_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
     <PackageCertificateThumbprint>81BA9F86005C433CA8C3745DA23E8D54A00166D1</PackageCertificateThumbprint>
     <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
@@ -112,8 +112,6 @@
     <Content Include="Assets\310x310Logo.scale-100.jpg" />
     <Content Include="Assets\44x44Logo.jpg" />
     <Content Include="Assets\44x44Logo.scale-100.jpg" />
-    <Content Include="Assets\50x50StoreLogo.jpg" />
-    <Content Include="Assets\50x50StoreLogo.scale-100.jpg" />
     <Content Include="Assets\620x300Splash.png" />
     <Content Include="Assets\620x300Splash.scale-100.png" />
     <Content Include="Assets\71x71Logo.jpg" />
@@ -121,6 +119,7 @@
     <Content Include="Assets\Illaoi_Square_0.png" />
     <Content Include="Assets\Jhin_Square_0.png" />
     <Content Include="Assets\Kindred_Square_0.png" />
+    <Content Include="Assets\lolstoreicon2.png" />
     <Content Include="Assets\Sona_Square_0.png" />
     <Content Include="Assets\Teambuilder.jpg" />
     <Content Include="DataModel\Data.json" />
