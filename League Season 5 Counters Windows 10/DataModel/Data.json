@@ -776,21 +776,29 @@
         "UniqueId": "Anivia",
         "ImagePath": "Assets/Anivia_Square_0.png",
         "Counters": [
-                      "Fizz",
-                      "Diana",
-                      "Kassadin",
-                      "Orianna",
-                      "Gragas"
-                   ]
-        },   {
+          "Fizz",
+          "Diana",
+          "Kassadin",
+          "Orianna",
+          "Gragas"
+        ]
+      },
+      {
         "UniqueId": "Annie",
         "ImagePath": "Assets/Annie_Square_0.png",
         "Counters": [
-                      "Brand",
-                      "Orianna",
-                      "Morgana",
-                      "Kassadin",
-                      "Lux"
+          "Brand",
+          "Orianna",
+          "Morgana",
+          "Kassadin",
+          "Lux"
+        ]
+      },
+      {
+        "UniqueId": "Aurelion Sol",
+        "ImagePath": "Assets/Aurelion Sol_Square_0.png",
+        "Counters": [
+
                    ]
         },
              {

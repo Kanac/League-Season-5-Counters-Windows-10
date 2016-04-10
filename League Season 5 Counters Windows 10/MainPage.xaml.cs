@@ -151,7 +151,7 @@ namespace League_Season_5_Counters_Windows_10
             XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
 
             XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
-            toastTextElements[1].AppendChild(toastXml.CreateTextNode("Season 6 and Jhin data has arrived!"));
+            toastTextElements[1].AppendChild(toastXml.CreateTextNode("Season 6 and Aurelion Sol data has arrived!"));
 
             ToastNotification toast = new ToastNotification(toastXml);
             toast.Tag = "FeatureToast";

@@ -56,6 +56,13 @@
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
                         <TextBlock FontSize="25">
+						<Run Text="April 10 2016" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                        <Run Text="-Aurelion Sol Update!"> </Run>
+                         <LineBreak></LineBreak>
+                        </TextBlock>
+                        <TextBlock FontSize="25">
 						<Run Text="Feb 20 2016" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">
