@@ -152,6 +152,7 @@
     <Compile Include="Converters\NameToImage.cs" />
     <Compile Include="Converters\PlayingFormat.cs" />
     <Compile Include="Converters\PlayingVisibility.cs" />
+    <Compile Include="Converters\ReverseBooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\SynergyChampionVisibility.cs" />
     <Compile Include="DataModel\CommentDataSource.cs" />
     <Compile Include="DataModel\DataSource.cs" />
@@ -351,6 +352,9 @@
     </SDKReference>
     <SDKReference Include="Microsoft.VCLibs.120, Version=14.0">
       <Name>Microsoft.VCLibs.120</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsDesktop, Version=10.0.10240.0">
+      <Name>Windows Desktop Extensions for the UWP</Name>
     </SDKReference>
     <SDKReference Include="WindowsMobile, Version=10.0.10240.0">
       <Name>Windows Mobile Extensions for the UWP</Name>

@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Media;
 using Microsoft.AdMediator.Universal;
 using System.Threading.Tasks;
 using Microsoft.Advertising.WinRT.UI;
+using Windows.System;
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
@@ -32,7 +33,7 @@ namespace League_Season_5_Counters_Windows_10
         private readonly NavigationHelper navigationHelper;
         private readonly ObservableDictionary defaultViewModel = new ObservableDictionary();
         private Windows.Storage.ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-        private InterstitialAd MyVideoAd = new InterstitialAd();
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -44,34 +45,8 @@ namespace League_Season_5_Counters_Windows_10
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
-
-            if (!App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-            {
-                MyVideoAd.RequestAd(AdType.Video, "670fb1d2-71e6-4ec4-a63b-4762a173c59a", "250509");
-                MyVideoAd.AdReady += MyVideoAd_AdReady;
-                MyVideoAd.ErrorOccurred += MyVideoAd_ErrorOccured;
-            }
+            DefaultViewModel["AdVisibility"] = App.licenseInformation.ProductLicenses["AdRemoval"].IsActive ? Visibility.Collapsed : Visibility.Visible;
         }
-
-        private void MyVideoAd_ErrorOccured(object sender, AdErrorEventArgs e)
-        {
-        }
-
-        private void MyVideoAd_AdReady(object sender, object e)
-        {
-            InterstitialAd video = sender as InterstitialAd;
-            if (!App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-            {
-                if (localSettings.Values["MainViews"] == null || ((int)(localSettings.Values["MainViews"])) % 2 == 0)
-                {
-                    video.Show();
-                    localSettings.Values["MainViews"] = 0;
-                }
-
-                localSettings.Values["MainViews"] = ((int)(localSettings.Values["MainViews"])) + 1;
-            }
-        }
-
 
 
         /// <summary>
@@ -104,8 +79,8 @@ namespace League_Season_5_Counters_Windows_10
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            // Retrieve Json data, and load the roles and set up background toast (one time thing)
-
+            CreateAdUnits();
+            // Retrieve Json data, and load the roles and set up background toast (one time process)
             var roles = await DataSource.GetRolesAsync();
             var rolesWithSearch = new ObservableCollection<Role>(roles);
             rolesWithSearch.Insert(0, new Role("Search"));
@@ -245,7 +220,9 @@ namespace League_Season_5_Counters_Windows_10
         {
             var roleId = ((Role)e.ClickedItem).UniqueId;
             if (roleId == "Search")
+            {
                 roleId = "Filter";
+            }
 
             Frame.Navigate(typeof(RolePage), roleId);
         }
@@ -333,47 +310,35 @@ namespace League_Season_5_Counters_Windows_10
         }
 
         
-        private void Ad_Loaded(object sender, RoutedEventArgs e)
-        {
-            var ad = sender as AdControl;
-
-            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-            {
-                // Hide the app for the purchaser
-                ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            }
-            else
-            {
-                // Otherwise show the ad
-                ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            }
-        }
-
-        private void GridAd_Loaded(object sender, RoutedEventArgs e)
-        {
-            var grid = sender as Grid;
-            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-            {
-                var rowDefinitions = grid.RowDefinitions;
-                foreach (var r in rowDefinitions)
-                {
-                    if (r.Height.Value == 250)
-                    {
-                        r.SetValue(RowDefinition.HeightProperty, new GridLength(0));
-                    }
-                }
-            }
-        }
-
         private void AdBlock_Click(object sender, RoutedEventArgs e)
         {
             AdRemover.Purchase();
         }
 
-
-        private void Ad_Error(object sender, AdErrorEventArgs e)
+        private void CreateAdUnits()
         {
+            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+                return;
 
+            int count = 35;
+            var limitMb = MemoryManager.AppMemoryUsageLimit / (1024 * 1024);
+            if (limitMb > 700)
+            {
+                count = 55;
+            }
+
+            for (int i = 0; i < count; ++i)
+            {
+                AdControl ad = new AdControl();
+                ad.ApplicationId = "670fb1d2-71e6-4ec4-a63b-4762a173c59a";
+                ad.AdUnitId = "298849";
+                ad.Style = Application.Current.Resources["HorizontalAd"] as Style;
+                ad.IsAutoRefreshEnabled = false;
+                ad.Refresh();
+                ad.IsAutoRefreshEnabled = true;
+                ad.AutoRefreshIntervalInSeconds = 30;
+                AdGrid.Children.Add(ad);
+            }
         }
 
     }

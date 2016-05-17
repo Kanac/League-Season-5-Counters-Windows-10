@@ -38,6 +38,7 @@ namespace League_Season_5_Counters_Windows_10
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+            DefaultViewModel["AdVisibility"] = App.licenseInformation.ProductLicenses["AdRemoval"].IsActive ? Visibility.Collapsed : Visibility.Visible;
         }
 
         /// <summary>
@@ -70,15 +71,20 @@ namespace League_Season_5_Counters_Windows_10
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)  //e is the unique ID
         {
-            reviewApp();
+            CreateAdUnits();
+            ReviewApp();
 
             string roleId;
             navigationRole = e.NavigationParameter as string;
             // If navigating from main page, use that role selected, otherwise use the saved role prior to navigating to champion page
             if (e.PageState == null || navigationRole != (string)e.PageState["NavigationRole"])
+            {
                 roleId = navigationRole;
+            }
             else
+            {
                 roleId = (string)e.PageState["savedRoleId"];
+            }
 
             roles = await DataSource.GetRolesAsync();  // Gets a reference to all the roles -- no data is seralized again (already done on bootup)
             var allRole = roles[0]; // Gets the all role 
@@ -89,16 +95,18 @@ namespace League_Season_5_Counters_Windows_10
 
             // Smoothes out the loading process to get to desired page immedaitely 
             if (roleId == "Filter")
+            {
                 sectionIndex = MainHub.Sections.Count() - 1;
+            }
             else
+            {
                 sectionIndex = roles.IndexOf(DataSource.GetRole(roleId));
+            }
 
             MainHub.DefaultSectionIndex = sectionIndex;
         }
         
     
-
-
             //Data context set to the individual role (dictionary key to value)
         
 
@@ -126,7 +134,7 @@ namespace League_Season_5_Counters_Windows_10
         private void ItemView_ItemClick(object sender, ItemClickEventArgs e)
         {
             // Ask user to purchase ad removal before proceeding
-            checkAdRemoval();
+            CheckAdRemoval();
             // Store the hub section before proceeding to champion page, so that the back button goes back to it
             savedRoleId = MainHub.SectionsInView[0].Name;
 
@@ -224,43 +232,7 @@ namespace League_Season_5_Counters_Windows_10
             }
         }
 
-        private void Ad_Loaded(object sender, RoutedEventArgs e)
-        {
-            var ad = sender as AdControl;
-            
-            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-            {
-                // Hide the app for the purchaser
-                ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            }
-            else
-            {
-                // Otherwise show the ad
-                ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            }
-        }
-
-        private void Ad_Error(object sender, AdErrorEventArgs e)
-        {
-
-        }
-
-        private void GridAd_Loaded(object sender, RoutedEventArgs e)
-        {
-            var grid = sender as Grid;
-            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-            {
-                foreach (var c in grid.ColumnDefinitions)
-                {
-                    if (c.Width.Value == 160)
-                    {
-                        c.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
-                    }
-                }
-            }
-        }
-
-        private async void checkAdRemoval()
+        private async void CheckAdRemoval()
         {
             if (!App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
             {
@@ -293,7 +265,7 @@ namespace League_Season_5_Counters_Windows_10
         }
 
         
-        private async void reviewApp()
+        private async void ReviewApp()
         {
             if (!localSettings.Values.ContainsKey("Views"))
                 localSettings.Values.Add(new KeyValuePair<string, object>("Views", 3));
@@ -321,6 +293,32 @@ namespace League_Season_5_Counters_Windows_10
                     }
                 }
                 catch (Exception) { }
+            }
+        }
+
+        private void CreateAdUnits()
+        {
+            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+                return;
+
+            int count = 35;
+            var limitMb = MemoryManager.AppMemoryUsageLimit / (1024 * 1024);
+            if (limitMb > 700)
+            {
+                count = 55;
+            }
+
+            for (int i = 0; i < count; ++i)
+            {
+                AdControl ad = new AdControl();
+                ad.ApplicationId = "670fb1d2-71e6-4ec4-a63b-4762a173c59a";
+                ad.AdUnitId = "298849";
+                ad.Style = Application.Current.Resources["TallAd"] as Style;
+                ad.IsAutoRefreshEnabled = false;
+                ad.Refresh();
+                ad.IsAutoRefreshEnabled = true;
+                ad.AutoRefreshIntervalInSeconds = 30;
+                AdGrid.Children.Add(ad);
             }
         }
     }

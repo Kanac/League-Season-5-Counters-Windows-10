@@ -10,6 +10,8 @@ using Windows.UI.Xaml.Navigation;
 using Windows.ApplicationModel.Store;
 using Microsoft.WindowsAzure.MobileServices;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
+using Windows.UI;
 
 namespace League_Season_5_Counters_Windows_10
 {
@@ -46,10 +48,7 @@ namespace League_Season_5_Counters_Windows_10
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
-            // Set main views back to 0 to reset interstitial ad count
-            Windows.Storage.ApplicationData.Current.LocalSettings.Values["MainViews"] = 0;
-
-            //Only for IAP simulation purposes
+            // Only for IAP simulation purposes
 #if DEBUG
             licenseInformation = CurrentAppSimulator.LicenseInformation;
 #else
@@ -71,6 +70,15 @@ namespace League_Season_5_Counters_Windows_10
             //    this.DebugSettings.EnableFrameRateCounter = true;
             //}
 #endif
+            // change app title bar color
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            if (titleBar != null)
+            {
+                titleBar.ButtonBackgroundColor = Colors.Black;
+                titleBar.ButtonForegroundColor = Colors.White;
+                titleBar.BackgroundColor = Colors.Black;
+                titleBar.ForegroundColor = Colors.White;
+            }
 
             Frame rootFrame = Window.Current.Content as Frame;
 

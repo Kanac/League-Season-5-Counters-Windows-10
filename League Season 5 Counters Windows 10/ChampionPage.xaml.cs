@@ -44,15 +44,13 @@ namespace League_Season_5_Counters_Windows_10
         private ProgressRing counterLoadingRing, easyMatchupLoadingRing, synergyLoadingRing, counterCommentsLoadingRing, playingCommentsLoadingRing;
         private CommentDataSource commentViewModel = new CommentDataSource(App.MobileService);
 
-
-
         public ChampionPage()
         {
             this.InitializeComponent();
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
-
+            DefaultViewModel["AdVisibility"] = App.licenseInformation.ProductLicenses["AdRemoval"].IsActive ? Visibility.Collapsed : Visibility.Visible;
         }
 
         /// <summary>
@@ -86,6 +84,8 @@ namespace League_Season_5_Counters_Windows_10
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            CreateAdUnits();
+
             // Setup the underlying UI 
             var champName = (string)e.NavigationParameter;
             Champion champion = DataSource.GetChampion(champName);
@@ -814,7 +814,6 @@ namespace League_Season_5_Counters_Windows_10
             await commentViewModel.SubmitUserRating(comment, 1);
         }
 
-
         private async void Downvote_Tapped(object sender, TappedRoutedEventArgs e)
         {
             var downvote = (Image)sender;
@@ -877,9 +876,7 @@ namespace League_Season_5_Counters_Windows_10
                 }
             }
         }
-
-        
-
+       
         private void CounterMessage_Loaded(object sender, RoutedEventArgs e)
         {
             counterMessage = sender as TextBlock;
@@ -899,9 +896,7 @@ namespace League_Season_5_Counters_Windows_10
             synergyMessage = sender as TextBlock;
             if (emptySynergyChampions)
                 synergyMessage.Visibility = Windows.UI.Xaml.Visibility.Visible;
-        }
-
-        
+        }        
       
         private void CounterRing_Loaded(object sender, RoutedEventArgs e)
         {
@@ -915,12 +910,6 @@ namespace League_Season_5_Counters_Windows_10
             easyMatchupLoadingRing = sender as ProgressRing;
             if (championFeedbackLoaded)
                 easyMatchupLoadingRing.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-        }
-
-        private void hh(object sender, TappedRoutedEventArgs e)
-        {
-            FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
-
         }
 
         private void SynergyRing_Loaded(object sender, RoutedEventArgs e)
@@ -954,36 +943,29 @@ namespace League_Season_5_Counters_Windows_10
             nameBox = sender as TextBox;
         }
 
-        private void Ad_Loaded(object sender, RoutedEventArgs e)
+        private void CreateAdUnits()
         {
-            var ad = sender as AdControl;
-
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-            {
-                ad.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            }
-            else
-            {
-                ad.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            }
-        }
-        private void Ad_Error(object sender, AdErrorEventArgs e)
-        {
+                return;
 
-        }
-
-        private void GridAd_Loaded(object sender, RoutedEventArgs e)
-        {
-            var grid = sender as Grid;
-            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+            int count = 35;
+            var limitMb = MemoryManager.AppMemoryUsageLimit / (1024 * 1024);
+            if (limitMb > 700)
             {
-                foreach (var c in grid.ColumnDefinitions)
-                {
-                    if (c.Width.Value == 160)
-                    {
-                        c.SetValue(ColumnDefinition.WidthProperty, new GridLength(0));
-                    }
-                }
+                count = 55;
+            }
+
+            for (int i = 0; i < count; ++i)
+            {
+                AdControl ad = new AdControl();
+                ad.ApplicationId = "670fb1d2-71e6-4ec4-a63b-4762a173c59a";
+                ad.AdUnitId = "298849";
+                ad.Style = Application.Current.Resources["TallAd"] as Style;
+                ad.IsAutoRefreshEnabled = false;
+                ad.Refresh();
+                ad.IsAutoRefreshEnabled = true;
+                ad.AutoRefreshIntervalInSeconds = 30;
+                AdGrid.Children.Add(ad);
             }
         }
     }
