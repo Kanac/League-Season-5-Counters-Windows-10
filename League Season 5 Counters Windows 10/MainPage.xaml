@@ -94,10 +94,9 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0,-249" x:Name="AdGrid" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-        </Grid>
-        <Grid Grid.Row="1" Grid.ColumnSpan="2" Name="AdGrid2" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <UI:AdControl AdUnitId="298849" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Visibility="{Binding AdVisibility}" Style="{StaticResource HorizontalAd}" AutoRefreshIntervalInSeconds="30"/>
+        <Grid x:Name="AdGrid" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <UI:AdControl AdUnitId="299205" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" 
+                          Visibility="{Binding AdVisibility}" Style="{StaticResource HorizontalAd}" AutoRefreshIntervalInSeconds="30"/>
         </Grid>
     </Grid>
 </Page>
