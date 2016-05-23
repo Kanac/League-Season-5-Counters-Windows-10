@@ -778,7 +778,7 @@
             </Hub>
             
             <Grid x:Name="AdGrid" VerticalAlignment="Center" HorizontalAlignment="Right">
-                <UI:AdControl AdUnitId="299205" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource TallAd}" AutoRefreshIntervalInSeconds="30"/>
+                <UI:AdControl AdUnitId="299480" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource TallAd}" AutoRefreshIntervalInSeconds="30"/>
             </Grid>
         </Grid>
     </Grid>

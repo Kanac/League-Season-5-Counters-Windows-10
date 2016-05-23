@@ -311,14 +311,14 @@ namespace League_Season_5_Counters_Windows_10
             {
                 AdControl ad = new AdControl();
                 ad.ApplicationId = "670fb1d2-71e6-4ec4-a63b-4762a173c59a";
-                ad.AdUnitId = "299205";
+                ad.AdUnitId = "299480";
                 ad.Style = Application.Current.Resources["TallAd"] as Style;
                 ad.IsAutoRefreshEnabled = false;
                 ad.Refresh();
                 ad.IsAutoRefreshEnabled = true;
                 ad.AutoRefreshIntervalInSeconds = 30;
                 ad.HorizontalAlignment = HorizontalAlignment.Right;
-                ad.Margin = new Thickness(0, 0, -89, 0);
+                //ad.Margin = new Thickness(0, 0, -89, 0);
                 AdGrid.Children.Add(ad);
             }
         }
