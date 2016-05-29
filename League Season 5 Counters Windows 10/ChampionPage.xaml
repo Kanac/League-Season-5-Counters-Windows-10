@@ -225,6 +225,16 @@
     <Grid x:Name="LayoutRoot"
           Background="{StaticResource BaronImageBrush}"
           KeyDown="Key_Down">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="90"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup >
@@ -262,11 +272,6 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
 
         <Grid>
             <Image Source="{Binding Champion.ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Left" Width="70" Height="70"/>
@@ -776,10 +781,13 @@
                     </DataTemplate>
                 </HubSection>
             </Hub>
-            
-            <Grid x:Name="AdGrid" VerticalAlignment="Center" HorizontalAlignment="Right">
-                <UI:AdControl AdUnitId="299480" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource TallAd}" AutoRefreshIntervalInSeconds="30"/>
-            </Grid>
+        </Grid>
+
+        <Grid x:Name="AdGrid2" Grid.Column="1" Grid.RowSpan="2" Margin="88,0,0,0">
+        </Grid>
+
+        <Grid x:Name="AdGrid" Grid.Column="1" Grid.RowSpan="2">
+            <UI:AdControl AdUnitId="300198" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource TallAd}" AutoRefreshIntervalInSeconds="30"/>
         </Grid>
     </Grid>
 </Page>

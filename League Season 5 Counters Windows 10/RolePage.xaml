@@ -71,6 +71,11 @@
     </Page.BottomAppBar>
 
     <Grid Background="{StaticResource BaronImageBrush2}" KeyDown="Key_Down">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="90"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup >
                 <VisualState x:Name="desktop">
@@ -258,8 +263,11 @@
             </HubSection>
         </Hub>
 
-        <Grid Name="AdGrid" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <UI:AdControl AdUnitId="299480" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource TallAd}" AutoRefreshIntervalInSeconds="30"/>
+        <Grid Name="AdGrid2" Grid.Column="1" Margin="88,0,0,0">
+        </Grid>
+        
+        <Grid Name="AdGrid" Grid.Column="1">
+            <UI:AdControl AdUnitId="300198" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource TallAd}" AutoRefreshIntervalInSeconds="30"/>
         </Grid>
     </Grid>
 </Page>

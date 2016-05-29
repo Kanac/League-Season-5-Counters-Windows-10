@@ -260,6 +260,7 @@ namespace League_Season_5_Counters_Windows_10
         protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
         {
             AdGrid.Children.Clear();
+            AdGrid2.Children.Clear();
             base.OnNavigatingFrom(e);
         }
 
@@ -330,15 +331,13 @@ namespace League_Season_5_Counters_Windows_10
             {
                 AdControl ad = new AdControl();
                 ad.ApplicationId = "670fb1d2-71e6-4ec4-a63b-4762a173c59a";
-                ad.AdUnitId = "299480";
+                ad.AdUnitId = "300198";
                 ad.Style = Application.Current.Resources["HorizontalAd"] as Style;
                 ad.IsAutoRefreshEnabled = false;
                 ad.Refresh();
                 ad.IsAutoRefreshEnabled = true;
-                ad.VerticalAlignment = VerticalAlignment.Bottom;
-                //ad.Margin = new Thickness(0, 0, 0, -249);
                 ad.AutoRefreshIntervalInSeconds = 30;
-                AdGrid.Children.Add(ad);
+                AdGrid2.Children.Add(ad);
             }
         }
 
