@@ -122,6 +122,7 @@
     <Content Include="Assets\Kindred_Square_0.png" />
     <Content Include="Assets\lolstoreicon2.png" />
     <Content Include="Assets\Sona_Square_0.png" />
+    <Content Include="Assets\Taliyah_Square_0.png" />
     <Content Include="Assets\Teambuilder.jpg" />
     <Content Include="DataModel\Data.json" />
     <None Include="League Season 5 Counters Windows 10_StoreKey.pfx" />

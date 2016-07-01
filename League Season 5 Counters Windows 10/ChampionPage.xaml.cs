@@ -952,14 +952,14 @@ namespace League_Season_5_Counters_Windows_10
             var limitMb = MemoryManager.AppMemoryUsageLimit / (1024 * 1024);
             if (limitMb > 700)
             {
-                count = 55;
+                count = 70;
             }
 
             for (int i = 0; i < count; ++i)
             {
                 AdControl ad = new AdControl();
                 ad.ApplicationId = "670fb1d2-71e6-4ec4-a63b-4762a173c59a";
-                ad.AdUnitId = "299480";
+                ad.AdUnitId = "304062";
                 ad.Style = Application.Current.Resources["TallAd"] as Style;
                 ad.IsAutoRefreshEnabled = false;
                 ad.Refresh();

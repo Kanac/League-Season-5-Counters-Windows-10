@@ -765,6 +765,17 @@
         "UniqueId": "Ahri",
         "ImagePath": "Assets/Ahri_Square_0.png",
         "Counters": [
+          "LeBlanc",
+          "Syndra",
+          "Kassadin",
+          "Annie",
+          "Talon"
+        ]
+      },
+      {
+        "UniqueId": "Taliyah",
+        "ImagePath": "Assets/Taliyah_Square_0.png",
+        "Counters": [
                       "LeBlanc",
                       "Syndra",
                       "Kassadin",

@@ -1,2 +1,2 @@
-MainPackage=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\x64\Release\Upload\League Season 5 Counters Windows 10_2020.2.119.0_x64.appx
+MainPackage=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\bin\x64\Release\Upload\League Season 5 Counters Windows 10_2020.2.122.0_x64.appx
 ResourcePack=C:\Users\Anthony C\Documents\Visual Studio 2015\Projects\League Season 5 Counters\League Season 5 Counters Windows 10\_scale-100.appx
