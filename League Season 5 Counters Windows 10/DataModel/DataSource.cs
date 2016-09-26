@@ -154,6 +154,45 @@ namespace League_of_Legends_Counterpicks.Data
             return allrole;
         }
 
+        public static string TransformNameToKey(string name)
+        {
+            switch (name)
+            {
+                case "Aurelion Sol":
+                    return "AurelionSol";
+                case "Cho'Gath":
+                    return "ChoGath";
+                case "Dr. Mundo":
+                    return "Dr.Mundo";
+                case "Jarvan IV":
+                    return "JarvanIV";
+                case "Kha'Zix":
+                    return "Khazix";
+                case "Kog'Maw":
+                    return "KogMaw";
+                case "Lee Sin":
+                    return "LeeSin";
+                case "Master Yi":
+                    return "MasterYi";
+                case "Miss Fortune":
+                    return "MissFortune";
+                case "Rek'Sai":
+                    return "RekSai";
+                case "Tahm Kench":
+                    return "TahmKench";
+                case "Twisted Fate":
+                    return "TwistedFate";
+                case "Vel'Koz":
+                    return "VelKoz";
+                case "Wukong":
+                    return "MonkeyKing";
+                case "Xin Zhao":
+                    return "XinZhao";
+                default:
+                    return name;
+            }
+        }
+
         private async Task GetDataAsync()
         {
             if (this.Roles.Count != 0)            //HERE IS THE ANSWER. IF LOADED, DO NOT LOAD AGAIN

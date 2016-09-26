@@ -1,4 +1,5 @@
-﻿using System;
+﻿using League_of_Legends_Counterpicks.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Windows.UI.Xaml.Data;
@@ -10,7 +11,7 @@ namespace League_of_Legends_Counterpicks.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             var counter = value as string;
-            var uri = "ms-appx:///Assets/" + counter + "_Square_0.png";
+            var uri = "ms-appx:///Assets/" + DataSource.TransformNameToKey(counter) + "_Square_0.png";
             return uri;
         }
 

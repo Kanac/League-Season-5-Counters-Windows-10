@@ -1,1372 +1,1483 @@
-﻿{"Roles":[
-   {
-    "UniqueId": "All",
-    "Champions":
-    [
-
-    ]
-
-  },
+﻿{
+  "Roles": [
     {
-    "UniqueId": "ADC",
-    "Champions":
-    [
-      {
-        "UniqueId": "Ashe",
-        "ImagePath": "Assets/Ashe_Square_0.png",
-        "Counters": [
-                      "Ezreal",
-                      "Graves",
-                      "Caitlyn",
-                      "Sivir",
-                      "Kha'Zix"
-                   ]
-      },
-      {
-        "UniqueId": "Caitlyn",
-        "ImagePath": "Assets/Caitlyn_Square_0.png",
-        "Counters":[  "Tristana",
-                      "Jinx",
-                      "Varus",
-                      "Kog'Maw",
-                      "Corki"
+      "UniqueId": "All",
+      "Champions": [
 
-        ]    
-      },
-      {
-        "UniqueId": "Corki",
-        "ImagePath": "Assets/Corki_Square_0.png",
-        "Counters":[  "Caitlyn",
-                      "Draven",
-                      "Ezreal",
-                      "Sivir",
-                      "Vayne"]    
+      ]
 
-      },
-      {
-        "UniqueId": "Draven",
-        "ImagePath": "Assets/Draven_Square_0.png",
-        "Counters":[  "Varus",
-                      "Twitch",
-                      "Caitlyn",
-                      "Ezreal",
-                      "Blitzcrank"]
-      },
-      {
-        "UniqueId": "Ezreal",
-        "ImagePath": "Assets/Ezreal_Square_0.png",
-        "Counters":[  "Kalista",
-                      "Caitlyn",
-                      "Jinx",
-                      "Tristana",
-                      "Vayne"]
-      },
-      {
-        "UniqueId": "Graves",
-        "ImagePath": "Assets/Graves_Square_0.png",
-        "Counters":[  "Caitlyn",
-                      "Draven",
-                      "Jinx",
-                      "Twitch",
-                      "Lucian"]
-      },
-      {
-        "UniqueId": "Jinx",
-        "ImagePath": "Assets/Jinx_Square_0.png",
-        "Counters": [
-          "Corki",
-          "Lucian",
-          "Sivir",
-          "Draven",
-          "Urgot"
-        ]
-      },
-      {
-        "UniqueId": "Jhin",
-        "ImagePath": "Assets/Jhin_Square_0.png",
-        "Counters":[  ]
-      },
-      {
-        "UniqueId": "Kalista",
-        "ImagePath": "Assets/Kalista_Square_0.png",
-        "Counters": [
-          "Caitlyn",
-          "Tristana",
-          "Draven",
-          "Quinn",
-          "Vayne"
-        ]
-      },
-      {
-        "UniqueId": "Kindred",
-        "ImagePath": "Assets/Kindred_Square_0.png",
-        "Counters":[  ]
-      },
-      {
-        "UniqueId": "Kog'Maw",
-        "ImagePath": "Assets/Kog'Maw_Square_0.png",
-        "Counters":[  "Blitzcrank",
-                      "Akali",
-                      "LeBlanc",
-                      "Draven",
-                      "Zed"]
-      },
-      {
-        "UniqueId": "Lucian",
-        "ImagePath": "Assets/Lucian_Square_0.png",
-        "Counters":[  "Draven",
-                      "Caitlyn",
-                      "Twitch",
-                      "Kog'Maw",
-                      "Corki"]
-      },
-      {
-        "UniqueId": "Miss Fortune",
-        "ImagePath": "Assets/Miss Fortune_Square_0.png",
-        "Counters":[  "Tristana",
-                      "Draven",
-                      "Caitlyn",
-                      "Varus",
-                      "Thresh"]
-      },
-      {
-        "UniqueId": "Quinn",
-        "ImagePath": "Assets/Quinn_Square_0.png",
-        "Counters":[  "Caitlyn",
-                      "Varus",
-                      "Miss Fortune",
-                      "Tristana",
-                      "Draven"]
-      },
-      {
-        "UniqueId": "Sivir",
-        "ImagePath": "Assets/Sivir_Square_0.png",
-        "Counters":[  "Vayne",
-                      "Draven",
-                      "Ezreal",
-                      "Twitch",
-                      "Corki"]
-      },
-      {
-        "UniqueId": "Teemo",
-        "ImagePath": "Assets/Teemo_Square_0.png",
-        "Counters":[  "Corki",
-                      "Lucian",
-                      "Yorick",
-                      "Pantheon",
-                      "Akali"]
-      },
-      {
-        "UniqueId": "Tristana",
-        "ImagePath": "Assets/Tristana_Square_0.png",
-        "Counters":[  "Draven",
-                      "Graves",
-                      "Kog'Maw",
-                      "Varus",
-                      "Jinx"]
-      },
-      {
-        "UniqueId": "Twitch",
-        "ImagePath": "Assets/Twitch_Square_0.png",
-        "Counters":[  "Caitlyn",
-                      "Lee Sin",
-                      "Corki",
-                      "Draven",
-                      "Varus"]
-      },
-      {
-        "UniqueId": "Urgot",
-        "ImagePath": "Assets/Urgot_Square_0.png",
-        "Counters":[  "Soraka",
-                      "Sivir",
-                      "Bard",
-                      "Caitlyn",
-                      "Thresh"]
-      },
-      {
-        "UniqueId": "Varus",
-        "ImagePath": "Assets/Varus_Square_0.png",
-        "Counters":[  "Lucian",
-                      "Leona",
-                      "Blitzcrank",
-                      "Draven",
-                      "Thresh"]
-      },
-      {
-        "UniqueId": "Vayne",
-        "ImagePath": "Assets/Vayne_Square_0.png",
-        "Counters":[  "Tristana",
-                      "Caitlyn",
-                      "Kog'Maw",
-                      "Draven",
-                      "Jinx"]
-      }
-    ]
-  },
+    },
     {
-    "UniqueId": "Assassin",
-    "Champions": [
+      "UniqueId": "ADC",
+      "Champions": [
         {
-            "UniqueId": "Akali",
-            "ImagePath": "Assets/Akali_Square_0.png",
-            "Counters": [
-                "Lee Sin",
-                "Garen",
-                "Renekton",
-                "Mordekaiser",
-                "Annie"
-            ]
+          "UniqueId": "Ashe",
+          "ImagePath": "Assets/Ashe_Square_0.png",
+          "Counters": [
+            "Ezreal",
+            "Graves",
+            "Caitlyn",
+            "Sivir",
+            "Kha'Zix"
+          ]
+        },
+        {
+          "UniqueId": "Caitlyn",
+          "ImagePath": "Assets/Caitlyn_Square_0.png",
+          "Counters": [
+            "Tristana",
+            "Jinx",
+            "Varus",
+            "Kog'Maw",
+            "Corki"
+
+          ]
+        },
+        {
+          "UniqueId": "Corki",
+          "ImagePath": "Assets/Corki_Square_0.png",
+          "Counters": [
+            "Caitlyn",
+            "Draven",
+            "Ezreal",
+            "Sivir",
+            "Vayne"
+          ]
+
+        },
+        {
+          "UniqueId": "Draven",
+          "ImagePath": "Assets/Draven_Square_0.png",
+          "Counters": [
+            "Varus",
+            "Twitch",
+            "Caitlyn",
+            "Ezreal",
+            "Blitzcrank"
+          ]
+        },
+        {
+          "UniqueId": "Ezreal",
+          "ImagePath": "Assets/Ezreal_Square_0.png",
+          "Counters": [
+            "Kalista",
+            "Caitlyn",
+            "Jinx",
+            "Tristana",
+            "Vayne"
+          ]
+        },
+        {
+          "UniqueId": "Graves",
+          "ImagePath": "Assets/Graves_Square_0.png",
+          "Counters": [
+            "Caitlyn",
+            "Draven",
+            "Jinx",
+            "Twitch",
+            "Lucian"
+          ]
+        },
+        {
+          "UniqueId": "Jinx",
+          "ImagePath": "Assets/Jinx_Square_0.png",
+          "Counters": [
+            "Corki",
+            "Lucian",
+            "Sivir",
+            "Draven",
+            "Urgot"
+          ]
+        },
+        {
+          "UniqueId": "Jhin",
+          "ImagePath": "Assets/Jhin_Square_0.png",
+          "Counters": [ ]
+        },
+        {
+          "UniqueId": "Kalista",
+          "ImagePath": "Assets/Kalista_Square_0.png",
+          "Counters": [
+            "Caitlyn",
+            "Tristana",
+            "Draven",
+            "Quinn",
+            "Vayne"
+          ]
+        },
+        {
+          "UniqueId": "Kindred",
+          "ImagePath": "Assets/Kindred_Square_0.png",
+          "Counters": [ ]
+        },
+        {
+          "UniqueId": "Kog'Maw",
+          "ImagePath": "Assets/KogMaw_Square_0.png",
+          "Counters": [
+            "Blitzcrank",
+            "Akali",
+            "LeBlanc",
+            "Draven",
+            "Zed"
+          ]
+        },
+        {
+          "UniqueId": "Lucian",
+          "ImagePath": "Assets/Lucian_Square_0.png",
+          "Counters": [
+            "Draven",
+            "Caitlyn",
+            "Twitch",
+            "Kog'Maw",
+            "Corki"
+          ]
+        },
+        {
+          "UniqueId": "Miss Fortune",
+          "ImagePath": "Assets/MissFortune_Square_0.png",
+          "Counters": [
+            "Tristana",
+            "Draven",
+            "Caitlyn",
+            "Varus",
+            "Thresh"
+          ]
+        },
+        {
+          "UniqueId": "Quinn",
+          "ImagePath": "Assets/Quinn_Square_0.png",
+          "Counters": [
+            "Caitlyn",
+            "Varus",
+            "Miss Fortune",
+            "Tristana",
+            "Draven"
+          ]
+        },
+        {
+          "UniqueId": "Sivir",
+          "ImagePath": "Assets/Sivir_Square_0.png",
+          "Counters": [
+            "Vayne",
+            "Draven",
+            "Ezreal",
+            "Twitch",
+            "Corki"
+          ]
+        },
+        {
+          "UniqueId": "Teemo",
+          "ImagePath": "Assets/Teemo_Square_0.png",
+          "Counters": [
+            "Corki",
+            "Lucian",
+            "Yorick",
+            "Pantheon",
+            "Akali"
+          ]
+        },
+        {
+          "UniqueId": "Tristana",
+          "ImagePath": "Assets/Tristana_Square_0.png",
+          "Counters": [
+            "Draven",
+            "Graves",
+            "Kog'Maw",
+            "Varus",
+            "Jinx"
+          ]
+        },
+        {
+          "UniqueId": "Twitch",
+          "ImagePath": "Assets/Twitch_Square_0.png",
+          "Counters": [
+            "Caitlyn",
+            "Lee Sin",
+            "Corki",
+            "Draven",
+            "Varus"
+          ]
+        },
+        {
+          "UniqueId": "Urgot",
+          "ImagePath": "Assets/Urgot_Square_0.png",
+          "Counters": [
+            "Soraka",
+            "Sivir",
+            "Bard",
+            "Caitlyn",
+            "Thresh"
+          ]
+        },
+        {
+          "UniqueId": "Varus",
+          "ImagePath": "Assets/Varus_Square_0.png",
+          "Counters": [
+            "Lucian",
+            "Leona",
+            "Blitzcrank",
+            "Draven",
+            "Thresh"
+          ]
+        },
+        {
+          "UniqueId": "Vayne",
+          "ImagePath": "Assets/Vayne_Square_0.png",
+          "Counters": [
+            "Tristana",
+            "Caitlyn",
+            "Kog'Maw",
+            "Draven",
+            "Jinx"
+          ]
+        }
+      ]
+    },
+    {
+      "UniqueId": "Assassin",
+      "Champions": [
+        {
+          "UniqueId": "Akali",
+          "ImagePath": "Assets/Akali_Square_0.png",
+          "Counters": [
+            "Lee Sin",
+            "Garen",
+            "Renekton",
+            "Mordekaiser",
+            "Annie"
+          ]
         },
 
         {
-        "UniqueId": "Ekko",
-        "ImagePath": "Assets/Ekko_Square_0.png",
-        "Counters": [
-                      "LeBlanc",
-                      "Fiora",
-                      "Viktor",
-                      "Diana",
-                      "Graves"
-                   ]
-        },
-      {
-        "UniqueId": "Evelynn",
-        "ImagePath": "Assets/Evelynn_Square_0.png",
-        "Counters": [
-                      "Ryze",
-                      "Lee Sin",
-                      "Rek'Sai",
-                      "Mordekaiser",
-                      "Twisted Fate"
-                   ]
-        },
-       {
-        "UniqueId": "Fizz",
-        "ImagePath": "Assets/Fizz_Square_0.png",
-        "Counters": [
-                      "Ryze",
-                      "Mordekaiser",
-                      "Akali",
-                      "Diana",
-                      "Kayle"
-                   ]
+          "UniqueId": "Ekko",
+          "ImagePath": "Assets/Ekko_Square_0.png",
+          "Counters": [
+            "LeBlanc",
+            "Fiora",
+            "Viktor",
+            "Diana",
+            "Graves"
+          ]
         },
         {
-        "UniqueId": "Kassadin",
-        "ImagePath": "Assets/Kassadin_Square_0.png",
-        "Counters": [
-                      "Talon",
-                      "Yasuo",
-                      "Pantheon",
-                      "Zed",
-                      "Kha'Zix"
-                   ]
+          "UniqueId": "Evelynn",
+          "ImagePath": "Assets/Evelynn_Square_0.png",
+          "Counters": [
+            "Ryze",
+            "Lee Sin",
+            "Rek'Sai",
+            "Mordekaiser",
+            "Twisted Fate"
+          ]
         },
-         {
-        "UniqueId": "Katarina",
-        "ImagePath": "Assets/Katarina_Square_0.png",
-        "Counters": [
-                      "Diana",
-                      "Malzahar",
-                      "Kassadin",
-                      "Lissandra",
-                      "Fizz"
-                   ]
-        }, {
-        "UniqueId": "Kha'Zix",
-        "ImagePath": "Assets/Kha'Zix_Square_0.png",
-        "Counters": [
-                      "Lee Sin",
-                      "Rengar",
-                      "Jayce",
-                      "Jax",
-                      "Yorick"
-                   ]
-        }, {
-        "UniqueId": "LeBlanc",
-        "ImagePath": "Assets/LeBlanc_Square_0.png",
-        "Counters": [
-                      "Galio",
-                      "Fizz",
-                      "Syndra",
-                      "Diana",
-                      "Kassadin"
-                   ]
-        }, {
-        "UniqueId": "Master Yi",
-        "ImagePath": "Assets/Master Yi_Square_0.png",
-        "Counters": [
-                      "Jax",
-                      "Teemo",
-                      "Rammus",
-                      "Aatrox",
-                      "Irelia"
-                   ]
-        }, {
-        "UniqueId": "Nidalee",
-        "ImagePath": "Assets/Nidalee_Square_0.png",
-        "Counters": [
-                      "Yasuo",
-                      "Pantheon",
-                      "Akali",
-                      "Ezreal",
-                      "LeBlanc"
-                   ]
-        }, {
-        "UniqueId": "Nocturne",
-        "ImagePath": "Assets/Nocturne_Square_0.png",
-        "Counters": [
-                      "Olaf",
-                      "Udyr",
-                      "Shyvana",
-                      "Vi",
-                      "Lee Sin"
-                   ]
-        }, {
-        "UniqueId": "Rengar",
-        "ImagePath": "Assets/Rengar_Square_0.png",
-        "Counters": [
-                      "Jax",
-                      "Fiora",
-                      "Pantheon",
-                      "Lee Sin",
-                      "Renekton"
-                   ]
-        }, {
-        "UniqueId": "Shaco",
-        "ImagePath": "Assets/Shaco_Square_0.png",
-        "Counters": [
-                      "Lee Sin",
-                      "Warwick",
-                      "Vi",
-                      "Riven",
-                      "Olaf"
-                   ]
-        }, {
-        "UniqueId": "Talon",
-        "ImagePath": "Assets/Talon_Square_0.png",
-        "Counters": [
-                      "Lee Sin",
-                      "Diana",
-                      "Pantheon",
-                      "Riven",
-                      "Kayle"
-                   ]
-        }, {
-        "UniqueId": "Zed",
-        "ImagePath": "Assets/Zed_Square_0.png",
-        "Counters": [
-                      "Kayle",
-                      "Singed",
-                      "Wukong",
-                      "Irelia",
-                      "Jax"
-                   ]
+        {
+          "UniqueId": "Fizz",
+          "ImagePath": "Assets/Fizz_Square_0.png",
+          "Counters": [
+            "Ryze",
+            "Mordekaiser",
+            "Akali",
+            "Diana",
+            "Kayle"
+          ]
+        },
+        {
+          "UniqueId": "Kassadin",
+          "ImagePath": "Assets/Kassadin_Square_0.png",
+          "Counters": [
+            "Talon",
+            "Yasuo",
+            "Pantheon",
+            "Zed",
+            "Kha'Zix"
+          ]
+        },
+        {
+          "UniqueId": "Katarina",
+          "ImagePath": "Assets/Katarina_Square_0.png",
+          "Counters": [
+            "Diana",
+            "Malzahar",
+            "Kassadin",
+            "Lissandra",
+            "Fizz"
+          ]
+        },
+        {
+          "UniqueId": "Kha'Zix",
+          "ImagePath": "Assets/Khazix_Square_0.png",
+          "Counters": [
+            "Lee Sin",
+            "Rengar",
+            "Jayce",
+            "Jax",
+            "Yorick"
+          ]
+        },
+        {
+          "UniqueId": "LeBlanc",
+          "ImagePath": "Assets/LeBlanc_Square_0.png",
+          "Counters": [
+            "Galio",
+            "Fizz",
+            "Syndra",
+            "Diana",
+            "Kassadin"
+          ]
+        },
+        {
+          "UniqueId": "Master Yi",
+          "ImagePath": "Assets/MasterYi_Square_0.png",
+          "Counters": [
+            "Jax",
+            "Teemo",
+            "Rammus",
+            "Aatrox",
+            "Irelia"
+          ]
+        },
+        {
+          "UniqueId": "Nidalee",
+          "ImagePath": "Assets/Nidalee_Square_0.png",
+          "Counters": [
+            "Yasuo",
+            "Pantheon",
+            "Akali",
+            "Ezreal",
+            "LeBlanc"
+          ]
+        },
+        {
+          "UniqueId": "Nocturne",
+          "ImagePath": "Assets/Nocturne_Square_0.png",
+          "Counters": [
+            "Olaf",
+            "Udyr",
+            "Shyvana",
+            "Vi",
+            "Lee Sin"
+          ]
+        },
+        {
+          "UniqueId": "Rengar",
+          "ImagePath": "Assets/Rengar_Square_0.png",
+          "Counters": [
+            "Jax",
+            "Fiora",
+            "Pantheon",
+            "Lee Sin",
+            "Renekton"
+          ]
+        },
+        {
+          "UniqueId": "Shaco",
+          "ImagePath": "Assets/Shaco_Square_0.png",
+          "Counters": [
+            "Lee Sin",
+            "Warwick",
+            "Vi",
+            "Riven",
+            "Olaf"
+          ]
+        },
+        {
+          "UniqueId": "Talon",
+          "ImagePath": "Assets/Talon_Square_0.png",
+          "Counters": [
+            "Lee Sin",
+            "Diana",
+            "Pantheon",
+            "Riven",
+            "Kayle"
+          ]
+        },
+        {
+          "UniqueId": "Zed",
+          "ImagePath": "Assets/Zed_Square_0.png",
+          "Counters": [
+            "Kayle",
+            "Singed",
+            "Wukong",
+            "Irelia",
+            "Jax"
+          ]
         }
 
 
       ]
-      },
-      {
-    "UniqueId": "Fighter",
-    "Champions": [
-      {
-        "UniqueId": "Aatrox",
-        "ImagePath": "Assets/Aatrox_Square_0.png",
-        "Counters": [
-                      "Jax",
-                      "Teemo",
-                      "Fiora",
-                      "Renekton",
-                      "Riven"
-                   ]
-        },
-      {
-        "UniqueId": "Darius",
-        "ImagePath": "Assets/Darius_Square_0.png",
-        "Counters": [
-                      "Teemo",
-                      "Kayle",
-                      "Jayce",
-                      "Yorick",
-                      "Renekton"
-                   ]
-        },{
-        "UniqueId": "Diana",
-        "ImagePath": "Assets/Diana_Square_0.png",
-        "Counters": [
-                      "Mordekaiser",
-                      "Riven",
-                      "Swain",
-                      "Irelia",
-                      "Syndra"
-                   ]
-        },{
-        "UniqueId": "Dr. Mundo",
-        "ImagePath": "Assets/Dr. Mundo_Square_0.png",
-        "Counters": [
-                      "Olaf",
-                      "Kog'Maw",
-                      "Darius",
-                      "Riven",
-                      "Trundle"
-                   ]
-        },{
-        "UniqueId": "Fiora",
-        "ImagePath": "Assets/Fiora_Square_0.png",
-        "Counters": [
-                      "Jax",
-                      "Pantheon",
-                      "Malphite",
-                      "Singed",
-                      "Renekton"
-                   ]
-        },{
-        "UniqueId": "Gangplank",
-        "ImagePath": "Assets/Gangplank_Square_0.png",
-        "Counters": [
-                      "Pantheon",
-                      "Fiora",
-                      "Irelia",
-                      "Udyr",
-                      "Jax"
-                   ]
-        },{
-        "UniqueId": "Garen",
-        "ImagePath": "Assets/Garen_Square_0.png",
-        "Counters": [
-                      "Teemo",
-                      "Elise",
-                      "Jayce",
-                      "Kayle",
-                      "Kennen"
-                   ]
+    },
+    {
+      "UniqueId": "Fighter",
+      "Champions": [
+        {
+          "UniqueId": "Aatrox",
+          "ImagePath": "Assets/Aatrox_Square_0.png",
+          "Counters": [
+            "Jax",
+            "Teemo",
+            "Fiora",
+            "Renekton",
+            "Riven"
+          ]
         },
         {
-        "UniqueId": "Gnar",
-        "ImagePath": "Assets/Gnar_Square_0.png",
-        "Counters": [
-                      "Irelia",
-                      "Nidalee",
-                      "Jayce",
-                      "Pantheon",
-                      "Fiora"
-                   ]
+          "UniqueId": "Darius",
+          "ImagePath": "Assets/Darius_Square_0.png",
+          "Counters": [
+            "Teemo",
+            "Kayle",
+            "Jayce",
+            "Yorick",
+            "Renekton"
+          ]
         },
-      {
-        "UniqueId": "Gragas",
-        "ImagePath": "Assets/Gragas_Square_0.png",
-        "Counters": [
-          "Fizz",
-          "Yasuo",
-          "Ahri",
-          "Mordekaiser",
-          "LeBlanc"
-        ]
-      },
-      {
-        "UniqueId": "Hecarim",
-        "ImagePath": "Assets/Hecarim_Square_0.png",
-        "Counters": [
-          "Nasus",
-          "Sejuani",
-          "Aatrox",
-          "Ezreal",
-          "Lee Sin"
-        ]
-      },{
-        "UniqueId": "Illaoi",
-        "ImagePath": "Assets/Illaoi_Square_0.png",
-        "Counters": [
-                      
-                   ]
+        {
+          "UniqueId": "Diana",
+          "ImagePath": "Assets/Diana_Square_0.png",
+          "Counters": [
+            "Mordekaiser",
+            "Riven",
+            "Swain",
+            "Irelia",
+            "Syndra"
+          ]
         },
-      {
-        "UniqueId": "Irelia",
-        "ImagePath": "Assets/Irelia_Square_0.png",
-        "Counters": [
-                      "Olaf",
-                      "Jax",
-                      "Renekton",
-                      "Udyr",
-                      "Darius"
-                   ]
-        },{
-        "UniqueId": "Jax",
-        "ImagePath": "Assets/Jax_Square_0.png",
-        "Counters": [
-                      "Malphite",
-                      "Renekton",
-                      "Garen",
-                      "Singed",
-                      "Jayce"
-                   ]
-        },{
-        "UniqueId": "Jayce",
-        "ImagePath": "Assets/Jayce_Square_0.png",
-        "Counters": [
-                      "Yorick",
-                      "Irelia",
-                      "Caitlyn",
-                      "Wukong",
-                      "Nidalee"
-                   ]
-        },{
-        "UniqueId": "Kayle",
-        "ImagePath": "Assets/Kayle_Square_0.png",
-        "Counters": [
-                      "Pantheon",
-                      "Irelia",
-                      "Gragas",
-                      "Xin Zhao",
-                      "Ziggs"
-                   ]
-        },{
-        "UniqueId": "Lee Sin",
-        "ImagePath": "Assets/Lee Sin_Square_0.png",
-        "Counters": [
-                      "Trundle",
-                      "Udyr",
-                      "Renekton",
-                      "Garen",
-                      "Pantheon"
-                   ]
-        },{
-        "UniqueId": "Mordekaiser",
-        "ImagePath": "Assets/Mordekaiser_Square_0.png",
-        "Counters": [
-                      "Garen",
-                      "Zyra",
-                      "Ezreal",
-                      "Yorick",
-                      "Malzahar"
-                   ]
-        },{
-        "UniqueId": "Nasus",
-        "ImagePath": "Assets/Nasus_Square_0.png",
-        "Counters": [
-                      "Teemo",
-                      "Riven",
-                      "Garen",
-                      "Rumble",
-                      "Darius"
-                   ]
-        },{
-        "UniqueId": "Olaf",
-        "ImagePath": "Assets/Olaf_Square_0.png",
-        "Counters": [
-                      "Kennen",
-                      "Kayle",
-                      "Volibear",
-                      "Jax",
-                      "Elise"
-                   ]
-        },{
-        "UniqueId": "Pantheon",
-        "ImagePath": "Assets/Pantheon_Square_0.png",
-        "Counters": [
-                      "Shen",
-                      "Udyr",
-                      "Yorick",
-                      "Elise",
-                      "Malphite"
-                   ]
-        },{
-        "UniqueId": "Poppy",
-        "ImagePath": "Assets/Poppy_Square_0.png",
-        "Counters": [
-                      "Olaf",
-                      "Darius",
-                      "Teemo",
-                      "Irelia",
-                      "Renekton"
-                   ]
+        {
+          "UniqueId": "Dr. Mundo",
+          "ImagePath": "Assets/DrMundo_Square_0.png",
+          "Counters": [
+            "Olaf",
+            "Kog'Maw",
+            "Darius",
+            "Riven",
+            "Trundle"
+          ]
         },
-          {
-        "UniqueId": "Rek'Sai",
-        "ImagePath": "Assets/Rek'Sai_Square_0.png",
-        "Counters": [
-                      "Irelia",
-                      "Jayce",
-                      "Fizz",
-                      "Kennen",
-                      "Darius"
-                   ]
+        {
+          "UniqueId": "Fiora",
+          "ImagePath": "Assets/Fiora_Square_0.png",
+          "Counters": [
+            "Jax",
+            "Pantheon",
+            "Malphite",
+            "Singed",
+            "Renekton"
+          ]
         },
-         {
-        "UniqueId": "Renekton",
-        "ImagePath": "Assets/Renekton_Square_0.png",
-        "Counters": [
-                      "Garen",
-                      "Ryze",
-                      "Pantheon",
-                      "Vayne",
-                      "Lucian"
-                   ]
-        },{
-        "UniqueId": "Riven",
-        "ImagePath": "Assets/Riven_Square_0.png",
-        "Counters": [
-                      "Garen",
-                      "Olaf",
-                      "Renekton",
-                      "Jax",
-                      "Kennen"
-                   ]
-        },{
-        "UniqueId": "Rumble",
-        "ImagePath": "Assets/Rumble_Square_0.png",
-        "Counters": [
-                      "Yorick",
-                      "Xin Zhao",
-                      "Elise",
-                      "Jayce",
-                      "Darius"
-                   ]
-        },{
-        "UniqueId": "Shyvana",
-        "ImagePath": "Assets/Shyvana_Square_0.png",
-        "Counters": [
-                      "Olaf",
-                      "Teemo",
-                      "Darius",
-                      "Trundle",
-                      "Pantheon"
-                   ]
-        },{
-        "UniqueId": "Sion",
-        "ImagePath": "Assets/Sion_Square_0.png",
-        "Counters": [
-                      "Morgana",
-                      "Teemo",
-                      "Nasus",
-                      "Jax",
-                      "Pantheon"
-                   ]
-        },{
-        "UniqueId": "Skarner",
-        "ImagePath": "Assets/Skarner_Square_0.png",
-        "Counters": [
-                      "Morgana",
-                      "Shyvana",
-                      "Olaf",
-                      "Xin Zhao",
-                      "Lee Sin"
-                   ]
-        },{
-        "UniqueId": "Trundle",
-        "ImagePath": "Assets/Trundle_Square_0.png",
-        "Counters": [
-                      "Sona",
-                      "Teemo",
-                      "Jax",
-                      "Kennen",
-                      "Vladimir"
-                   ]
-        },{
-        "UniqueId": "Tryndamere",
-        "ImagePath": "Assets/Tryndamere_Square_0.png",
-        "Counters": [
-                      "Teemo",
-                      "Jax",
-                      "Malphite",
-                      "Rammus",
-                      "Irelia"
-                   ]
-        },{
-        "UniqueId": "Udyr",
-        "ImagePath": "Assets/Udyr_Square_0.png",
-        "Counters": [
-                      "Lucian",
-                      "Kassadin",
-                      "Kayle",
-                      "Garen",
-                      "Teemo"
-                   ]
+        {
+          "UniqueId": "Gangplank",
+          "ImagePath": "Assets/Gangplank_Square_0.png",
+          "Counters": [
+            "Pantheon",
+            "Fiora",
+            "Irelia",
+            "Udyr",
+            "Jax"
+          ]
         },
-          {
-        "UniqueId": "Vi",
-        "ImagePath": "Assets/Vi_Square_0.png",
-        "Counters": [
-                      "Fizz",
-                      "Diana",
-                      "Kassadin",
-                      "Orianna",
-                      "Gragas"
-                   ]
-        },{
-        "UniqueId": "Volibear",
-        "ImagePath": "Assets/Volibear_Square_0.png",
-        "Counters": [
-                      "Teemo",
-                      "Jayce",
-                      "Kayle",
-                      "Elise",
-                      "Ezreal"
-                   ]
-        },{
-        "UniqueId": "Warwick",
-        "ImagePath": "Assets/Warwick_Square_0.png",
-        "Counters": [
-                      "Yorick",
-                      "Udyr",
-                      "Kayle",
-                      "Elise",
-                      "Teemo"
-                   ]
+        {
+          "UniqueId": "Garen",
+          "ImagePath": "Assets/Garen_Square_0.png",
+          "Counters": [
+            "Teemo",
+            "Elise",
+            "Jayce",
+            "Kayle",
+            "Kennen"
+          ]
         },
-          { "UniqueId": "Wukong",
-        "ImagePath": "Assets/Wukong_Square_0.png",
-        "Counters": [
-                      "Lee Sin",
-                      "Darius",
-                      "Garen",
-                      "Renekton",
-                      "Pantheon"
-                   ]
-        },{
-        "UniqueId": "Xin Zhao",
-        "ImagePath": "Assets/Xin Zhao_Square_0.png",
-        "Counters": [
-                      "Jax",
-                      "Malphite",
-                      "Volibear",
-                      "Pantheon",
-                      "Teemo"
-                   ]
-        },{
-        "UniqueId": "Yasuo",
-        "ImagePath": "Assets/Yasuo_Square_0.png",
-        "Counters": [
-                      "Jax",
-                      "Riven",
-                      "Fiora",
-                      "Pantheon",
-                      "Kayle"
-                   ]
+        {
+          "UniqueId": "Gnar",
+          "ImagePath": "Assets/Gnar_Square_0.png",
+          "Counters": [
+            "Irelia",
+            "Nidalee",
+            "Jayce",
+            "Pantheon",
+            "Fiora"
+          ]
         },
-       {
-        "UniqueId": "Yorick",
-        "ImagePath": "Assets/Yorick_Square_0.png",
-        "Counters": [
-                      "Chogath",
-                      "Trundle",
-                      "Xin Zhao",
-                      "Nunu",
-                      "Renekton"
-                   ]
+        {
+          "UniqueId": "Gragas",
+          "ImagePath": "Assets/Gragas_Square_0.png",
+          "Counters": [
+            "Fizz",
+            "Yasuo",
+            "Ahri",
+            "Mordekaiser",
+            "LeBlanc"
+          ]
+        },
+        {
+          "UniqueId": "Hecarim",
+          "ImagePath": "Assets/Hecarim_Square_0.png",
+          "Counters": [
+            "Nasus",
+            "Sejuani",
+            "Aatrox",
+            "Ezreal",
+            "Lee Sin"
+          ]
+        },
+        {
+          "UniqueId": "Illaoi",
+          "ImagePath": "Assets/Illaoi_Square_0.png",
+          "Counters": [
+
+          ]
+        },
+        {
+          "UniqueId": "Irelia",
+          "ImagePath": "Assets/Irelia_Square_0.png",
+          "Counters": [
+            "Olaf",
+            "Jax",
+            "Renekton",
+            "Udyr",
+            "Darius"
+          ]
+        },
+        {
+          "UniqueId": "Jax",
+          "ImagePath": "Assets/Jax_Square_0.png",
+          "Counters": [
+            "Malphite",
+            "Renekton",
+            "Garen",
+            "Singed",
+            "Jayce"
+          ]
+        },
+        {
+          "UniqueId": "Jayce",
+          "ImagePath": "Assets/Jayce_Square_0.png",
+          "Counters": [
+            "Yorick",
+            "Irelia",
+            "Caitlyn",
+            "Wukong",
+            "Nidalee"
+          ]
+        },
+        {
+          "UniqueId": "Kayle",
+          "ImagePath": "Assets/Kayle_Square_0.png",
+          "Counters": [
+            "Pantheon",
+            "Irelia",
+            "Gragas",
+            "Xin Zhao",
+            "Ziggs"
+          ]
+        },
+        {
+          "UniqueId": "Kled",
+          "ImagePath": "Assets/Kled_Square_0.png",
+          "Counters": [
+            "Pantheon",
+            "Irelia",
+            "Gragas",
+            "Xin Zhao",
+            "Ziggs"
+          ]
+        },
+        {
+          "UniqueId": "Lee Sin",
+          "ImagePath": "Assets/LeeSin_Square_0.png",
+          "Counters": [
+            "Trundle",
+            "Udyr",
+            "Renekton",
+            "Garen",
+            "Pantheon"
+          ]
+        },
+        {
+          "UniqueId": "Mordekaiser",
+          "ImagePath": "Assets/Mordekaiser_Square_0.png",
+          "Counters": [
+            "Garen",
+            "Zyra",
+            "Ezreal",
+            "Yorick",
+            "Malzahar"
+          ]
+        },
+        {
+          "UniqueId": "Nasus",
+          "ImagePath": "Assets/Nasus_Square_0.png",
+          "Counters": [
+            "Teemo",
+            "Riven",
+            "Garen",
+            "Rumble",
+            "Darius"
+          ]
+        },
+        {
+          "UniqueId": "Olaf",
+          "ImagePath": "Assets/Olaf_Square_0.png",
+          "Counters": [
+            "Kennen",
+            "Kayle",
+            "Volibear",
+            "Jax",
+            "Elise"
+          ]
+        },
+        {
+          "UniqueId": "Pantheon",
+          "ImagePath": "Assets/Pantheon_Square_0.png",
+          "Counters": [
+            "Shen",
+            "Udyr",
+            "Yorick",
+            "Elise",
+            "Malphite"
+          ]
+        },
+        {
+          "UniqueId": "Poppy",
+          "ImagePath": "Assets/Poppy_Square_0.png",
+          "Counters": [
+            "Olaf",
+            "Darius",
+            "Teemo",
+            "Irelia",
+            "Renekton"
+          ]
+        },
+        {
+          "UniqueId": "Rek'Sai",
+          "ImagePath": "Assets/RekSai_Square_0.png",
+          "Counters": [
+            "Irelia",
+            "Jayce",
+            "Fizz",
+            "Kennen",
+            "Darius"
+          ]
+        },
+        {
+          "UniqueId": "Renekton",
+          "ImagePath": "Assets/Renekton_Square_0.png",
+          "Counters": [
+            "Garen",
+            "Ryze",
+            "Pantheon",
+            "Vayne",
+            "Lucian"
+          ]
+        },
+        {
+          "UniqueId": "Riven",
+          "ImagePath": "Assets/Riven_Square_0.png",
+          "Counters": [
+            "Garen",
+            "Olaf",
+            "Renekton",
+            "Jax",
+            "Kennen"
+          ]
+        },
+        {
+          "UniqueId": "Rumble",
+          "ImagePath": "Assets/Rumble_Square_0.png",
+          "Counters": [
+            "Yorick",
+            "Xin Zhao",
+            "Elise",
+            "Jayce",
+            "Darius"
+          ]
+        },
+        {
+          "UniqueId": "Shyvana",
+          "ImagePath": "Assets/Shyvana_Square_0.png",
+          "Counters": [
+            "Olaf",
+            "Teemo",
+            "Darius",
+            "Trundle",
+            "Pantheon"
+          ]
+        },
+        {
+          "UniqueId": "Sion",
+          "ImagePath": "Assets/Sion_Square_0.png",
+          "Counters": [
+            "Morgana",
+            "Teemo",
+            "Nasus",
+            "Jax",
+            "Pantheon"
+          ]
+        },
+        {
+          "UniqueId": "Skarner",
+          "ImagePath": "Assets/Skarner_Square_0.png",
+          "Counters": [
+            "Morgana",
+            "Shyvana",
+            "Olaf",
+            "Xin Zhao",
+            "Lee Sin"
+          ]
+        },
+        {
+          "UniqueId": "Trundle",
+          "ImagePath": "Assets/Trundle_Square_0.png",
+          "Counters": [
+            "Sona",
+            "Teemo",
+            "Jax",
+            "Kennen",
+            "Vladimir"
+          ]
+        },
+        {
+          "UniqueId": "Tryndamere",
+          "ImagePath": "Assets/Tryndamere_Square_0.png",
+          "Counters": [
+            "Teemo",
+            "Jax",
+            "Malphite",
+            "Rammus",
+            "Irelia"
+          ]
+        },
+        {
+          "UniqueId": "Udyr",
+          "ImagePath": "Assets/Udyr_Square_0.png",
+          "Counters": [
+            "Lucian",
+            "Kassadin",
+            "Kayle",
+            "Garen",
+            "Teemo"
+          ]
+        },
+        {
+          "UniqueId": "Vi",
+          "ImagePath": "Assets/Vi_Square_0.png",
+          "Counters": [
+            "Fizz",
+            "Diana",
+            "Kassadin",
+            "Orianna",
+            "Gragas"
+          ]
+        },
+        {
+          "UniqueId": "Volibear",
+          "ImagePath": "Assets/Volibear_Square_0.png",
+          "Counters": [
+            "Teemo",
+            "Jayce",
+            "Kayle",
+            "Elise",
+            "Ezreal"
+          ]
+        },
+        {
+          "UniqueId": "Warwick",
+          "ImagePath": "Assets/Warwick_Square_0.png",
+          "Counters": [
+            "Yorick",
+            "Udyr",
+            "Kayle",
+            "Elise",
+            "Teemo"
+          ]
+        },
+        {
+          "UniqueId": "Wukong",
+          "ImagePath": "Assets/MonkeyKing_Square_0.png",
+          "Counters": [
+            "Lee Sin",
+            "Darius",
+            "Garen",
+            "Renekton",
+            "Pantheon"
+          ]
+        },
+        {
+          "UniqueId": "Xin Zhao",
+          "ImagePath": "Assets/XinZhao_Square_0.png",
+          "Counters": [
+            "Jax",
+            "Malphite",
+            "Volibear",
+            "Pantheon",
+            "Teemo"
+          ]
+        },
+        {
+          "UniqueId": "Yasuo",
+          "ImagePath": "Assets/Yasuo_Square_0.png",
+          "Counters": [
+            "Jax",
+            "Riven",
+            "Fiora",
+            "Pantheon",
+            "Kayle"
+          ]
+        },
+        {
+          "UniqueId": "Yorick",
+          "ImagePath": "Assets/Yorick_Square_0.png",
+          "Counters": [
+            "Chogath",
+            "Trundle",
+            "Xin Zhao",
+            "Nunu",
+            "Renekton"
+          ]
         }
       ]
-      },
-      {
-    "UniqueId": "Mage",
-    "Champions": [
-      {
-        "UniqueId": "Ahri",
-        "ImagePath": "Assets/Ahri_Square_0.png",
-        "Counters": [
-          "LeBlanc",
-          "Syndra",
-          "Kassadin",
-          "Annie",
-          "Talon"
-        ]
-      },
-      {
-        "UniqueId": "Taliyah",
-        "ImagePath": "Assets/Taliyah_Square_0.png",
-        "Counters": [
-                      "LeBlanc",
-                      "Syndra",
-                      "Kassadin",
-                      "Annie",
-                      "Talon"
-                   ]
+    },
+    {
+      "UniqueId": "Mage",
+      "Champions": [
+        {
+          "UniqueId": "Ahri",
+          "ImagePath": "Assets/Ahri_Square_0.png",
+          "Counters": [
+            "LeBlanc",
+            "Syndra",
+            "Kassadin",
+            "Annie",
+            "Talon"
+          ]
         },
-      {
-        "UniqueId": "Anivia",
-        "ImagePath": "Assets/Anivia_Square_0.png",
-        "Counters": [
-          "Fizz",
-          "Diana",
-          "Kassadin",
-          "Orianna",
-          "Gragas"
-        ]
-      },
-      {
-        "UniqueId": "Annie",
-        "ImagePath": "Assets/Annie_Square_0.png",
-        "Counters": [
-          "Brand",
-          "Orianna",
-          "Morgana",
-          "Kassadin",
-          "Lux"
-        ]
-      },
-      {
-        "UniqueId": "Aurelion Sol",
-        "ImagePath": "Assets/Aurelion Sol_Square_0.png",
-        "Counters": [
+        {
+          "UniqueId": "Taliyah",
+          "ImagePath": "Assets/Taliyah_Square_0.png",
+          "Counters": [
+            "LeBlanc",
+            "Syndra",
+            "Kassadin",
+            "Annie",
+            "Talon"
+          ]
+        },
+        {
+          "UniqueId": "Anivia",
+          "ImagePath": "Assets/Anivia_Square_0.png",
+          "Counters": [
+            "Fizz",
+            "Diana",
+            "Kassadin",
+            "Orianna",
+            "Gragas"
+          ]
+        },
+        {
+          "UniqueId": "Annie",
+          "ImagePath": "Assets/Annie_Square_0.png",
+          "Counters": [
+            "Brand",
+            "Orianna",
+            "Morgana",
+            "Kassadin",
+            "Lux"
+          ]
+        },
+        {
+          "UniqueId": "Aurelion Sol",
+          "ImagePath": "Assets/AurelionSol_Square_0.png",
+          "Counters": [
 
-                   ]
+          ]
         },
-             {
-        "UniqueId": "Azir",
-        "ImagePath": "Assets/Azir_Square_0.png",
-        "Counters": [
-                      "Xerath",
-                      "Zed",
-                      "Syndra",
-                      "Fizz",
-                      "Ezreal"
-                   ]
+        {
+          "UniqueId": "Azir",
+          "ImagePath": "Assets/Azir_Square_0.png",
+          "Counters": [
+            "Xerath",
+            "Zed",
+            "Syndra",
+            "Fizz",
+            "Ezreal"
+          ]
         },
-         {
-        "UniqueId": "Brand",
-        "ImagePath": "Assets/Brand_Square_0.png",
-        "Counters": [
-                      "Kassadin",
-                      "Fizz",
-                      "LeBlanc",
-                      "Galio",
-                      "Akali"
-                   ]
-        },   {
-        "UniqueId": "Cassiopeia",
-        "ImagePath": "Assets/Cassiopeia_Square_0.png",
-        "Counters": [
-                      "Galio",
-                      "LeBlanc",
-                      "Talon",
-                      "Kassadin",
-                      "Ziggs"
-                   ]
-        },   {
-        "UniqueId": "Elise",
-        "ImagePath": "Assets/Elise_Square_0.png",
-        "Counters": [
-                      "Kassadin",
-                      "Wukong",
-                      "Yorick",
-                      "Malzahar",
-                      "LeBlanc"
-                   ]
-        },   {
-        "UniqueId": "Fiddlesticks",
-        "ImagePath": "Assets/Fiddlesticks_Square_0.png",
-        "Counters": [
-                      "Janna",
-                      "Xin Zhao",
-                      "Diana",
-                      "Kassadin",
-                      "Tristana"
-                   ]
-        },   
-             {
-        "UniqueId": "Heimerdinger",
-        "ImagePath": "Assets/Heimerdinger_Square_0.png",
-        "Counters": [
-                      "Syndra",
-                      "Ziggs",
-                      "Vel'Koz",
-                      "Lux",
-                      "Xerath"
-                   ]
-        },  
-             {
-        "UniqueId": "Karma",
-        "ImagePath": "Assets/Karma_Square_0.png",
-        "Counters": [
-                      "Veigar",
-                      "Nami",
-                      "Talon",
-                      "Xerath",
-                      "Swain"
-                   ]
-        },   {
-        "UniqueId": "Karthus",
-        "ImagePath": "Assets/Karthus_Square_0.png",
-        "Counters": [
-                      "Kassadin",
-                      "Katarina",
-                      "Fizz",
-                      "Soraka",
-                      "Lux"
-                   ]
-        },   {
-        "UniqueId": "Kennen",
-        "ImagePath": "Assets/Kennen_Square_0.png",
-        "Counters": [
-                      "Ryze",
-                      "Janna",
-                      "Swain",
-                      "Yorick",
-                      "Diana"
-                   ]
-        },   {
-        "UniqueId": "Lissandra",
-        "ImagePath": "Assets/Lissandra_Square_0.png",
-        "Counters": [
-                      "Kassadin",
-                      "Diana",
-                      "Anivia",
-                      "LeBlanc",
-                      "Zed"
-                   ]
-        },   {
-        "UniqueId": "Lux",
-        "ImagePath": "Assets/Lux_Square_0.png",
-        "Counters": [
-                      "Talon",
-                      "Kassadin",
-                      "Zed",
-                      "Yasuo",
-                      "Ezreal"
-                   ]
-        },   {
-        "UniqueId": "Malzahar",
-        "ImagePath": "Assets/Malzahar_Square_0.png",
-        "Counters": [
-                      "Gangplank",
-                      "Lux",
-                      "Galio",
-                      "LeBlanc",
-                      "Talon"
-                   ]
-        },   {
-        "UniqueId": "Morgana",
-        "ImagePath": "Assets/Morgana_Square_0.png",
-        "Counters": [
-                      "Talon",
-                      "Zed",
-                      "Yasuo",
-                      "Kha'Zix",
-                      "Kassadin"
-                   ]
-        },   {
-        "UniqueId": "Orianna",
-        "ImagePath": "Assets/Orianna_Square_0.png",
-        "Counters": [
-                      "LeBlanc",
-                      "Syndra",
-                      "Ahri",
-                      "Diana",
-                      "Zed"
-                   ]
-        },   {
-        "UniqueId": "Ryze",
-        "ImagePath": "Assets/Ryze_Square_0.png",
-        "Counters": [
-                      "Cassiopeia",
-                      "Kassadin",
-                      "Ziggs",
-                      "Xerath",
-                      "Kennen"
-                   ]
-        },   {
-        "UniqueId": "Swain",
-        "ImagePath": "Assets/Swain_Square_0.png",
-        "Counters": [
-                      "Viktor",
-                      "Fizz",
-                      "Cassiopeia",
-                      "Lux",
-                      "Kassadin"
-                   ]
-        },   {
-        "UniqueId": "Syndra",
-        "ImagePath": "Assets/Syndra_Square_0.png",
-        "Counters": [
-                      "Fizz",
-                      "Talon",
-                      "Kassadin",
-                      "Akali",
-                      "Kayle"
-                   ]
-        },    {
-        "UniqueId": "Twisted Fate",
-        "ImagePath": "Assets/Twisted Fate_Square_0.png",
-        "Counters": [
-                      "Fizz",
-                      "Kassadin",
-                      "Zed",
-                      "Akali",
-                      "LeBlanc"
-                   ]
-        },   {
-        "UniqueId": "Veigar",
-        "ImagePath": "Assets/Veigar_Square_0.png",
-        "Counters": [
-                      "Fizz",
-                      "Kassadin",
-                      "Ryze",
-                      "Zed",
-                      "Talon"
-                   ]
-        },   {
-        "UniqueId": "Vel'Koz",
-        "ImagePath": "Assets/Vel'Koz_Square_0.png",
-        "Counters": [
-                      "Syndra",
-                      "LeBlanc",
-                      "Talon",
-                      "Fizz",
-                      "Lux"
-                   ]
-        },   {
-        "UniqueId": "Viktor",
-        "ImagePath": "Assets/Viktor_Square_0.png",
-        "Counters": [
-                      "Syndra",
-                      "LeBlanc",
-                      "Talon",
-                      "Fizz",
-                      "Lux"
-                   ]
-        },   {
-        "UniqueId": "Vladimir",
-        "ImagePath": "Assets/Vladimir_Square_0.png",
-        "Counters": [
-                      "Swain",
-                      "Riven",
-                      "Fiddlesticks",
-                      "Irelia",
-                      "Ezreal"
-                   ]
-        },   {
-        "UniqueId": "Xerath",
-        "ImagePath": "Assets/Xerath_Square_0.png",
-        "Counters": [
-                      "Ahri",
-                      "Fizz",
-                      "LeBlanc",
-                      "Kassadin",
-                      "Syndra"
-                   ]
-        },   {
-        "UniqueId": "Ziggs",
-        "ImagePath": "Assets/Ziggs_Square_0.png",
-        "Counters": [
-                      "LeBlanc",
-                      "Yasuo",
-                      "Talon",
-                      "Fizz",
-                      "Kassadin"
-                   ]
-        },   {
-        "UniqueId": "Zyra",
-        "ImagePath": "Assets/Zyra_Square_0.png",
-        "Counters": [
-                      "Fizz",
-                      "Kassadin",
-                      "Zed",
-                      "Yasuo",
-                      "Talon"
-                   ]
+        {
+          "UniqueId": "Brand",
+          "ImagePath": "Assets/Brand_Square_0.png",
+          "Counters": [
+            "Kassadin",
+            "Fizz",
+            "LeBlanc",
+            "Galio",
+            "Akali"
+          ]
+        },
+        {
+          "UniqueId": "Cassiopeia",
+          "ImagePath": "Assets/Cassiopeia_Square_0.png",
+          "Counters": [
+            "Galio",
+            "LeBlanc",
+            "Talon",
+            "Kassadin",
+            "Ziggs"
+          ]
+        },
+        {
+          "UniqueId": "Elise",
+          "ImagePath": "Assets/Elise_Square_0.png",
+          "Counters": [
+            "Kassadin",
+            "Wukong",
+            "Yorick",
+            "Malzahar",
+            "LeBlanc"
+          ]
+        },
+        {
+          "UniqueId": "Fiddlesticks",
+          "ImagePath": "Assets/Fiddlesticks_Square_0.png",
+          "Counters": [
+            "Janna",
+            "Xin Zhao",
+            "Diana",
+            "Kassadin",
+            "Tristana"
+          ]
+        },
+        {
+          "UniqueId": "Heimerdinger",
+          "ImagePath": "Assets/Heimerdinger_Square_0.png",
+          "Counters": [
+            "Syndra",
+            "Ziggs",
+            "Vel'Koz",
+            "Lux",
+            "Xerath"
+          ]
+        },
+        {
+          "UniqueId": "Karma",
+          "ImagePath": "Assets/Karma_Square_0.png",
+          "Counters": [
+            "Veigar",
+            "Nami",
+            "Talon",
+            "Xerath",
+            "Swain"
+          ]
+        },
+        {
+          "UniqueId": "Karthus",
+          "ImagePath": "Assets/Karthus_Square_0.png",
+          "Counters": [
+            "Kassadin",
+            "Katarina",
+            "Fizz",
+            "Soraka",
+            "Lux"
+          ]
+        },
+        {
+          "UniqueId": "Kennen",
+          "ImagePath": "Assets/Kennen_Square_0.png",
+          "Counters": [
+            "Ryze",
+            "Janna",
+            "Swain",
+            "Yorick",
+            "Diana"
+          ]
+        },
+        {
+          "UniqueId": "Lissandra",
+          "ImagePath": "Assets/Lissandra_Square_0.png",
+          "Counters": [
+            "Kassadin",
+            "Diana",
+            "Anivia",
+            "LeBlanc",
+            "Zed"
+          ]
+        },
+        {
+          "UniqueId": "Lux",
+          "ImagePath": "Assets/Lux_Square_0.png",
+          "Counters": [
+            "Talon",
+            "Kassadin",
+            "Zed",
+            "Yasuo",
+            "Ezreal"
+          ]
+        },
+        {
+          "UniqueId": "Malzahar",
+          "ImagePath": "Assets/Malzahar_Square_0.png",
+          "Counters": [
+            "Gangplank",
+            "Lux",
+            "Galio",
+            "LeBlanc",
+            "Talon"
+          ]
+        },
+        {
+          "UniqueId": "Morgana",
+          "ImagePath": "Assets/Morgana_Square_0.png",
+          "Counters": [
+            "Talon",
+            "Zed",
+            "Yasuo",
+            "Kha'Zix",
+            "Kassadin"
+          ]
+        },
+        {
+          "UniqueId": "Orianna",
+          "ImagePath": "Assets/Orianna_Square_0.png",
+          "Counters": [
+            "LeBlanc",
+            "Syndra",
+            "Ahri",
+            "Diana",
+            "Zed"
+          ]
+        },
+        {
+          "UniqueId": "Ryze",
+          "ImagePath": "Assets/Ryze_Square_0.png",
+          "Counters": [
+            "Cassiopeia",
+            "Kassadin",
+            "Ziggs",
+            "Xerath",
+            "Kennen"
+          ]
+        },
+        {
+          "UniqueId": "Swain",
+          "ImagePath": "Assets/Swain_Square_0.png",
+          "Counters": [
+            "Viktor",
+            "Fizz",
+            "Cassiopeia",
+            "Lux",
+            "Kassadin"
+          ]
+        },
+        {
+          "UniqueId": "Syndra",
+          "ImagePath": "Assets/Syndra_Square_0.png",
+          "Counters": [
+            "Fizz",
+            "Talon",
+            "Kassadin",
+            "Akali",
+            "Kayle"
+          ]
+        },
+        {
+          "UniqueId": "Twisted Fate",
+          "ImagePath": "Assets/TwistedFate_Square_0.png",
+          "Counters": [
+            "Fizz",
+            "Kassadin",
+            "Zed",
+            "Akali",
+            "LeBlanc"
+          ]
+        },
+        {
+          "UniqueId": "Veigar",
+          "ImagePath": "Assets/Veigar_Square_0.png",
+          "Counters": [
+            "Fizz",
+            "Kassadin",
+            "Ryze",
+            "Zed",
+            "Talon"
+          ]
+        },
+        {
+          "UniqueId": "Vel'Koz",
+          "ImagePath": "Assets/VelKoz_Square_0.png",
+          "Counters": [
+            "Syndra",
+            "LeBlanc",
+            "Talon",
+            "Fizz",
+            "Lux"
+          ]
+        },
+        {
+          "UniqueId": "Viktor",
+          "ImagePath": "Assets/Viktor_Square_0.png",
+          "Counters": [
+            "Syndra",
+            "LeBlanc",
+            "Talon",
+            "Fizz",
+            "Lux"
+          ]
+        },
+        {
+          "UniqueId": "Vladimir",
+          "ImagePath": "Assets/Vladimir_Square_0.png",
+          "Counters": [
+            "Swain",
+            "Riven",
+            "Fiddlesticks",
+            "Irelia",
+            "Ezreal"
+          ]
+        },
+        {
+          "UniqueId": "Xerath",
+          "ImagePath": "Assets/Xerath_Square_0.png",
+          "Counters": [
+            "Ahri",
+            "Fizz",
+            "LeBlanc",
+            "Kassadin",
+            "Syndra"
+          ]
+        },
+        {
+          "UniqueId": "Ziggs",
+          "ImagePath": "Assets/Ziggs_Square_0.png",
+          "Counters": [
+            "LeBlanc",
+            "Yasuo",
+            "Talon",
+            "Fizz",
+            "Kassadin"
+          ]
+        },
+        {
+          "UniqueId": "Zyra",
+          "ImagePath": "Assets/Zyra_Square_0.png",
+          "Counters": [
+            "Fizz",
+            "Kassadin",
+            "Zed",
+            "Yasuo",
+            "Talon"
+          ]
         }
       ]
-      },
+    },
 
-      {
-    "UniqueId": "Support",
-    "Champions": [
+    {
+      "UniqueId": "Support",
+      "Champions": [
         {
-        "UniqueId": "Bard",
-        "ImagePath": "Assets/Bard_Square_0.png",
-        "Counters": [
-                      "Morgana",
-                      "Blitzcrank",
-                      "Thresh",
-                      "Sivir",
-                      "Kalista"
-                   ]
+          "UniqueId": "Bard",
+          "ImagePath": "Assets/Bard_Square_0.png",
+          "Counters": [
+            "Morgana",
+            "Blitzcrank",
+            "Thresh",
+            "Sivir",
+            "Kalista"
+          ]
         },
         {
-        "UniqueId": "Braum",
-        "ImagePath": "Assets/Braum_Square_0.png",
-        "Counters": [
-                      "Morgana",
-                      "Zyra",
-                      "Lulu",
-                      "Alistar",
-                      "Karma"
-                   ]
+          "UniqueId": "Braum",
+          "ImagePath": "Assets/Braum_Square_0.png",
+          "Counters": [
+            "Morgana",
+            "Zyra",
+            "Lulu",
+            "Alistar",
+            "Karma"
+          ]
         },
         {
-            "UniqueId": "Janna",
-            "ImagePath": "Assets/Janna_Square_0.png",
-            "Counters": [
-                "Sona",
-                "Sivir",
-                "Nami",
-                "Thresh",
-                "Blitzcrank"
-            ]
+          "UniqueId": "Janna",
+          "ImagePath": "Assets/Janna_Square_0.png",
+          "Counters": [
+            "Sona",
+            "Sivir",
+            "Nami",
+            "Thresh",
+            "Blitzcrank"
+          ]
         },
         {
-            "UniqueId": "Lulu",
-            "ImagePath": "Assets/Lulu_Square_0.png",
-            "Counters": [
-                "Soraka",
-                "Sona",
-                "Syndra",
-                "Brand",
-                "Ziggs"
-            ]
+          "UniqueId": "Lulu",
+          "ImagePath": "Assets/Lulu_Square_0.png",
+          "Counters": [
+            "Soraka",
+            "Sona",
+            "Syndra",
+            "Brand",
+            "Ziggs"
+          ]
         },
         {
-            "UniqueId": "Nami",
-            "ImagePath": "Assets/Nami_Square_0.png",
-            "Counters": [
-                "Lulu",
-                "Leona",
-                "Fizz",
-                "Morgana",
-                "Thresh"
-            ]
+          "UniqueId": "Nami",
+          "ImagePath": "Assets/Nami_Square_0.png",
+          "Counters": [
+            "Lulu",
+            "Leona",
+            "Fizz",
+            "Morgana",
+            "Thresh"
+          ]
         },
         {
-            "UniqueId": "Nunu",
-            "ImagePath": "Assets/Nunu_Square_0.png",
-            "Counters": [
-                "Braum",
-                "Sona",
-                "Soraka",
-                "Sivir",
-                "Janna"
-            ]
+          "UniqueId": "Nunu",
+          "ImagePath": "Assets/Nunu_Square_0.png",
+          "Counters": [
+            "Braum",
+            "Sona",
+            "Soraka",
+            "Sivir",
+            "Janna"
+          ]
         },
         {
-            "UniqueId": "Sona",
-            "ImagePath": "Assets/Sona_Square_0.png",
-            "Counters": [
-                "Blitzcrank",
-                "Thresh",
-                "Leona",
-                "Draven",
-                "Twitch"
-            ]
+          "UniqueId": "Sona",
+          "ImagePath": "Assets/Sona_Square_0.png",
+          "Counters": [
+            "Blitzcrank",
+            "Thresh",
+            "Leona",
+            "Draven",
+            "Twitch"
+          ]
         },
         {
-            "UniqueId": "Soraka",
-            "ImagePath": "Assets/Soraka_Square_0.png",
-            "Counters": [
-                "Miss Fortune",
-                "Tristana",
-                "Blitzcrank",
-                "Thresh",
-                "Leona"
-            ]
-        },
-
-        {
-            "UniqueId": "Tahm Kench",
-            "ImagePath": "Assets/Tahm Kench_Square_0.png",
-            "Counters": [
-                "Vayne",
-                "Janna",
-                "Gnar",
-                "Twitch",
-                "Brand"
-            ]
+          "UniqueId": "Soraka",
+          "ImagePath": "Assets/Soraka_Square_0.png",
+          "Counters": [
+            "Miss Fortune",
+            "Tristana",
+            "Blitzcrank",
+            "Thresh",
+            "Leona"
+          ]
         },
 
         {
-        "UniqueId": "Taric",
-        "ImagePath": "Assets/Taric_Square_0.png",
-        "Counters": [
-                      "Lulu",
-                      "Nami",
-                      "Morgana",
-                      "Leona",
-                      "Varus"
-                   ]
-        }, {
-        "UniqueId": "Thresh",
-        "ImagePath": "Assets/Thresh_Square_0.png",
-        "Counters": [
-                      "Lulu",
-                      "Alistar",
-                      "Morgana",
-                      "Janna",
-                      "Braum"
-                   ]
-        }, {
-        "UniqueId": "Zilean",
-        "ImagePath": "Assets/Zilean_Square_0.png",
-        "Counters": [
-                      "Morgana",
-                      "Karma",
-                      "Pantheon",
-                      "Kassadin",
-                      "Ziggs"
-                   ]
+          "UniqueId": "Tahm Kench",
+          "ImagePath": "Assets/TahmKench_Square_0.png",
+          "Counters": [
+            "Vayne",
+            "Janna",
+            "Gnar",
+            "Twitch",
+            "Brand"
+          ]
+        },
+
+        {
+          "UniqueId": "Taric",
+          "ImagePath": "Assets/Taric_Square_0.png",
+          "Counters": [
+            "Lulu",
+            "Nami",
+            "Morgana",
+            "Leona",
+            "Varus"
+          ]
+        },
+        {
+          "UniqueId": "Thresh",
+          "ImagePath": "Assets/Thresh_Square_0.png",
+          "Counters": [
+            "Lulu",
+            "Alistar",
+            "Morgana",
+            "Janna",
+            "Braum"
+          ]
+        },
+        {
+          "UniqueId": "Zilean",
+          "ImagePath": "Assets/Zilean_Square_0.png",
+          "Counters": [
+            "Morgana",
+            "Karma",
+            "Pantheon",
+            "Kassadin",
+            "Ziggs"
+          ]
         }
       ]
-      },
-      {
-    "UniqueId": "Tank",
-    "Champions": [
-      {
-        "UniqueId": "Alistar",
-        "ImagePath": "Assets/Alistar_Square_0.png",
-        "Counters": [
-                      "Janna",
-                      "Lulu",
-                      "Morgana",
-                      "Karma",
-                      "Ezreal"
-                   ]
-        },
-      {
-        "UniqueId": "Amumu",
-        "ImagePath": "Assets/Amumu_Square_0.png",
-        "Counters": [
-                      "Shyvana",
-                      "Lee Sin",
-                      "Dr. Mundo",
-                      "Shaco",
-                      "Xin Zhao"
-                   ]
-        },
-       {
-        "UniqueId": "Blitzcrank",
-        "ImagePath": "Assets/Blitzcrank_Square_0.png",
-        "Counters": [
-                      "Alistar",
-                      "Leona",
-                      "Thresh",
-                      "Ezreal",
-                      "Morgana"
-                   ]
+    },
+    {
+      "UniqueId": "Tank",
+      "Champions": [
+        {
+          "UniqueId": "Alistar",
+          "ImagePath": "Assets/Alistar_Square_0.png",
+          "Counters": [
+            "Janna",
+            "Lulu",
+            "Morgana",
+            "Karma",
+            "Ezreal"
+          ]
         },
         {
-        "UniqueId": "Cho'Gath",
-        "ImagePath": "Assets/Cho'Gath_Square_0.png",
-        "Counters": [
-                      "Warwick",
-                      "Vayne",
-                      "Garen",
-                      "Kayle",
-                      "Kog'Maw"
-                   ]
-        }, {
-        "UniqueId": "Galio",
-        "ImagePath": "Assets/Galio_Square_0.png",
-        "Counters": [
-                      "Udyr",
-                      "Talon",
-                      "Zed",
-                      "Yasuo",
-                      "Pantheon"
-                   ]
-        }, 
-           {
-        "UniqueId": "Jarvan IV",
-        "ImagePath": "Assets/Jarvan IV_Square_0.png",
-        "Counters": [
-                      "Yorick",
-                      "Shen",
-                      "Jax",
-                      "Vi",
-                      "Elise"
-                   ]
-        }, {
-        "UniqueId": "Leona",
-        "ImagePath": "Assets/Leona_Square_0.png",
-        "Counters": [
-                      "Morgana",
-                      "Alistar",
-                      "Janna",
-                      "Lulu",
-                      "Karma"
-                   ]
-        }, {
-        "UniqueId": "Malphite",
-        "ImagePath": "Assets/Malphite_Square_0.png",
-        "Counters": [
-                      "Rumble",
-                      "ChoGath",
-                      "Vladimir",
-                      "Yorick",
-                      "Zac"
-                   ]
-        }, {
-        "UniqueId": "Maokai",
-        "ImagePath": "Assets/Maokai_Square_0.png",
-        "Counters": [
-                      "Shyvana",
-                      "Dr. Mundo",
-                      "Lee Sin",
-                      "Ezreal",
-                      "Shen"
-                   ]
-        }, {
-        "UniqueId": "Nautilus",
-        "ImagePath": "Assets/Nautilus_Square_0.png",
-        "Counters": [
-                      "Shyvana",
-                      "Udyr",
-                      "Yorick",
-                      "Lulu",
-                      "Lee Sin"
-                   ]
-        }, {
-        "UniqueId": "Rammus",
-        "ImagePath": "Assets/Rammus_Square_0.png",
-        "Counters": [
-                      "Trundle",
-                      "Vi",
-                      "Shyvana",
-                      "Rumble",
-                      "Amumu"
-                   ]
-        }, {
-        "UniqueId": "Sejuani",
-        "ImagePath": "Assets/Sejuani_Square_0.png",
-        "Counters": [
-                      "Xin Zhao",
-                      "Lee Sin",
-                      "Olaf",
-                      "Morgana",
-                      "Vi"
-                   ]
-        }, {
-        "UniqueId": "Shen",
-        "ImagePath": "Assets/Shen_Square_0.png",
-        "Counters": [
-                      "Yorick",
-                      "Jayce",
-                      "Jax",
-                      "Garen",
-                      "Renekton"
-                   ]
-        }, {
-        "UniqueId": "Singed",
-        "ImagePath": "Assets/Singed_Square_0.png",
-        "Counters": [
-                      "Teemo",
-                      "Vladimir",
-                      "Jayce",
-                      "Elise",
-                      "Kayle"
-                   ]
-        }, {
-        "UniqueId": "Zac",
-        "ImagePath": "Assets/Zac_Square_0.png",
-        "Counters": [
-                      "Vi",
-                      "Zilean",
-                      "Renekton",
-                      "Vladimir",
-                      "Fizz"
-                   ]
+          "UniqueId": "Amumu",
+          "ImagePath": "Assets/Amumu_Square_0.png",
+          "Counters": [
+            "Shyvana",
+            "Lee Sin",
+            "Dr. Mundo",
+            "Shaco",
+            "Xin Zhao"
+          ]
+        },
+        {
+          "UniqueId": "Blitzcrank",
+          "ImagePath": "Assets/Blitzcrank_Square_0.png",
+          "Counters": [
+            "Alistar",
+            "Leona",
+            "Thresh",
+            "Ezreal",
+            "Morgana"
+          ]
+        },
+        {
+          "UniqueId": "Cho'Gath",
+          "ImagePath": "Assets/Chogath_Square_0.png",
+          "Counters": [
+            "Warwick",
+            "Vayne",
+            "Garen",
+            "Kayle",
+            "Kog'Maw"
+          ]
+        },
+        {
+          "UniqueId": "Galio",
+          "ImagePath": "Assets/Galio_Square_0.png",
+          "Counters": [
+            "Udyr",
+            "Talon",
+            "Zed",
+            "Yasuo",
+            "Pantheon"
+          ]
+        },
+        {
+          "UniqueId": "Jarvan IV",
+          "ImagePath": "Assets/JarvanIV_Square_0.png",
+          "Counters": [
+            "Yorick",
+            "Shen",
+            "Jax",
+            "Vi",
+            "Elise"
+          ]
+        },
+        {
+          "UniqueId": "Leona",
+          "ImagePath": "Assets/Leona_Square_0.png",
+          "Counters": [
+            "Morgana",
+            "Alistar",
+            "Janna",
+            "Lulu",
+            "Karma"
+          ]
+        },
+        {
+          "UniqueId": "Malphite",
+          "ImagePath": "Assets/Malphite_Square_0.png",
+          "Counters": [
+            "Rumble",
+            "ChoGath",
+            "Vladimir",
+            "Yorick",
+            "Zac"
+          ]
+        },
+        {
+          "UniqueId": "Maokai",
+          "ImagePath": "Assets/Maokai_Square_0.png",
+          "Counters": [
+            "Shyvana",
+            "Dr. Mundo",
+            "Lee Sin",
+            "Ezreal",
+            "Shen"
+          ]
+        },
+        {
+          "UniqueId": "Nautilus",
+          "ImagePath": "Assets/Nautilus_Square_0.png",
+          "Counters": [
+            "Shyvana",
+            "Udyr",
+            "Yorick",
+            "Lulu",
+            "Lee Sin"
+          ]
+        },
+        {
+          "UniqueId": "Rammus",
+          "ImagePath": "Assets/Rammus_Square_0.png",
+          "Counters": [
+            "Trundle",
+            "Vi",
+            "Shyvana",
+            "Rumble",
+            "Amumu"
+          ]
+        },
+        {
+          "UniqueId": "Sejuani",
+          "ImagePath": "Assets/Sejuani_Square_0.png",
+          "Counters": [
+            "Xin Zhao",
+            "Lee Sin",
+            "Olaf",
+            "Morgana",
+            "Vi"
+          ]
+        },
+        {
+          "UniqueId": "Shen",
+          "ImagePath": "Assets/Shen_Square_0.png",
+          "Counters": [
+            "Yorick",
+            "Jayce",
+            "Jax",
+            "Garen",
+            "Renekton"
+          ]
+        },
+        {
+          "UniqueId": "Singed",
+          "ImagePath": "Assets/Singed_Square_0.png",
+          "Counters": [
+            "Teemo",
+            "Vladimir",
+            "Jayce",
+            "Elise",
+            "Kayle"
+          ]
+        },
+        {
+          "UniqueId": "Zac",
+          "ImagePath": "Assets/Zac_Square_0.png",
+          "Counters": [
+            "Vi",
+            "Zilean",
+            "Renekton",
+            "Vladimir",
+            "Fizz"
+          ]
         }
       ]
-      }
+    }
 
 
-]
+  ]
 }

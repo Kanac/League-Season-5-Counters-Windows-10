@@ -345,6 +345,10 @@
                                                 <Image Grid.Column="1"
                                                    Tapped="Champ_Tapped"
                                                    Source="{Binding Name, Converter={StaticResource NameToImageConverter}}">
+                                                    <ToolTipService.ToolTip>
+                                                        <ToolTip Content="{Binding Name}">
+                                                        </ToolTip>
+                                                    </ToolTipService.ToolTip>
                                                 </Image>
 
                                                 <StackPanel Grid.Column="2" VerticalAlignment="Center">
@@ -415,6 +419,10 @@
                                                 <Image Grid.Column="1"
                                                    Tapped="EasyMatchup_Tapped"
                                                    Source="{Binding ChampionFeedbackName, Converter={StaticResource NameToImageConverter}}">
+                                                    <ToolTipService.ToolTip>
+                                                        <ToolTip Content="{Binding ChampionFeedbackName}">
+                                                        </ToolTip>
+                                                    </ToolTipService.ToolTip>
                                                 </Image>
 
                                                 <StackPanel Grid.Column="2" VerticalAlignment="Center">
@@ -498,6 +506,10 @@
                                                 <Image Grid.Column="1"
                                                    Tapped="SynergyChamp_Tapped"
                                                    DataContextChanged="Synergy_Loaded">
+                                                    <ToolTipService.ToolTip>
+                                                        <ToolTip x:Name="SynergyImageToolTip">
+                                                        </ToolTip>
+                                                    </ToolTipService.ToolTip>
                                                 </Image>
 
                                                 <StackPanel Grid.Column="2" VerticalAlignment="Center">
@@ -766,6 +778,10 @@
                                             <Image Source="{Binding ImagePath}"
                                                Width="50"
                                                Height="50" />
+                                            <ToolTipService.ToolTip>
+                                                <ToolTip Content="{Binding UniqueId}">
+                                                </ToolTip>
+                                            </ToolTipService.ToolTip>
                                         </Grid>
                                     </DataTemplate>
                                 </GridView.ItemTemplate>
@@ -787,7 +803,7 @@
         </Grid>
 
         <Grid x:Name="AdGrid" Grid.Column="1" Grid.RowSpan="2">
-            <UI:AdControl AdUnitId="306229" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource TallAd}" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="312172" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource TallAd}" AutoRefreshIntervalInSeconds="30"/>
         </Grid>
     </Grid>
 </Page>

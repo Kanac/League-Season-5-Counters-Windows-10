@@ -53,6 +53,10 @@
                                        Width="60"
                                        Height="60" 
                                        Tapped="ChampImage_Tapped"/>
+                                <ToolTipService.ToolTip>
+                                    <ToolTip Content="{Binding UniqueId}">
+                                    </ToolTip>
+                                </ToolTipService.ToolTip>
                             </Grid>
                         </DataTemplate>
                     </GridView.ItemTemplate>
@@ -135,10 +139,16 @@
                                     </GridView.GroupStyle>
                                     <GridView.ItemTemplate>
                                         <DataTemplate>
+                                            <Grid>
                                             <Image Source="{Binding ImagePath}"
                                                    Width="50"
                                                    Height="50" 
                                                    Tapped="ChampImage_Tapped"/>
+                                                <ToolTipService.ToolTip>
+                                                    <ToolTip Content="{Binding UniqueId}">
+                                                    </ToolTip>
+                                                </ToolTipService.ToolTip>
+                                            </Grid>
                                         </DataTemplate>
                                     </GridView.ItemTemplate>
                                     <GridView.ItemsPanel>
@@ -267,7 +277,7 @@
         </Grid>
         
         <Grid Name="AdGrid" Grid.Column="1">
-            <UI:AdControl AdUnitId="306229" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource TallAd}" AutoRefreshIntervalInSeconds="30"/>
+            <UI:AdControl AdUnitId="312172" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" Style="{StaticResource TallAd}" AutoRefreshIntervalInSeconds="30"/>
         </Grid>
     </Grid>
 </Page>

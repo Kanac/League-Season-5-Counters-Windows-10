@@ -301,18 +301,18 @@ namespace League_Season_5_Counters_Windows_10
             if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
                 return;
 
-            int count = 35;
+            int count = 0;
             var limitMb = MemoryManager.AppMemoryUsageLimit / (1024 * 1024);
             if (limitMb > 700)
             {
-                count = 55;
+                count = 0;
             }
 
             for (int i = 0; i < count; ++i)
             {
                 AdControl ad = new AdControl();
                 ad.ApplicationId = "670fb1d2-71e6-4ec4-a63b-4762a173c59a";
-                ad.AdUnitId = "306229";
+                ad.AdUnitId = "312172";
                 ad.Style = Application.Current.Resources["TallAd"] as Style;
                 ad.IsAutoRefreshEnabled = false;
                 ad.Refresh();

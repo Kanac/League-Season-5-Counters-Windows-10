@@ -20,7 +20,7 @@
     <PackageCertificateKeyFile>League Season 5 Counters Windows 10_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>x86|x64</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>81BA9F86005C433CA8C3745DA23E8D54A00166D1</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>581A7ABF5F8AA3F8546B92AADF42FFC8A93DF61A</PackageCertificateThumbprint>
     <AppxBundle>Always</AppxBundle>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
@@ -116,14 +116,30 @@
     <Content Include="Assets\620x300Splash.scale-100.png" />
     <Content Include="Assets\71x71Logo.jpg" />
     <Content Include="Assets\71x71Logo.scale-100.jpg" />
-    <Content Include="Assets\Aurelion Sol_Square_0.png" />
+    <Content Include="Assets\AurelionSol_Square_0.png" />
+    <Content Include="Assets\Chogath_Square_0.png" />
+    <Content Include="Assets\DrMundo_Square_0.png" />
     <Content Include="Assets\Illaoi_Square_0.png" />
+    <Content Include="Assets\JarvanIV_Square_0.png" />
     <Content Include="Assets\Jhin_Square_0.png" />
+    <Content Include="Assets\Khazix_Square_0.png" />
     <Content Include="Assets\Kindred_Square_0.png" />
+    <Content Include="Assets\Kled_Square_0.png" />
+    <Content Include="Assets\KogMaw_Square_0.png" />
+    <Content Include="Assets\LeeSin_Square_0.png" />
+    <Content Include="Assets\LoLSplash.png" />
     <Content Include="Assets\lolstoreicon2.png" />
+    <Content Include="Assets\MasterYi_Square_0.png" />
+    <Content Include="Assets\MissFortune_Square_0.png" />
+    <Content Include="Assets\MonkeyKing_Square_0.png" />
+    <Content Include="Assets\RekSai_Square_0.png" />
     <Content Include="Assets\Sona_Square_0.png" />
+    <Content Include="Assets\TahmKench_Square_0.png" />
     <Content Include="Assets\Taliyah_Square_0.png" />
     <Content Include="Assets\Teambuilder.jpg" />
+    <Content Include="Assets\TwistedFate_Square_0.png" />
+    <Content Include="Assets\VelKoz_Square_0.png" />
+    <Content Include="Assets\XinZhao_Square_0.png" />
     <Content Include="DataModel\Data.json" />
     <None Include="League Season 5 Counters Windows 10_StoreKey.pfx" />
     <None Include="project.json" />
@@ -192,13 +208,11 @@
     <Content Include="Assets\Braum_Square_0.png" />
     <Content Include="Assets\Caitlyn_Square_0.png" />
     <Content Include="Assets\Cassiopeia_Square_0.png" />
-    <Content Include="Assets\Cho%27Gath_Square_0.png" />
     <Content Include="Assets\Corki_Square_0.png" />
     <Content Include="Assets\Darius_Square_0.png" />
     <Content Include="Assets\Diana_Square_0.png" />
     <Content Include="Assets\downvote.png" />
     <Content Include="Assets\downvoteblank.png" />
-    <Content Include="Assets\Dr. Mundo_Square_0.png" />
     <Content Include="Assets\Draven_Square_0.png" />
     <Content Include="Assets\Ekko_Square_0.png" />
     <Content Include="Assets\Elise_Square_0.png" />
@@ -217,7 +231,6 @@
     <Content Include="Assets\Heimerdinger_Square_0.png" />
     <Content Include="Assets\Irelia_Square_0.png" />
     <Content Include="Assets\Janna_Square_0.png" />
-    <Content Include="Assets\Jarvan IV_Square_0.png" />
     <Content Include="Assets\Jax_Square_0.png" />
     <Content Include="Assets\Jayce_Square_0.png" />
     <Content Include="Assets\Jinx_Square_0.png" />
@@ -228,10 +241,7 @@
     <Content Include="Assets\Katarina_Square_0.png" />
     <Content Include="Assets\Kayle_Square_0.png" />
     <Content Include="Assets\Kennen_Square_0.png" />
-    <Content Include="Assets\Kha%27Zix_Square_0.png" />
-    <Content Include="Assets\Kog%27Maw_Square_0.png" />
     <Content Include="Assets\LeBlanc_Square_0.png" />
-    <Content Include="Assets\Lee Sin_Square_0.png" />
     <Content Include="Assets\Leona_Square_0.png" />
     <Content Include="Assets\Lissandra_Square_0.png" />
     <Content Include="Assets\Lucian_Square_0.png" />
@@ -240,8 +250,6 @@
     <Content Include="Assets\Malphite_Square_0.png" />
     <Content Include="Assets\Malzahar_Square_0.png" />
     <Content Include="Assets\Maokai_Square_0.png" />
-    <Content Include="Assets\Master Yi_Square_0.png" />
-    <Content Include="Assets\Miss Fortune_Square_0.png" />
     <Content Include="Assets\Mordekaiser_Square_0.png" />
     <Content Include="Assets\Morgana_Square_0.png" />
     <Content Include="Assets\Nami_Square_0.png" />
@@ -256,7 +264,6 @@
     <Content Include="Assets\Poppy_Square_0.png" />
     <Content Include="Assets\Quinn_Square_0.png" />
     <Content Include="Assets\Rammus_Square_0.png" />
-    <Content Include="Assets\Rek%27Sai_Square_0.png" />
     <Content Include="Assets\Renekton_Square_0.png" />
     <Content Include="Assets\Rengar_Square_0.png" />
     <Content Include="Assets\Riven_Square_0.png" />
@@ -273,7 +280,6 @@
     <Content Include="Assets\Soraka_Square_0.png" />
     <Content Include="Assets\Swain_Square_0.png" />
     <Content Include="Assets\Syndra_Square_0.png" />
-    <Content Include="Assets\Tahm Kench_Square_0.png" />
     <Content Include="Assets\Talon_Square_0.png" />
     <Content Include="Assets\Taric_Square_0.png" />
     <Content Include="Assets\Teemo_Square_0.png" />
@@ -281,7 +287,6 @@
     <Content Include="Assets\Tristana_Square_0.png" />
     <Content Include="Assets\Trundle_Square_0.png" />
     <Content Include="Assets\Tryndamere_Square_0.png" />
-    <Content Include="Assets\Twisted Fate_Square_0.png" />
     <Content Include="Assets\Twitch_Square_0.png" />
     <Content Include="Assets\Udyr_Square_0.png" />
     <Content Include="Assets\upvote.png" />
@@ -290,16 +295,13 @@
     <Content Include="Assets\Varus_Square_0.png" />
     <Content Include="Assets\Vayne_Square_0.png" />
     <Content Include="Assets\Veigar_Square_0.png" />
-    <Content Include="Assets\Vel%27Koz_Square_0.png" />
     <Content Include="Assets\Viktor_Square_0.png" />
     <Content Include="Assets\Vi_Square_0.png" />
     <Content Include="Assets\Vladimir_Square_0.png" />
     <Content Include="Assets\Volibear_Square_0.png" />
     <Content Include="Assets\Warwick_Square_0.png" />
     <Content Include="Assets\WindowsStoreProxy.xml" />
-    <Content Include="Assets\Wukong_Square_0.png" />
     <Content Include="Assets\Xerath_Square_0.png" />
-    <Content Include="Assets\Xin Zhao_Square_0.png" />
     <Content Include="Assets\Yasuo_Square_0.png" />
     <Content Include="Assets\Yorick_Square_0.png" />
     <Content Include="Assets\yourturn.mp3" />
