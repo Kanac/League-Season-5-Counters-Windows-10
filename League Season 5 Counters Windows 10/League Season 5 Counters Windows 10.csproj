@@ -171,8 +171,10 @@
     <Compile Include="Converters\PlayingVisibility.cs" />
     <Compile Include="Converters\ReverseBooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\SynergyChampionVisibility.cs" />
+    <Compile Include="DataModel\AdData.cs" />
     <Compile Include="DataModel\CommentDataSource.cs" />
     <Compile Include="DataModel\DataSource.cs" />
+    <Compile Include="Helper\HelperMethods.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -1,6 +1,9 @@
 ﻿using League_of_Legends_Counterpicks.Advertisement;
 using League_of_Legends_Counterpicks.Common;
 using League_of_Legends_Counterpicks.Data;
+using League_of_Legends_Counterpicks.DataModel;
+using League_Season_5_Counters_Windows_10.DataModel;
+using League_Season_5_Counters_Windows_10.Helper;
 using Microsoft.AdMediator.Universal;
 using Microsoft.Advertising.WinRT.UI;
 using QKit;
@@ -71,7 +74,10 @@ namespace League_Season_5_Counters_Windows_10
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)  //e is the unique ID
         {
-            CreateAdUnits();
+            int id = await AdData.GetAdId();
+            HelperMethods.CreateSingleAdUnit(id, "TallAd", AdGrid);
+            HelperMethods.CreateAdUnits(id, "TallAd", AdGrid2, 40);
+
             ReviewApp();
 
             string roleId;
@@ -293,32 +299,6 @@ namespace League_Season_5_Counters_Windows_10
                     }
                 }
                 catch (Exception) { }
-            }
-        }
-
-        private void CreateAdUnits()
-        {
-            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-                return;
-
-            int count = 0;
-            var limitMb = MemoryManager.AppMemoryUsageLimit / (1024 * 1024);
-            if (limitMb > 700)
-            {
-                count = 0;
-            }
-
-            for (int i = 0; i < count; ++i)
-            {
-                AdControl ad = new AdControl();
-                ad.ApplicationId = "670fb1d2-71e6-4ec4-a63b-4762a173c59a";
-                ad.AdUnitId = "312172";
-                ad.Style = Application.Current.Resources["TallAd"] as Style;
-                ad.IsAutoRefreshEnabled = false;
-                ad.Refresh();
-                ad.IsAutoRefreshEnabled = true;
-                ad.AutoRefreshIntervalInSeconds = 30;
-                AdGrid2.Children.Add(ad);
             }
         }
     }

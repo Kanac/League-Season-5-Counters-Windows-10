@@ -81,7 +81,7 @@
                 <ColumnDefinition Width=".2*"/>
             </Grid.ColumnDefinitions>
             
-            <StackPanel Grid.Column="1"
+            <StackPanel Grid.Column="1" Margin="0,0,15,5"
 				VerticalAlignment="Bottom"
 				HorizontalAlignment="Center">
                 <TextBlock Text="By a Masters Player"
@@ -94,12 +94,10 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="AdGrid2" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,-248">
+        <Grid x:Name="AdGrid2" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="88,0,0,0">
         </Grid>
-        
-        <Grid x:Name="AdGrid" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <UI:AdControl AdUnitId="312172" ApplicationId="670fb1d2-71e6-4ec4-a63b-4762a173c59a" 
-                          Visibility="{Binding AdVisibility}" Style="{StaticResource HorizontalAd}" AutoRefreshIntervalInSeconds="30"/>
+
+        <Grid x:Name="AdGrid"  Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">
         </Grid>
     </Grid>
 </Page>

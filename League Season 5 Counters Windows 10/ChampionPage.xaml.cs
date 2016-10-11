@@ -16,6 +16,8 @@ using Microsoft.Advertising.WinRT.UI;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
+using League_Season_5_Counters_Windows_10.Helper;
+using League_Season_5_Counters_Windows_10.DataModel;
 
 
 // The Hub Application template is documented at http://go.microsoft.com/fwlink/?LinkID=391641
@@ -84,7 +86,9 @@ namespace League_Season_5_Counters_Windows_10
         /// session.  The state will be null the first time a page is visited.</param>
         private async void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
-            CreateAdUnits();
+            int id = await AdData.GetAdId();
+            HelperMethods.CreateSingleAdUnit(id,"TallAd", AdGrid);
+            HelperMethods.CreateAdUnits(id, "TallAd", AdGrid2, 40);
 
             // Setup the underlying UI 
             var champName = (string)e.NavigationParameter;
@@ -943,32 +947,6 @@ namespace League_Season_5_Counters_Windows_10
         private void NameBox_Loaded(object sender, RoutedEventArgs e)
         {
             nameBox = sender as TextBox;
-        }
-
-        private void CreateAdUnits()
-        {
-            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
-                return;
-
-            int count = 0;
-            var limitMb = MemoryManager.AppMemoryUsageLimit / (1024 * 1024);
-            if (limitMb > 700)
-            {
-                count = 0;
-            }
-
-            for (int i = 0; i < count; ++i)
-            {
-                AdControl ad = new AdControl();
-                ad.ApplicationId = "670fb1d2-71e6-4ec4-a63b-4762a173c59a";
-                ad.AdUnitId = "312172";
-                ad.Style = Application.Current.Resources["TallAd"] as Style;
-                ad.IsAutoRefreshEnabled = false;
-                ad.Refresh();
-                ad.IsAutoRefreshEnabled = true;
-                ad.AutoRefreshIntervalInSeconds = 30;
-                AdGrid2.Children.Add(ad);
-            }
         }
     }
 }

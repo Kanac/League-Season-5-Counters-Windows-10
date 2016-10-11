@@ -12,6 +12,7 @@ using Microsoft.WindowsAzure.MobileServices;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI;
+using League_Season_5_Counters_Windows_10.DataModel;
 
 namespace League_Season_5_Counters_Windows_10
 {
@@ -38,9 +39,10 @@ namespace League_Season_5_Counters_Windows_10
             }
         };
 
-
         // For in app purchases
         public static LicenseInformation licenseInformation;
+
+        public static string AppId = "670fb1d2-71e6-4ec4-a63b-4762a173c59a";
 
         public App()
         {
@@ -61,7 +63,7 @@ namespace League_Season_5_Counters_Windows_10
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
 
 #if DEBUG
