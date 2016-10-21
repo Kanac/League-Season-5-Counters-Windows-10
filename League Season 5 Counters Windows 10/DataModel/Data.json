@@ -1172,6 +1172,17 @@
       "UniqueId": "Support",
       "Champions": [
         {
+          "UniqueId": "Ivern",
+          "ImagePath": "Assets/Ivern_Square_0.png",
+          "Counters": [
+            "Morgana",
+            "Blitzcrank",
+            "Thresh",
+            "Sivir",
+            "Kalista"
+          ]
+        },
+        {
           "UniqueId": "Bard",
           "ImagePath": "Assets/Bard_Square_0.png",
           "Counters": [

@@ -94,7 +94,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="AdGrid2" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="88,0,0,0">
+        <Grid x:Name="AdGrid2" Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,-88,0">
         </Grid>
 
         <Grid x:Name="AdGrid"  Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right">

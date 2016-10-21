@@ -53,6 +53,14 @@
                     <StackPanel Orientation="Vertical">
 
                         <TextBlock FontSize="25">
+						    <Run Text="October 21 2016" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                            <Run Text="-Ivern Update!"> </Run>
+                            <LineBreak></LineBreak>
+                        </TextBlock>
+
+                        <TextBlock FontSize="25">
 						    <Run Text="September 25 2016" />
                         </TextBlock>
                         <TextBlock Style="{StaticResource Notes}">

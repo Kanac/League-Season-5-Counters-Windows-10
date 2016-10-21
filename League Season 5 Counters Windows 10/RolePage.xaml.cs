@@ -76,7 +76,7 @@ namespace League_Season_5_Counters_Windows_10
         {
             int id = await AdData.GetAdId();
             HelperMethods.CreateSingleAdUnit(id, "TallAd", AdGrid);
-            HelperMethods.CreateAdUnits(id, "TallAd", AdGrid2, 40);
+            HelperMethods.CreateAdUnits(id, "TallAd", AdGrid2, 5);
 
             ReviewApp();
 

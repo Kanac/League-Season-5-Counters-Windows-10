@@ -195,14 +195,14 @@ namespace League_of_Legends_Counterpicks.Data
 
         private async Task GetDataAsync()
         {
-            if (this.Roles.Count != 0)            //HERE IS THE ANSWER. IF LOADED, DO NOT LOAD AGAIN
+            if (this.Roles.Count != 0)          
                 return;
 
-            Uri dataUri = new Uri("ms-appx:///DataModel/Data.json");      //Get location of data 
-            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri);       //Get the file from where the data is located
+            Uri dataUri = new Uri("ms-appx:///DataModel/Data.json");    
+            StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(dataUri); // Get the file from where the data is located
 
-            string jsonText = await FileIO.ReadTextAsync(file);     //Returns the json text in which it was saved as 
-            JsonObject jsonObject = JsonObject.Parse(jsonText);     //Parse the json text into object 
+            string jsonText = await FileIO.ReadTextAsync(file); // Returns the json text in which it was saved as 
+            JsonObject jsonObject = JsonObject.Parse(jsonText);  // Parse the json text into object 
             JsonArray jsonArray = jsonObject["Roles"].GetArray();
 
             foreach (JsonValue roleValue in jsonArray)
@@ -223,13 +223,13 @@ namespace League_of_Legends_Counterpicks.Data
                     role.Champions.Add(new Champion(championObject["UniqueId"].GetString(),
                                                        championObject["ImagePath"].GetString(),
                                                        counterList));
-
-
                 }
+
+                role.Champions = new ObservableCollection<Champion>(role.Champions.OrderBy(x => x.UniqueId));
                 this.Roles.Add(role);
             }
 
-            GetAllChampions(); //Fills up the all role immediately with json data serialization
+            GetAllChampions(); // Fills up the all role immediately with json data serialization
         }
 
     }

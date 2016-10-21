@@ -84,7 +84,7 @@ namespace League_Season_5_Counters_Windows_10
         {
             int id = await AdData.GetAdId();
             HelperMethods.CreateSingleAdUnit(id, "TallAd", AdGrid);
-            HelperMethods.CreateAdUnits(id, "TallAd", AdGrid2, 40);
+            HelperMethods.CreateAdUnits(id, "TallAd", AdGrid2, 5);
 
             // Retrieve Json data, and load the roles and set up background toast (one time process)
             var roles = await DataSource.GetRolesAsync();
@@ -132,7 +132,7 @@ namespace League_Season_5_Counters_Windows_10
             XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
 
             XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
-            toastTextElements[1].AppendChild(toastXml.CreateTextNode("Season 6 Kled data has arrived!"));
+            toastTextElements[1].AppendChild(toastXml.CreateTextNode("Season 6 Ivern data has arrived!"));
 
             ToastNotification toast = new ToastNotification(toastXml);
             toast.Tag = "FeatureToast";
