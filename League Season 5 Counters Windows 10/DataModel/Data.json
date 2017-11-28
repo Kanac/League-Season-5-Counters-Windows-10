@@ -11,6 +11,12 @@
       "UniqueId": "ADC",
       "Champions": [
         {
+          "UniqueId": "Xayah",
+          "ImagePath": "Assets/Xayah_Square_0.png",
+          "Counters": [
+          ]
+        },
+        {
           "UniqueId": "Ashe",
           "ImagePath": "Assets/Ashe_Square_0.png",
           "Counters": [
@@ -409,6 +415,18 @@
     {
       "UniqueId": "Fighter",
       "Champions": [
+        {
+          "UniqueId": "Kayn",
+          "ImagePath": "Assets/Kayn_Square_0.png",
+          "Counters": [
+          ]
+        },
+        {
+          "UniqueId": "Camille",
+          "ImagePath": "Assets/Camille_Square_0.png",
+          "Counters": [
+          ]
+        },
         {
           "UniqueId": "Aatrox",
           "ImagePath": "Assets/Aatrox_Square_0.png",
@@ -840,6 +858,12 @@
       "UniqueId": "Mage",
       "Champions": [
         {
+          "UniqueId": "Zoe",
+          "ImagePath": "Assets/Zoe_Square_0.png",
+          "Counters": [
+          ]
+        },
+        {
           "UniqueId": "Ahri",
           "ImagePath": "Assets/Ahri_Square_0.png",
           "Counters": [
@@ -1172,6 +1196,12 @@
       "UniqueId": "Support",
       "Champions": [
         {
+          "UniqueId": "Rakan",
+          "ImagePath": "Assets/Rakan_Square_0.png",
+          "Counters": [
+          ]
+        },
+        {
           "UniqueId": "Ivern",
           "ImagePath": "Assets/Ivern_Square_0.png",
           "Counters": [
@@ -1321,6 +1351,12 @@
     {
       "UniqueId": "Tank",
       "Champions": [
+        {
+          "UniqueId": "Ornn",
+          "ImagePath": "Assets/Ornn_Square_0.png",
+          "Counters": [
+          ]
+        },
         {
           "UniqueId": "Alistar",
           "ImagePath": "Assets/Alistar_Square_0.png",

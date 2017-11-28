@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="62206AnthonyC.LeagueCounterpicks" Publisher="CN=Anthony C" Version="2020.2.139.0" />
+  <Identity Name="62206AnthonyC.LeagueofLegendsCompanion" Publisher="CN=F30DC63F-6CBF-4542-8D92-E93F173C760F" Version="2025.1.4.0" />
   <mp:PhoneIdentity PhoneProductId="7dc04210-8e52-45f6-92b6-c544fc1a0e2e" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>League of Legends ✔ Guide</DisplayName>
+    <DisplayName>League of Legends ✔ Companion</DisplayName>
     <PublisherDisplayName>Anthony C</PublisherDisplayName>
-    <Logo>Assets\lolstoreicon2.png</Logo>
+    <Logo>Assets\LeagueCompanion50x50.png</Logo>
   </Properties>
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.10240.0" MaxVersionTested="15.9.0.0" />
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="League_Season_5_Counters_Windows_10.App">
-      <uap:VisualElements DisplayName="League of Legends ✔ Guide" Square150x150Logo="Assets\150x150Logo.jpg" Square44x44Logo="Assets\44x44Logo.jpg" Description="League Season 5 Counters Windows 10" BackgroundColor="black">
+      <uap:VisualElements DisplayName="League of Legends ✔ Companion" Square150x150Logo="Assets\150x150Logo.jpg" Square44x44Logo="Assets\44x44Logo.jpg" Description="League of Legends ✔ Companion Windows 10" BackgroundColor="black">
         <uap:DefaultTile Square71x71Logo="Assets\71x71Logo.jpg" Square310x310Logo="Assets\310x310Logo.jpg" Wide310x150Logo="Assets\310x150Logo.jpg">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />

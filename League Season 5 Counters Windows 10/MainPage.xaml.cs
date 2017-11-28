@@ -132,7 +132,7 @@ namespace League_Season_5_Counters_Windows_10
             XmlDocument toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
 
             XmlNodeList toastTextElements = toastXml.GetElementsByTagName("text");
-            toastTextElements[1].AppendChild(toastXml.CreateTextNode("Season 6 Ivern data has arrived!"));
+            toastTextElements[1].AppendChild(toastXml.CreateTextNode("Season 8 Data has arrived!"));
 
             ToastNotification toast = new ToastNotification(toastXml);
             toast.Tag = "FeatureToast";
@@ -310,7 +310,7 @@ namespace League_Season_5_Counters_Windows_10
             EmailRecipient sendTo = new EmailRecipient() { Address = "testgglol@outlook.com" };
             EmailMessage mail = new EmailMessage();
 
-            mail.Subject = "Feedback for League Season 5 Counters";
+            mail.Subject = "Feedback for League of Legends Guide";
             mail.To.Add(sendTo);
             await EmailManager.ShowComposeNewEmailAsync(mail);
         }

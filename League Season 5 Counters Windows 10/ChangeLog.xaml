@@ -51,6 +51,13 @@
               Margin="19,9.5,19,0">
                     <ScrollViewer>
                     <StackPanel Orientation="Vertical">
+                        <TextBlock FontSize="25">
+						    <Run Text="November 23 2016" />
+                        </TextBlock>
+                        <TextBlock Style="{StaticResource Notes}">
+                            <Run Text="-Season 8 Zoe Update!"> </Run>
+                            <LineBreak></LineBreak>
+                        </TextBlock>
 
                         <TextBlock FontSize="25">
 						    <Run Text="October 21 2016" />
