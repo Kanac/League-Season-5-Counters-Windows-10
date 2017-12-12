@@ -8,4 +8,4 @@ Redesigned the UI and UX of the app by using state triggers that detects the res
 
 Implemented new features in the process such as a completely redesigned main page, in-app purchases, toast notifications, and more 
 
-https://www.microsoft.com/store/apps/9wzdncrdqrn5
+https://www.microsoft.com/en-us/store/p/league-of-legends-guide/9wzdncrdqrn5
