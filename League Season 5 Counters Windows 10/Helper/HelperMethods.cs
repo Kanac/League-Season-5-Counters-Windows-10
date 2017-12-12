@@ -23,6 +23,9 @@ namespace League_Season_5_Counters_Windows_10.Helper
 
         public static void CreateSingleAdUnit(int id, string resource, Grid grid)
         {
+            if (App.licenseInformation.ProductLicenses["AdRemoval"].IsActive)
+                return;
+
             AdControl ad = new AdControl();
             ad.ApplicationId = App.AppId;
             ad.AdUnitId = id.ToString();
